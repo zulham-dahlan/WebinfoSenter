@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/color_palette.dart';
 import 'package:webinfo_senter/ui/onBoarding3_screen.dart';
 
-class OnBoarding2 extends StatelessWidget {
-  OnBoarding2({Key? key}) : super(key: key);
+class OnBoarding3 extends StatelessWidget {
+  OnBoarding3({Key? key}) : super(key: key);
 
   var styleRoboto = const TextStyle(
     fontSize: 18,
@@ -36,41 +36,31 @@ class OnBoarding2 extends StatelessWidget {
                 Container(
                   child: Image.asset('assets/man-working-from-home.png'),
                   margin: const EdgeInsets.only(
-                      top: 48, right: 12, left: 12, bottom: 84),
+                      top: 48, right: 12, left: 12, bottom: 108),
                   padding: const EdgeInsets.all(20),
                 ),
                 Text(
-                  "Tentuin jadwal senggang\nbuat join dari rumah",
+                  "Yuk gabung kita sekarang!",
                   style: styleRoboto,
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 6),
-                Text(
-                  "Makin produktif sama waktu fleksibel\nasikin di rumah pake Webinfo Senter",
-                  style: styleMontserrat,
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: 45),
+                SizedBox(height: 73),
                 Container(
-                  margin: EdgeInsets.only(right: 50,left: 50,bottom: 68),
+                  margin: EdgeInsets.only(right: 40,left: 40,bottom: 65),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => OnBoarding3()),
-                      );
+
                     },
-                    child: Text("Gass!!"),
+                    child: Text("Yuk Cuss"),
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(25.0),
                               side: BorderSide(color: Colors.red))),
                       backgroundColor:
-                          MaterialStateProperty.all(ColorPalette.customRedColor),
+                      MaterialStateProperty.all(ColorPalette.customRedColor),
                       padding: MaterialStateProperty.all(EdgeInsets.only(
-                          right: 111, left: 111, top: 19, bottom: 18)),
+                          right: 110, left: 109, top: 21, bottom: 21)),
                       textStyle: MaterialStateProperty.all(stylePoppins),
                     ),
                   ),
