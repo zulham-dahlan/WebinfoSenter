@@ -21,6 +21,10 @@ class _LayoutNavigation extends State<LayoutNavigation> {
     return Scaffold(
       body: _listWidget[_bottomNavIndex],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.pink,
+        selectedIconTheme: IconThemeData(color: Colors.white, size: 30),
+        selectedItemColor: Colors.white,
+        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
         currentIndex: _bottomNavIndex,
         items : _bottomNavBarItems,
         onTap:_onBottomNavTapped,
