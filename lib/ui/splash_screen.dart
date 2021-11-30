@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:webinfo_senter/ui/onBoarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
+  static const routeName = '/splash_screen';
   @override
   _SplashScreen createState() => _SplashScreen();
 }
@@ -14,8 +15,7 @@ class _SplashScreen extends State<SplashScreen> {
     super.initState();
     Timer(
         Duration(seconds: 4),
-            () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => OnBoarding())));
+            () => Navigator.pushReplacementNamed(context, OnBoarding.routeName));
   }
 
   @override

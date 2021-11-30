@@ -3,6 +3,8 @@ import 'package:webinfo_senter/common/color_palette.dart';
 import 'package:webinfo_senter/ui/onBoarding2_screen.dart';
 
 class OnBoarding extends StatelessWidget {
+  static const routeName = '/on_boarding';
+
   OnBoarding({Key? key}) : super(key: key);
 
   var styleRoboto = const TextStyle(
@@ -55,10 +57,9 @@ class OnBoarding extends StatelessWidget {
                   margin: EdgeInsets.only(right: 60,left: 60,bottom: 70),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushNamed(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => OnBoarding2()),
+                        OnBoarding2.routeName
                       );
                     },
                     child: Text("Gass!!"),

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/color_palette.dart';
+import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/onBoarding3_screen.dart';
 
 class OnBoarding3 extends StatelessWidget {
+  static const routeName = '/on_boarding3';
+
   OnBoarding3({Key? key}) : super(key: key);
 
   var styleRoboto = const TextStyle(
@@ -49,7 +52,7 @@ class OnBoarding3 extends StatelessWidget {
                   margin: EdgeInsets.only(right: 40,left: 40,bottom: 65),
                   child: ElevatedButton(
                     onPressed: () {
-
+                      Navigator.pushReplacementNamed(context, LayoutNavigation.routeName);
                     },
                     child: Text("Yuk Cuss"),
                     style: ButtonStyle(
