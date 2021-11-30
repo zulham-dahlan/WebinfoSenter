@@ -15,7 +15,7 @@ class _SplashScreen extends State<SplashScreen> {
     Timer(
         Duration(seconds: 4),
             () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => OnBoarding(title: 'WebinfoSenter',))));
+            context, MaterialPageRoute(builder: (context) => OnBoarding())));
   }
 
   @override

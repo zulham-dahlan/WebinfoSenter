@@ -1,50 +1,28 @@
 import 'package:flutter/material.dart';
 
-class OnBoarding extends StatefulWidget {
-  const OnBoarding({Key? key, required this.title}) : super(key: key);
-
-
-  final String title;
-
-  @override
-  State<OnBoarding> createState() => _OnBoarding();
-}
-
-class _OnBoarding extends State<OnBoarding> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class OnBoarding extends StatelessWidget {
+  const OnBoarding({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Container(
+            margin: EdgeInsets.all(20),
+            child: Column(
+              children: [
+                Container(
+                  color: Colors.blue,
+                  child: Image.asset('assets/man-working-from-home.png'),
+                  margin: EdgeInsets.only(top:48,right: 12,left: 12,bottom: 84),
+                  padding: EdgeInsets.all(20),
+                )
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
