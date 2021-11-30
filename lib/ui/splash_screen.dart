@@ -1,50 +1,29 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:webinfo_senter/ui/onBoarding_screen.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key, required this.title}) : super(key: key);
-
-
-  final String title;
-
+class SplashScreen extends StatefulWidget {
   @override
-  State<MainScreen> createState() => _MainScreen();
+  _SplashScreen createState() => _SplashScreen();
 }
 
-class _MainScreen extends State<MainScreen> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+class _SplashScreen extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(
+        Duration(seconds: 4),
+            () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => OnBoarding(title: 'WebinfoSenter',))));
   }
 
   @override
   Widget build(BuildContext context) {
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    return Container(
+      color: Colors.blue,
+      child: Image.asset('assets/man-working-from-home.png'),
+      padding: EdgeInsets.symmetric(horizontal: 25),
     );
   }
 }
