@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:webinfo_senter/common/color_palette.dart';
 import 'package:webinfo_senter/ui/home_page.dart';
 import 'package:webinfo_senter/ui/profil_page.dart';
 import 'package:webinfo_senter/ui/webinarku_page.dart';
@@ -14,15 +15,14 @@ class LayoutNavigation extends StatefulWidget {
 
 class _LayoutNavigation extends State<LayoutNavigation> {
   int _bottomNavIndex = 0 ;
-  //static const String homeTitle = 'Home';
   static const routeName = '/layout_navigation';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _listWidget[_bottomNavIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.pink,
-        selectedIconTheme: IconThemeData(color: Colors.white, size: 30),
+        backgroundColor: ColorPalette.customRedDark,
+        selectedIconTheme: IconThemeData(color: Colors.white),
         selectedItemColor: Colors.white,
         selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
         currentIndex: _bottomNavIndex,
