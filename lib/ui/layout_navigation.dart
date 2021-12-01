@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:webinfo_senter/common/color_palette.dart';
+import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/ui/home_page.dart';
 import 'package:webinfo_senter/ui/profil_page.dart';
 import 'package:webinfo_senter/ui/webinarku_page.dart';
@@ -21,7 +21,7 @@ class _LayoutNavigation extends State<LayoutNavigation> {
     return Scaffold(
       body: _listWidget[_bottomNavIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: ColorPalette.customRedDark,
+        backgroundColor: customRedColor,
         selectedIconTheme: IconThemeData(color: Colors.white),
         selectedItemColor: Colors.white,
         selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),

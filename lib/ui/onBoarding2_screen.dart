@@ -1,30 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:webinfo_senter/common/color_palette.dart';
+import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/ui/onBoarding3_screen.dart';
 
 class OnBoarding2 extends StatelessWidget {
   static const routeName = '/on_boarding2';
 
   OnBoarding2({Key? key}) : super(key: key);
-
-  var styleRoboto = const TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.bold,
-    color: Colors.black,
-    fontFamily: 'Roboto',
-  );
-  var styleMontserrat = const TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeight.normal,
-    color: Colors.black,
-    fontFamily: 'Montserrat',
-  );
-  var stylePoppins = const TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeight.normal,
-    color: Colors.black,
-    fontFamily: 'Poppins',
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +50,7 @@ class OnBoarding2 extends StatelessWidget {
                               borderRadius: BorderRadius.circular(25.0),
                               side: BorderSide(color: Colors.red))),
                       backgroundColor:
-                          MaterialStateProperty.all(ColorPalette.customRedColor),
+                          MaterialStateProperty.all(customRedColor),
                       padding: MaterialStateProperty.all(EdgeInsets.only(
                           right: 111, left: 111, top: 19, bottom: 18)),
                       textStyle: MaterialStateProperty.all(stylePoppins),
