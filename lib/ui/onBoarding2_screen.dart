@@ -43,7 +43,7 @@ class OnBoarding2 extends StatelessWidget {
                         OnBoarding3.routeName
                       );
                     },
-                    child: Text("Gass!!"),
+                    child: Text("Gass!!",style: stylePoppinsWhite),
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
@@ -53,7 +53,6 @@ class OnBoarding2 extends StatelessWidget {
                           MaterialStateProperty.all(customRedColor),
                       padding: MaterialStateProperty.all(EdgeInsets.only(
                           right: 111, left: 111, top: 19, bottom: 18)),
-                      textStyle: MaterialStateProperty.all(stylePoppins),
                     ),
                   ),
                 ),

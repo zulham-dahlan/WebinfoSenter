@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/ui/home_page.dart';
 import 'package:webinfo_senter/ui/layout_navigation.dart';
+import 'package:webinfo_senter/ui/login_page.dart';
 import 'package:webinfo_senter/ui/onBoarding2_screen.dart';
 import 'package:webinfo_senter/ui/onBoarding3_screen.dart';
 import 'package:webinfo_senter/ui/onBoarding_screen.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Webinfo Senter',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -30,6 +32,7 @@ class MyApp extends StatelessWidget {
         HomePage.routeName: (context) => HomePage(),
         WebinarkuPage.routeName: (context) => WebinarkuPage(),
         ProfilPage.routeName: (context) => ProfilPage(),
+        LoginPage.routeName: (context) => LoginPage(),
         
       },
     );
