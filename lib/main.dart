@@ -6,6 +6,7 @@ import 'package:webinfo_senter/ui/onBoarding2_screen.dart';
 import 'package:webinfo_senter/ui/onBoarding3_screen.dart';
 import 'package:webinfo_senter/ui/onBoarding_screen.dart';
 import 'package:webinfo_senter/ui/profil_page.dart';
+import 'package:webinfo_senter/ui/register_page.dart';
 import 'package:webinfo_senter/ui/webinarku_page.dart';
 import 'package:webinfo_senter/ui/splash_screen.dart';
 
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         WebinarkuPage.routeName: (context) => WebinarkuPage(),
         ProfilPage.routeName: (context) => ProfilPage(),
         LoginPage.routeName: (context) => LoginPage(),
+        RegisterPage.routeName: (context) => RegisterPage(),
         
       },
     );

@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/ui/layout_navigation.dart';
+import 'package:webinfo_senter/ui/register_page.dart';
 
 
 
@@ -81,7 +82,7 @@ class _LoginPage extends State<LoginPage> {
                   margin: EdgeInsets.only(right: 12, left: 12, top:9, bottom: 9),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, LoginPage.routeName);
+                      Navigator.pushNamed(context, LayoutNavigation.routeName);
                     },
                     child: Text("Masuk",style: stylePoppinsWhite,),
                     style: ButtonStyle(
@@ -104,7 +105,7 @@ class _LoginPage extends State<LoginPage> {
                   margin: EdgeInsets.only(right: 12, left: 12, bottom: 9),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, LoginPage.routeName);
+                      Navigator.pushNamed(context, RegisterPage.routeName);
                     },
                     child: Text("Kuy Gabung",style: stylePoppinsBlack,),
                     style: ButtonStyle(
