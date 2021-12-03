@@ -39,8 +39,7 @@ class OnBoarding3 extends StatelessWidget {
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25.0),
-                              side: BorderSide(color: Colors.red))),
+                              borderRadius: BorderRadius.circular(25.0),)),
                       backgroundColor:
                       MaterialStateProperty.all(customRedColor),
                       padding: MaterialStateProperty.all(EdgeInsets.only(

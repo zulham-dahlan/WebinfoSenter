@@ -13,7 +13,7 @@ class OnBoarding2 extends StatelessWidget {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
-            margin: const EdgeInsets.all(20),
+            margin: EdgeInsets.all(20),
             child: Column(
               children: [
                 Container(
@@ -47,8 +47,7 @@ class OnBoarding2 extends StatelessWidget {
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25.0),
-                              side: BorderSide(color: Colors.red))),
+                              borderRadius: BorderRadius.circular(25.0),)),
                       backgroundColor:
                           MaterialStateProperty.all(customRedColor),
                       padding: MaterialStateProperty.all(EdgeInsets.only(

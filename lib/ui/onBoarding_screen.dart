@@ -48,7 +48,6 @@ class OnBoarding extends StatelessWidget {
                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(25.0),
-                                side: BorderSide(color: Colors.red)
                             )
                         ),
                         backgroundColor: MaterialStateProperty.all(customRedColor),

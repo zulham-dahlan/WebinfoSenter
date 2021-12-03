@@ -110,7 +110,8 @@ class _LoginPage extends State<LoginPage> {
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),)),
+                              borderRadius: BorderRadius.circular(10.0),
+                              side: BorderSide(color: customGreyLight))),
                       backgroundColor:
                       MaterialStateProperty.all(Colors.white),
                       padding: MaterialStateProperty.all(EdgeInsets.only(
