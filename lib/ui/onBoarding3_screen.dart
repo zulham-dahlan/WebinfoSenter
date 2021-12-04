@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/ui/layout_navigation.dart';
+import 'package:webinfo_senter/ui/login_page.dart';
 
 class OnBoarding3 extends StatelessWidget {
   static const routeName = '/on_boarding3';
@@ -32,19 +33,17 @@ class OnBoarding3 extends StatelessWidget {
                   margin: EdgeInsets.only(right: 40,left: 40,bottom: 65),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, LayoutNavigation.routeName);
+                      Navigator.pushNamed(context, LoginPage.routeName);
                     },
-                    child: Text("Yuk Cuss"),
+                    child: Text("Yuk Cuss",style: stylePoppinsWhite,),
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25.0),
-                              side: BorderSide(color: Colors.red))),
+                              borderRadius: BorderRadius.circular(25.0),)),
                       backgroundColor:
                       MaterialStateProperty.all(customRedColor),
                       padding: MaterialStateProperty.all(EdgeInsets.only(
                           right: 110, left: 109, top: 21, bottom: 21)),
-                      textStyle: MaterialStateProperty.all(stylePoppins),
                     ),
                   ),
                 ),
