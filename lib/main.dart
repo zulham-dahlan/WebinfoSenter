@@ -5,6 +5,7 @@ import 'package:webinfo_senter/ui/onBoarding2_screen.dart';
 import 'package:webinfo_senter/ui/onBoarding3_screen.dart';
 import 'package:webinfo_senter/ui/onBoarding_screen.dart';
 import 'package:webinfo_senter/ui/profil_page.dart';
+import 'package:webinfo_senter/ui/search_screen.dart';
 import 'package:webinfo_senter/ui/webinarku_page.dart';
 import 'package:webinfo_senter/ui/splash_screen.dart';
 
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         HomePage.routeName: (context) => HomePage(),
         WebinarkuPage.routeName: (context) => WebinarkuPage(),
         ProfilPage.routeName: (context) => ProfilPage(),
-        
+        SearchScreen.routeName : (context) => SearchScreen(name: ModalRoute.of(context)?.settings.arguments as String),
       },
     );
   }

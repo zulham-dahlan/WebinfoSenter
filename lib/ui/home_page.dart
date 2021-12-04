@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
+import 'package:webinfo_senter/ui/search_screen.dart';
 
 class HomePage extends StatelessWidget {
   static const String homeTitle = 'Home';
@@ -55,6 +56,9 @@ class HomePage extends StatelessWidget {
                 height: 40,
               ),
               TextField(
+                onSubmitted: (String value) {
+                  Navigator.pushNamed(context, SearchScreen.routeName,arguments: value);
+                },
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'Cari Webinar',
