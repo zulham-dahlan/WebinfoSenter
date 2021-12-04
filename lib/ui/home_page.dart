@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/ui/search_screen.dart';
+import 'package:webinfo_senter/widget/app_header.dart';
 
 class HomePage extends StatelessWidget {
   static const String homeTitle = 'Home';
@@ -15,45 +16,46 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(right: 10),
-                        height: 60,
-                        width: 60,
-                        color: customRedLight,
-                      ),
-                      Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Welcome,',
-                              style: styleMontserrat,
-                            ),
-                            Text(
-                              'Zulham Dahlan',
-                              style: styleRoboto,
-                            )
-                          ]),
-                    ],
-                  ),
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      color: customRedLight,
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                    child: Icon(Icons.notifications_none_outlined),
-                  )
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     Row(
+              //       crossAxisAlignment: CrossAxisAlignment.center,
+              //       children: [
+              //         Container(
+              //           margin: EdgeInsets.only(right: 10),
+              //           height: 60,
+              //           width: 60,
+              //           color: customRedLight,
+              //         ),
+              //         Column(
+              //             crossAxisAlignment: CrossAxisAlignment.start,
+              //             children: [
+              //               Text(
+              //                 'Welcome,',
+              //                 style: styleMontserrat,
+              //               ),
+              //               Text(
+              //                 'Zulham Dahlan',
+              //                 style: styleRoboto,
+              //               )
+              //             ]),
+              //       ],
+              //     ),
+              //     Container(
+              //       height: 40,
+              //       width: 40,
+              //       decoration: BoxDecoration(
+              //         color: customRedLight,
+              //         borderRadius: BorderRadius.circular(20.0),
+              //       ),
+              //       child: Icon(Icons.notifications_none_outlined),
+              //     )
+              //   ],
+              // ),
+              AppHeader(),
               SizedBox(
-                height: 40,
+                height: 30,
               ),
               TextField(
                 onSubmitted: (String value) {
