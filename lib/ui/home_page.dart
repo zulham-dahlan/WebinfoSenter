@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
+import 'package:webinfo_senter/data/webinar.dart';
 import 'package:webinfo_senter/ui/search_screen.dart';
 import 'package:webinfo_senter/widget/app_header.dart';
+import 'package:webinfo_senter/widget/card_webinar_vertical.dart';
 
 class HomePage extends StatelessWidget {
   static const String homeTitle = 'Home';
@@ -81,11 +83,9 @@ class HomePage extends StatelessWidget {
                   shrinkWrap: true,
                   itemCount: 5,
                   itemBuilder: (BuildContext context, int index) {
+                    Webinar webinar = listWebinar[index];
                     return Card(
-                      child: ListTile(
-                        title: Text('Webinar $index'),
-                        subtitle: Text('Deskripsi Webinar $index'),
-                      ),
+                      child: CardWebinarVertical(webinar: webinar),
                     );
                   },
                 ),
