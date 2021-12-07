@@ -19,43 +19,6 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     Row(
-              //       crossAxisAlignment: CrossAxisAlignment.center,
-              //       children: [
-              //         Container(
-              //           margin: EdgeInsets.only(right: 10),
-              //           height: 60,
-              //           width: 60,
-              //           color: customRedLight,
-              //         ),
-              //         Column(
-              //             crossAxisAlignment: CrossAxisAlignment.start,
-              //             children: [
-              //               Text(
-              //                 'Welcome,',
-              //                 style: styleMontserrat,
-              //               ),
-              //               Text(
-              //                 'Zulham Dahlan',
-              //                 style: styleRoboto,
-              //               )
-              //             ]),
-              //       ],
-              //     ),
-              //     Container(
-              //       height: 40,
-              //       width: 40,
-              //       decoration: BoxDecoration(
-              //         color: customRedLight,
-              //         borderRadius: BorderRadius.circular(20.0),
-              //       ),
-              //       child: Icon(Icons.notifications_none_outlined),
-              //     )
-              //   ],
-              // ),
               AppHeader(),
               SizedBox(
                 height: 30,
