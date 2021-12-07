@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/ui/home_page.dart';
-import 'package:webinfo_senter/ui/profil_page.dart';
+import 'package:webinfo_senter/ui/profile_page.dart';
 import 'package:webinfo_senter/ui/webinarku_page.dart';
 import 'package:webinfo_senter/ui/profile_page.dart';
 
@@ -49,7 +49,7 @@ class _LayoutNavigation extends State<LayoutNavigation> {
     ),
      BottomNavigationBarItem(
       icon: Icon(Icons.account_box_outlined),
-      label: ProfilPage.profilTitle,
+      label: ProfilePage.profileTitle,
     ),
   ];
 

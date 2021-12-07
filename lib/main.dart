@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:webinfo_senter/data/webinar.dart';
+import 'package:webinfo_senter/ui/detail_screen.dart';
 import 'package:webinfo_senter/ui/home_page.dart';
 import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/login_page.dart';
 import 'package:webinfo_senter/ui/onBoarding2_screen.dart';
 import 'package:webinfo_senter/ui/onBoarding3_screen.dart';
 import 'package:webinfo_senter/ui/onBoarding_screen.dart';
-import 'package:webinfo_senter/ui/profil_page.dart';
+import 'package:webinfo_senter/ui/profile_page.dart';
 import 'package:webinfo_senter/ui/search_screen.dart';
 import 'package:webinfo_senter/ui/register_page.dart';
 import 'package:webinfo_senter/ui/webinarku_page.dart';
@@ -33,10 +35,11 @@ class MyApp extends StatelessWidget {
         LayoutNavigation.routeName: (context) => LayoutNavigation(),
         HomePage.routeName: (context) => HomePage(),
         WebinarkuPage.routeName: (context) => WebinarkuPage(),
-        ProfilPage.routeName: (context) => ProfilPage(),
+        ProfilePage.routeName: (context) => ProfilePage(),
         SearchScreen.routeName : (context) => SearchScreen(name: ModalRoute.of(context)?.settings.arguments as String),
         LoginPage.routeName: (context) => LoginPage(),
         RegisterPage.routeName: (context) => RegisterPage(),
+        DetailScreen.routeName: (context) => DetailScreen(detailWebinar: ModalRoute.of(context)?.settings.arguments as Webinar),
       },
     );
   }
