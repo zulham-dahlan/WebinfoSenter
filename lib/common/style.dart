@@ -14,7 +14,7 @@ final TextStyle styleRoboto = TextStyle(
 );
 
 final TextStyle styleRobotoTitle = TextStyle(
-  fontSize: 18,
+  fontSize: 24,
   fontWeight: FontWeight.bold,
   color: Colors.black,
   fontFamily: 'Roboto',
@@ -27,9 +27,16 @@ final TextStyle styleMontserrat = TextStyle(
     fontFamily: 'Montserrat',
 );
 
+final TextStyle styleMontserratName = TextStyle(
+  fontSize: 14,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+  fontFamily: 'Montserrat',
+);
+
 final TextStyle styleMontserratTitle = TextStyle(
   fontSize: 12,
-  fontWeight: FontWeight.normal,
+  fontWeight: FontWeight.bold,
   color: Colors.black,
   fontFamily: 'Montserrat',
 );
