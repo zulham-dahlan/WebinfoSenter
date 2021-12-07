@@ -4,6 +4,7 @@ import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/ui/home_page.dart';
 import 'package:webinfo_senter/ui/profil_page.dart';
 import 'package:webinfo_senter/ui/webinarku_page.dart';
+import 'package:webinfo_senter/ui/profile_page.dart';
 
 class LayoutNavigation extends StatefulWidget {
   static const routeName = '/layout_navigation';
@@ -34,7 +35,7 @@ class _LayoutNavigation extends State<LayoutNavigation> {
   List<Widget> _listWidget = [
     HomePage(),
     WebinarkuPage(),
-    ProfilPage(),
+    ProfilePage(),
   ];
 
   List<BottomNavigationBarItem> _bottomNavBarItems = [
