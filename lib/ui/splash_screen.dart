@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/ui/onBoarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,17 +14,23 @@ class _SplashScreen extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(
-        Duration(seconds: 4),
-            () => Navigator.pushReplacementNamed(context, OnBoarding.routeName));
+    Timer(Duration(seconds: 4),
+        () => Navigator.pushReplacementNamed(context, OnBoarding.routeName));
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
-      child: Image.asset('assets/man-working-from-home.png'),
-      padding: EdgeInsets.symmetric(horizontal: 25),
+      color: customRedDark,
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.center,
+            child:
+                Image.asset('assets/webinfo_logo.png', width: 96, height: 96),
+          ),
+        ],
+      ),
     );
   }
 }
