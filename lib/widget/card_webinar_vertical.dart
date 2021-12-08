@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/data/webinar.dart';
+import 'package:webinfo_senter/ui/detail_screen.dart';
 
 class CardWebinarVertical extends StatelessWidget {
   final Webinar webinar;
@@ -9,7 +10,9 @@ class CardWebinarVertical extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(context, DetailScreen.routeName, arguments: webinar);
+      },
       child: Container(
         padding: EdgeInsets.all(5),
         child: Row(
