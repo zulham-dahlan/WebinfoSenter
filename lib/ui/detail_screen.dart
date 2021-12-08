@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/data/webinar.dart';
 
@@ -173,7 +174,15 @@ class _DetailScreenState extends State<DetailScreen> {
                     style: TextButton.styleFrom(
                       backgroundColor: customRedColor,
                     ),
-                    onPressed: () {},
+                    onPressed: () async{
+                      String url = webinar.linkPendaftaran;
+                      var urllaunchable = await canLaunch(url);
+                      if(urllaunchable){
+                        await launch(url);
+                      }else{
+                        print('URL Tidak bisa dibuka');
+                      }
+                    },
                     child: Text('Buka Link Pendaftaran',style: TextStyle(color: Colors.white),),
                   ),
                 ),

@@ -1,78 +1,130 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
+import 'package:webinfo_senter/data/webinar.dart';
 
-class WebinarkuPage extends StatelessWidget {
+class WebinarkuPage extends StatefulWidget {
   static const String webinarkuTitle = 'Webinarku';
   static const routeName = '/webinarku_page';
 
   @override
+  _WebinarkuPageState createState() => _WebinarkuPageState();
+}
+
+class _WebinarkuPageState extends State<WebinarkuPage>
+    with TickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
         child: Container(
-          padding: EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Webinarku',
-                style: styleRoboto,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text('On Going'),
-              SizedBox(
-                height: 10,
-              ),
-              Expanded(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 6,
-                  itemBuilder: (BuildContext context,int index){
-                    return Card(child: Center(child: Text('Webinar $index')));
-                  }
+          child: SafeArea(
+            child: TabBar(
+              labelColor: Colors.black,
+              indicatorColor: customRedColor,
+              controller: _tabController,
+              tabs: [
+                Tab(
+                  text: 'Your Bookmark',
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text('Finish'),
-              SizedBox(
-                height: 10,
-              ),
-              Expanded(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 6,
-                  itemBuilder: (BuildContext context,int index){
-                    return Card(child: Center(child: Text('Webinar $index')));
-                  }
+                Tab(
+                  text: 'Your Publish',
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text('Your Publish'),
-              SizedBox(
-                height: 10,
-              ),
-              Expanded(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 6,
-                  itemBuilder: (BuildContext context,int index){
-                    return Card(child: Center(child: Text('Webinar $index')));
-                  }
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('On Going'),
+                SizedBox(
+                  height: 10,
+                ),
+                Expanded(
+                  
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: listWebinar.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        Webinar webinar = listWebinar[index];
+                        return Card(
+                          child: Image.asset(webinar.urlPoster, height: 150,fit: BoxFit.cover, ),
+                        );
+                      }),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text('Finish'),
+                SizedBox(
+                  height: 10,
+                ),
+                Expanded(
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: listWebinar.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        Webinar webinar = listWebinar[index];
+                        return Card(
+                          child: Image.asset(webinar.urlPoster,height: 150,fit: BoxFit.cover),
+                        );
+                      }),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: 160,
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: listWebinar.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        Webinar webinar = listWebinar[index];
+                        return Card(
+                          child: Image.asset(webinar.urlPoster,height: 150,fit: BoxFit.cover),
+                        );
+                      }),
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: customRedColor,
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      'Ajukan Webinar',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
