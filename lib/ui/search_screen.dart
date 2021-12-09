@@ -36,11 +36,9 @@ class _SearchScreenState extends State<SearchScreen> {
             children: [
               Row(
                 children: [
-                  Ink(
-                    decoration: const ShapeDecoration(shape: CircleBorder(), color: Colors.pinkAccent,),
-                    child: IconButton(onPressed: (){
+                  IconButton(onPressed: (){
                       Navigator.pop(context);
-                    },alignment: Alignment.center, icon: Icon(Icons.arrow_back_ios),color: Colors.white,)
+                    }, icon: Image.asset('assets/back_icon.png'),
                   ),
                   SizedBox(
                     width: 10.0,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/data/webinar.dart';
+import 'package:webinfo_senter/widget/card_webinar_vertical.dart';
 
 class WebinarkuPage extends StatefulWidget {
   static const String webinarkuTitle = 'Webinarku';
@@ -56,7 +57,6 @@ class _WebinarkuPageState extends State<WebinarkuPage>
                   height: 10,
                 ),
                 Expanded(
-                  
                   child: ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
@@ -64,7 +64,11 @@ class _WebinarkuPageState extends State<WebinarkuPage>
                       itemBuilder: (BuildContext context, int index) {
                         Webinar webinar = listWebinar[index];
                         return Card(
-                          child: Image.asset(webinar.urlPoster, height: 150,fit: BoxFit.cover, ),
+                          child: Image.asset(
+                            webinar.urlPoster,
+                            height: 150,
+                            fit: BoxFit.cover,
+                          ),
                         );
                       }),
                 ),
@@ -83,7 +87,8 @@ class _WebinarkuPageState extends State<WebinarkuPage>
                       itemBuilder: (BuildContext context, int index) {
                         Webinar webinar = listWebinar[index];
                         return Card(
-                          child: Image.asset(webinar.urlPoster,height: 150,fit: BoxFit.cover),
+                          child: Image.asset(webinar.urlPoster,
+                              height: 150, fit: BoxFit.cover),
                         );
                       }),
                 ),
@@ -91,24 +96,12 @@ class _WebinarkuPageState extends State<WebinarkuPage>
             ),
           ),
           Container(
-            padding: EdgeInsets.all(20.0),
+            padding: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0, bottom: 20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  height: 160,
-                  child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: listWebinar.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        Webinar webinar = listWebinar[index];
-                        return Card(
-                          child: Image.asset(webinar.urlPoster,height: 150,fit: BoxFit.cover),
-                        );
-                      }),
-                ),
-                Container(
+                  margin : EdgeInsets.only(bottom: 10),
                   alignment: Alignment.center,
                   child: TextButton(
                     style: TextButton.styleFrom(
@@ -121,6 +114,19 @@ class _WebinarkuPageState extends State<WebinarkuPage>
                     ),
                   ),
                 ),
+                Expanded(
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: listWebinar.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        Webinar webinar = listWebinar[index];
+                        return Card(
+                          child: CardWebinarVertical(webinar: webinar),
+                        );
+                      }
+                  )
+                ),
+                
               ],
             ),
           ),
