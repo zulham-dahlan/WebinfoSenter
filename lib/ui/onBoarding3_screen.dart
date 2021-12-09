@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
-import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/login_page.dart';
 
 class OnBoarding3 extends StatelessWidget {
@@ -10,6 +9,8 @@ class OnBoarding3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    var widthScreen = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -43,8 +44,9 @@ class OnBoarding3 extends StatelessWidget {
                               borderRadius: BorderRadius.circular(25.0),)),
                       backgroundColor:
                       MaterialStateProperty.all(customRedColor),
-                      padding: MaterialStateProperty.all(EdgeInsets.only(
-                          right: 90, left: 89, top: 21, bottom: 21)),
+                      padding: MaterialStateProperty.all(EdgeInsets.symmetric(
+                          horizontal: widthScreen*0.16  , vertical: widthScreen*0.045)),
+
                     ),
                   ),
                 ),

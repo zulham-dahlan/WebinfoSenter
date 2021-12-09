@@ -9,6 +9,7 @@ class OnBoarding2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var widthScreen = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -51,8 +52,8 @@ class OnBoarding2 extends StatelessWidget {
                               borderRadius: BorderRadius.circular(25.0),)),
                       backgroundColor:
                           MaterialStateProperty.all(customRedColor),
-                      padding: MaterialStateProperty.all(EdgeInsets.only(
-                          right: 91, left: 91, top: 19, bottom: 18)),
+                      padding: MaterialStateProperty.all(EdgeInsets.symmetric(
+                          horizontal: widthScreen*0.15  , vertical: widthScreen*0.042)),
                     ),
                   ),
                 ),
