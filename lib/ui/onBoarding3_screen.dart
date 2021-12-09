@@ -19,7 +19,7 @@ class OnBoarding3 extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  child: Image.asset('assets/man-working-from-home.png'),
+                  child: Image.asset('assets/guy-on-bike.png'),
                   margin: const EdgeInsets.only(
                       top: 48, right: 12, left: 12, bottom: 108),
                   padding: const EdgeInsets.all(20),
@@ -44,7 +44,7 @@ class OnBoarding3 extends StatelessWidget {
                       backgroundColor:
                       MaterialStateProperty.all(customRedColor),
                       padding: MaterialStateProperty.all(EdgeInsets.only(
-                          right: 110, left: 109, top: 21, bottom: 21)),
+                          right: 90, left: 89, top: 21, bottom: 21)),
                     ),
                   ),
                 ),

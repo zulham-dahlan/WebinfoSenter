@@ -78,7 +78,7 @@ class ProfilePage extends StatelessWidget {
                             )
                         ),
                         backgroundColor: MaterialStateProperty.all(Colors.white),
-                        padding: MaterialStateProperty.all(EdgeInsets.only(right: 101,left: 101,top: 16,bottom: 16)),),
+                        padding: MaterialStateProperty.all(EdgeInsets.only(right: 80,left: 80,top: 8,bottom: 8)),),
                     ),
                   ),
 

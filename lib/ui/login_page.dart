@@ -29,7 +29,7 @@ class _LoginPage extends State<LoginPage> {
             child: Column(
               children: [
                 Container(
-                  child: Container(child: Image.asset('assets/man-working-from-home.png'),padding: const EdgeInsets.all(20),),
+                  child: Container(child: Image.asset('assets/woman-working-at-home.png'),padding: const EdgeInsets.all(20),),
                   margin: const EdgeInsets.only(
                       top: 12, right: 12, left: 12, bottom: 21),
                 ),
@@ -93,7 +93,7 @@ class _LoginPage extends State<LoginPage> {
                       backgroundColor:
                       MaterialStateProperty.all(customRedColor),
                       padding: MaterialStateProperty.all(EdgeInsets.only(
-                          right: 173, left: 173, top: 22, bottom: 22)),
+                          right: 153, left: 153, top: 22, bottom: 22)),
                     ),
                   ),
                 ),
@@ -117,7 +117,7 @@ class _LoginPage extends State<LoginPage> {
                       backgroundColor:
                       MaterialStateProperty.all(Colors.white),
                       padding: MaterialStateProperty.all(EdgeInsets.only(
-                          right: 155, left: 155, top: 22, bottom: 22)),
+                          right: 135, left: 135, top: 22, bottom: 22)),
                     ),
                   ),
                 ),

@@ -52,7 +52,7 @@ class OnBoarding2 extends StatelessWidget {
                       backgroundColor:
                           MaterialStateProperty.all(customRedColor),
                       padding: MaterialStateProperty.all(EdgeInsets.only(
-                          right: 111, left: 111, top: 19, bottom: 18)),
+                          right: 91, left: 91, top: 19, bottom: 18)),
                     ),
                   ),
                 ),

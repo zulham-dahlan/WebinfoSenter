@@ -107,7 +107,7 @@ class _RegisterPage extends State<RegisterPage> {
                       backgroundColor:
                       MaterialStateProperty.all(customRedColor),
                       padding: MaterialStateProperty.all(EdgeInsets.only(
-                          right: 155, left: 155, top: 22, bottom: 22)),
+                          right: 135, left: 135, top: 22, bottom: 22)),
                     ),
                   ),
                 ),
@@ -126,7 +126,7 @@ class _RegisterPage extends State<RegisterPage> {
                       backgroundColor:
                       MaterialStateProperty.all(Colors.white),
                       padding: MaterialStateProperty.all(EdgeInsets.only(
-                          right: 139, left: 139, top: 22, bottom: 22)),
+                          right: 119, left: 119, top: 22, bottom: 22)),
                     ),
                   ),
                 ),
