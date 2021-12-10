@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
+import 'package:webinfo_senter/data/webinar.dart';
+import 'package:webinfo_senter/widget/card_webinar_vertical.dart';
 
 class AllWebinar extends StatefulWidget {
   static const routeName = '/all_webinar';
@@ -51,9 +53,9 @@ class _AllWebinarState extends State<AllWebinar> {
                   color: customRedColor,
                 ),
                 onChanged: (String? newValue){
-                  setState(){
+                  setState((){
                     dropDownValue = newValue!;
-                  }
+                  });
                 },
                 items: <String>['Semua','Pengembangan Diri', 'Religi', 'Teknologi'].map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem(value: value, child: Text(value),);
@@ -61,6 +63,18 @@ class _AllWebinarState extends State<AllWebinar> {
               ),
                SizedBox(
                 height: 10.0,
+              ),
+              Expanded(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: listWebinar.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    Webinar webinar = listWebinar[index];
+                    return Card(
+                      child: CardWebinarVertical(webinar: webinar),
+                    );
+                  },
+                ),
               ),
             ],
           ),

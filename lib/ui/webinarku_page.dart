@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/data/webinar.dart';
+import 'package:webinfo_senter/ui/pengajuan_screen.dart';
 import 'package:webinfo_senter/widget/card_webinar_vertical.dart';
 
 class WebinarkuPage extends StatefulWidget {
@@ -64,10 +65,10 @@ class _WebinarkuPageState extends State<WebinarkuPage>
                       itemBuilder: (BuildContext context, int index) {
                         Webinar webinar = listWebinar[index];
                         return Card(
-                          child: Image.asset(
-                            webinar.urlPoster,
-                            height: 150,
-                            fit: BoxFit.cover,
+                          child: Container(
+                            padding: EdgeInsets.all(5),
+                            child: Image.asset(webinar.urlPoster,
+                                height: 150, fit: BoxFit.cover),
                           ),
                         );
                       }),
@@ -87,8 +88,11 @@ class _WebinarkuPageState extends State<WebinarkuPage>
                       itemBuilder: (BuildContext context, int index) {
                         Webinar webinar = listWebinar[index];
                         return Card(
-                          child: Image.asset(webinar.urlPoster,
-                              height: 150, fit: BoxFit.cover),
+                          child: Container(
+                            padding: EdgeInsets.all(5),
+                            child: Image.asset(webinar.urlPoster,
+                                height: 150, fit: BoxFit.cover),
+                          ),
                         );
                       }),
                 ),
@@ -96,18 +100,21 @@ class _WebinarkuPageState extends State<WebinarkuPage>
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 10.0, left: 20.0, right: 20.0, bottom: 20.0),
+            padding: EdgeInsets.only(
+                top: 10.0, left: 20.0, right: 20.0, bottom: 20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  margin : EdgeInsets.only(bottom: 10),
+                  margin: EdgeInsets.only(bottom: 10),
                   alignment: Alignment.center,
                   child: TextButton(
                     style: TextButton.styleFrom(
                       backgroundColor: customRedColor,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, FormPengajuan.routeName);
+                    },
                     child: Text(
                       'Ajukan Webinar',
                       style: TextStyle(color: Colors.white),
@@ -123,10 +130,8 @@ class _WebinarkuPageState extends State<WebinarkuPage>
                         return Card(
                           child: CardWebinarVertical(webinar: webinar),
                         );
-                      }
-                  )
+                      }),
                 ),
-                
               ],
             ),
           ),

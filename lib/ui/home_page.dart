@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/data/webinar.dart';
+import 'package:webinfo_senter/ui/allwebinar_screen.dart';
 import 'package:webinfo_senter/ui/search_screen.dart';
 import 'package:webinfo_senter/widget/app_header.dart';
 import 'package:webinfo_senter/widget/card_webinar_vertical.dart';
@@ -61,7 +62,9 @@ class HomePage extends StatelessWidget {
                     style: OutlinedButton.styleFrom(
                       side: BorderSide(color: customRedColor),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, AllWebinar.routeName);
+                    },
                     child: Text(
                       'Lihat Semua Webinar',
                       style: TextStyle(
