@@ -9,7 +9,16 @@ class OnBoarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var widthScreen = MediaQuery.of(context).size.width;
+    double widthButton, heightButton;
+
+    if (MediaQuery.of(context).orientation == Orientation.landscape){
+      widthButton = MediaQuery.of(context).size.height * 0.38;
+      heightButton = MediaQuery.of(context).size.height * 0.12;
+    }
+    else{
+      widthButton = MediaQuery.of(context).size.width * 0.38;
+      heightButton = MediaQuery.of(context).size.width *0.12;
+    }
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -39,22 +48,25 @@ class OnBoarding extends StatelessWidget {
                 SizedBox(height: 48),
                 Container(
                   margin: EdgeInsets.only(right: 60,left: 60,bottom: 70),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(
-                        context,
-                        OnBoarding2.routeName
-                      );
-                    },
-                    child: Text("Gass!!",style: stylePoppinsWhite),
-                    style: ButtonStyle(
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25.0),
-                            )
-                        ),
-                        backgroundColor: MaterialStateProperty.all(customRedColor),
-                        padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: widthScreen*0.14  , vertical: widthScreen*0.04),),),
+                  child: Container(
+                    width: widthButton,
+                    height: heightButton,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          OnBoarding2.routeName
+                        );
+                      },
+                      child: Text("Gass!!",style: stylePoppinsWhite),
+                      style: ButtonStyle(
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(25.0),
+                              )
+                          ),
+                          backgroundColor: MaterialStateProperty.all(customRedColor),)
+                    ),
                   ),
                 ),
               ],

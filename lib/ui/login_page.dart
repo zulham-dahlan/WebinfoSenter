@@ -21,6 +21,17 @@ class _LoginPage extends State<LoginPage> {
   bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
+    double widthButton, heightButton;
+
+    if (MediaQuery.of(context).orientation == Orientation.landscape){
+      widthButton = MediaQuery.of(context).size.height * 0.933;
+      heightButton = MediaQuery.of(context).size.height * 0.145;
+    }
+    else{
+      widthButton = MediaQuery.of(context).size.width * 0.933;
+      heightButton = MediaQuery.of(context).size.width *0.145;
+    }
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -81,19 +92,23 @@ class _LoginPage extends State<LoginPage> {
                 ),
                 Container(
                   margin: EdgeInsets.only(right: 12, left: 12, top:9, bottom: 9),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, LayoutNavigation.routeName);
-                    },
-                    child: Text("Masuk",style: stylePoppinsWhite,),
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),)),
-                      backgroundColor:
-                      MaterialStateProperty.all(customRedColor),
-                      padding: MaterialStateProperty.all(EdgeInsets.only(
-                          right: 153, left: 153, top: 22, bottom: 22)),
+                  child: Container(
+                    width: widthButton,
+                    height: heightButton,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, LayoutNavigation.routeName);
+                      },
+                      child: Text("Masuk",style: stylePoppinsWhite,),
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),)),
+                        backgroundColor:
+                        MaterialStateProperty.all(customRedColor),
+                        padding: MaterialStateProperty.all(EdgeInsets.only(
+                            right: 153, left: 153, top: 22, bottom: 22)),
+                      ),
                     ),
                   ),
                 ),
@@ -104,20 +119,24 @@ class _LoginPage extends State<LoginPage> {
                 ),
                 Container(
                   margin: EdgeInsets.only(right: 12, left: 12, bottom: 9),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, RegisterPage.routeName);
-                    },
-                    child: Text("Kuy Gabung",style: stylePoppinsBlack,),
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                              side: BorderSide(color: customGreyLight))),
-                      backgroundColor:
-                      MaterialStateProperty.all(Colors.white),
-                      padding: MaterialStateProperty.all(EdgeInsets.only(
-                          right: 135, left: 135, top: 22, bottom: 22)),
+                  child: Container(
+                    width: widthButton,
+                    height: heightButton,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, RegisterPage.routeName);
+                      },
+                      child: Text("Kuy Gabung",style: stylePoppinsBlack,),
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                side: BorderSide(color: customGreyLight))),
+                        backgroundColor:
+                        MaterialStateProperty.all(Colors.white),
+                        padding: MaterialStateProperty.all(EdgeInsets.only(
+                            right: 135, left: 135, top: 22, bottom: 22)),
+                      ),
                     ),
                   ),
                 ),
