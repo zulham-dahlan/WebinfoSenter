@@ -8,6 +8,16 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double widthButton, heightButton;
+
+    if (MediaQuery.of(context).orientation == Orientation.landscape){
+      widthButton = MediaQuery.of(context).size.height * 0.933;
+      heightButton = MediaQuery.of(context).size.height * 0.145;
+    }
+    else{
+      widthButton = MediaQuery.of(context).size.width * 0.933;
+      heightButton = MediaQuery.of(context).size.width *0.145;
+    }
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -57,28 +67,31 @@ class ProfilePage extends StatelessWidget {
                     height: 24,
                   ),
                   Container(
-                    margin: EdgeInsets.only(right: 60,left: 60,bottom: 70),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(
-                            context,
-                            OnBoarding2.routeName
-                        );
-                      },
-                      child: Column(
-                        children: [
-                          Icon(Icons.email, color: Colors.blue,),
-                          Text("Ubah Profile",style: stylePoppinsBlack),
-                        ],
-                      ),
-                      style: ButtonStyle(
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25.0),
-                            )
+                    margin: EdgeInsets.only(bottom: 70),
+                    child: Container(
+                      width: widthButton,
+                      height: heightButton,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(
+                              context,
+                              OnBoarding2.routeName
+                          );
+                        },
+                        child: Column(
+                          children: [
+                            Icon(Icons.email, color: Colors.blue,),
+                            Text("Ubah Profile",style: stylePoppinsBlack),
+                          ],
                         ),
-                        backgroundColor: MaterialStateProperty.all(Colors.white),
-                        padding: MaterialStateProperty.all(EdgeInsets.only(right: 80,left: 80,top: 8,bottom: 8)),),
+                        style: ButtonStyle(
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25.0),
+                              )
+                          ),
+                          padding: MaterialStateProperty.all(EdgeInsets.only(right: 80,left: 80,top: 8,bottom: 8)),),
+                      ),
                     ),
                   ),
 

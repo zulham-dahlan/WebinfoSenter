@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
-import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/login_page.dart';
 
 class OnBoarding3 extends StatelessWidget {
@@ -10,6 +9,17 @@ class OnBoarding3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double widthButton, heightButton;
+
+    if (MediaQuery.of(context).orientation == Orientation.landscape){
+      widthButton = MediaQuery.of(context).size.height * 0.38;
+      heightButton = MediaQuery.of(context).size.height * 0.12;
+    }
+    else{
+      widthButton = MediaQuery.of(context).size.width * 0.38;
+      heightButton = MediaQuery.of(context).size.width *0.12;
+    }
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -32,19 +42,22 @@ class OnBoarding3 extends StatelessWidget {
                 SizedBox(height: 73),
                 Container(
                   margin: EdgeInsets.only(right: 40,left: 40,bottom: 65),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, LoginPage.routeName);
-                    },
-                    child: Text("Yuk Cuss",style: stylePoppinsWhite,),
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25.0),)),
-                      backgroundColor:
-                      MaterialStateProperty.all(customRedColor),
-                      padding: MaterialStateProperty.all(EdgeInsets.only(
-                          right: 90, left: 89, top: 21, bottom: 21)),
+                  child: Container(
+                    width: widthButton,
+                    height: heightButton,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, LoginPage.routeName);
+                      },
+                      child: Text("Yuk Cuss",style: stylePoppinsWhite,),
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25.0),)),
+                        backgroundColor:
+                        MaterialStateProperty.all(customRedColor),
+
+                      ),
                     ),
                   ),
                 ),
