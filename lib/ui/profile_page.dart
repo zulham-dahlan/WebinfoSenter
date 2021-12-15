@@ -29,9 +29,10 @@ class ProfilePage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      IconButton(onPressed: (){}, icon: Image.asset('assets/back_icon.png'),),
+                      Image.asset('assets/back_icon.png',color: Colors.white,),
                       Text('Akun', style: styleRobotoTitle,),
-                      IconButton(onPressed: (){}, icon: Image.asset('assets/back_icon.png'),)
+                      IconButton(
+                          onPressed: () {}, icon: Icon(Icons.settings))
                     ],
                   ),
                   Container(

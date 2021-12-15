@@ -28,6 +28,12 @@ class OnBoarding3 extends StatelessWidget {
             margin: const EdgeInsets.all(20),
             child: Column(
               children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    IconButton(onPressed: (){Navigator.pop(context);}, icon: Image.asset('assets/back_icon.png'),),
+                  ],
+                ),
                 Container(
                   child: Image.asset('assets/guy-on-bike.png'),
                   margin: const EdgeInsets.only(
