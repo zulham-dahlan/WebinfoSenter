@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:webinfo_senter/common/auth_service.dart';
 import 'package:webinfo_senter/common/style.dart';
-import 'package:webinfo_senter/ui/login_page.dart';
 
 class OnBoarding3 extends StatelessWidget {
   static const routeName = '/on_boarding3';
@@ -47,7 +47,7 @@ class OnBoarding3 extends StatelessWidget {
                     height: heightButton,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, LoginPage.routeName);
+                        AuthServices.toLoginorHome(context);
                       },
                       child: Text("Yuk Cuss",style: stylePoppinsWhite,),
                       style: ButtonStyle(

@@ -1,13 +1,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:webinfo_senter/common/auth_service.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/register_page.dart';
-
-
-
-
 
 
 class LoginPage extends StatefulWidget {
@@ -19,6 +16,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPage extends State<LoginPage> {
   bool _isObscure = true;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     double widthButton, heightButton;
@@ -52,6 +52,7 @@ class _LoginPage extends State<LoginPage> {
                 Container(
                   margin: EdgeInsets.only(left: 12,right: 12,bottom: 21),
                   child: TextField(
+                    controller: _emailController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'username@gmail.com',labelStyle: stylePoppinsGrey,
@@ -66,6 +67,7 @@ class _LoginPage extends State<LoginPage> {
                 Container(
                   margin: EdgeInsets.only(left: 12,right: 12,bottom: 18),
                   child: TextField(
+                    controller: _passwordController,
                     obscureText: _isObscure,
                     decoration: InputDecoration(
                         hintText: 'Password',labelStyle: stylePoppinsGrey,
@@ -97,7 +99,7 @@ class _LoginPage extends State<LoginPage> {
                     height: heightButton,
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, LayoutNavigation.routeName);
+                        AuthServices.lognIn(_emailController.text, _passwordController.text, context);
                       },
                       child: Text("Masuk",style: stylePoppinsWhite,),
                       style: ButtonStyle(

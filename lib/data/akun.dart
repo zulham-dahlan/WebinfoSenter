@@ -1,10 +1,10 @@
-class User{
+class Akun{
   String nama ;
   String email ;
   String password ;
   String urlFotoProfil ;
 
-  User({
+  Akun({
     required this.nama,
     required this.email,
     required this.password,

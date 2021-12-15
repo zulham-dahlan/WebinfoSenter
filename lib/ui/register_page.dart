@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:webinfo_senter/common/auth_service.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/login_page.dart';
@@ -19,6 +20,9 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPage extends State<RegisterPage> {
   bool _isObscure = true;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,6 +59,7 @@ class _RegisterPage extends State<RegisterPage> {
                 Container(
                   margin: EdgeInsets.only(left: 12,right: 12,bottom: 21),
                   child: TextField(
+                    controller: _emailController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'username@gmail.com',labelStyle: stylePoppinsGrey,
@@ -69,6 +74,7 @@ class _RegisterPage extends State<RegisterPage> {
                 Container(
                   margin: EdgeInsets.only(left: 12,right: 12,bottom: 18),
                   child: TextField(
+                    controller: _passwordController,
                     obscureText: _isObscure,
                     decoration: InputDecoration(
                         hintText: 'Password',labelStyle: stylePoppinsGrey,
@@ -86,7 +92,7 @@ class _RegisterPage extends State<RegisterPage> {
                 Container(
                   alignment: Alignment.centerRight,
                   margin: EdgeInsets.only(right: 12),
-                  child:           TextButton(
+                  child: TextButton(
                     onPressed: () {
                       Navigator.pushReplacementNamed(context, LayoutNavigation.routeName);
                     },
@@ -97,6 +103,7 @@ class _RegisterPage extends State<RegisterPage> {
                   margin: EdgeInsets.only(right: 12, left: 12, top:9, bottom: 9),
                   child: ElevatedButton(
                     onPressed: () {
+                      AuthServices.register(_emailController.text, _passwordController.text, context);
                       Navigator.pushNamed(context, LayoutNavigation.routeName);
                     },
                     child: Text("Gas Gabung",style: stylePoppinsWhite,),

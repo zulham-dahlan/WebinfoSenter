@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "779614551309",
+    "project_id": "webinfo-senter",
+    "storage_bucket": "webinfo-senter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779614551309:android:aca0fe0ebf0c0e84648444",
+        "android_client_info": {
+          "package_name": "com.example.webinfo_senter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "779614551309-s2f59gce7a4i7gcc1h1r11cia50ch6bp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYQW69Xllv1AqH6GE-mO9vCQNRoKzgFvg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "779614551309-s2f59gce7a4i7gcc1h1r11cia50ch6bp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
