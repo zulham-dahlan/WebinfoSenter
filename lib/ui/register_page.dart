@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/auth_service.dart';
 import 'package:webinfo_senter/common/style.dart';
+import 'package:webinfo_senter/data/akun.dart';
+import 'package:webinfo_senter/data/firestore_service.dart';
 import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/login_page.dart';
 
@@ -22,6 +24,7 @@ class _RegisterPage extends State<RegisterPage> {
   bool _isObscure = true;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _fullnameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +48,7 @@ class _RegisterPage extends State<RegisterPage> {
                 Container(
                   margin: EdgeInsets.only(left: 12,right: 12,bottom: 21),
                   child: TextField(
+                    controller: _fullnameController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'Nama Lengkap',labelStyle: stylePoppinsGrey,
@@ -103,8 +107,12 @@ class _RegisterPage extends State<RegisterPage> {
                   margin: EdgeInsets.only(right: 12, left: 12, top:9, bottom: 9),
                   child: ElevatedButton(
                     onPressed: () {
-                      AuthServices.register(_emailController.text, _passwordController.text, context);
-                      Navigator.pushNamed(context, LayoutNavigation.routeName);
+                      String email = _emailController.text;
+                      String password =  _passwordController.text;
+                      String namalengkap = _fullnameController.text;
+                      Akun daftarAkun = Akun(nama: namalengkap,email: email, urlFotoProfil: null, bookmark: null,publish: null);
+                      FirestoreService.addAkun(daftarAkun);
+                      AuthServices.register(email,password, context);
                     },
                     child: Text("Gas Gabung",style: stylePoppinsWhite,),
                     style: ButtonStyle(

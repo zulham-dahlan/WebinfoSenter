@@ -1,13 +1,17 @@
+import 'package:webinfo_senter/data/webinar.dart';
+
 class Akun{
   String nama ;
   String email ;
-  String password ;
-  String urlFotoProfil ;
+  String? urlFotoProfil ;
+  List<Webinar>? bookmark ;
+  List<Webinar>? publish ; 
 
   Akun({
     required this.nama,
     required this.email,
-    required this.password,
     required this.urlFotoProfil,
+    required this.bookmark,
+    required this.publish,
   });
 }
