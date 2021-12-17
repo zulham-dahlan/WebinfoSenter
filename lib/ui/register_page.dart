@@ -1,10 +1,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:webinfo_senter/common/auth_service.dart';
+import 'package:webinfo_senter/data/firebase/auth_service.dart';
 import 'package:webinfo_senter/common/style.dart';
-import 'package:webinfo_senter/data/akun.dart';
-import 'package:webinfo_senter/data/firestore_service.dart';
+import 'package:webinfo_senter/data/model/akun.dart';
+import 'package:webinfo_senter/data/firebase/firestore_service.dart';
 import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/login_page.dart';
 

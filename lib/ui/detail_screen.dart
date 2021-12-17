@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webinfo_senter/common/style.dart';
-import 'package:webinfo_senter/data/webinar.dart';
+import 'package:webinfo_senter/data/model/webinar.dart';
 
 class DetailScreen extends StatefulWidget {
   static const routeName = '/detail_screen';

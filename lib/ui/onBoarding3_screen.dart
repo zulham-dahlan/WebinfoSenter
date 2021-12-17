@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:webinfo_senter/common/auth_service.dart';
+import 'package:webinfo_senter/data/firebase/auth_service.dart';
 import 'package:webinfo_senter/common/style.dart';
 
 class OnBoarding3 extends StatelessWidget {

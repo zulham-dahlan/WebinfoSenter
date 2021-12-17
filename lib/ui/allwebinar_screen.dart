@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
-import 'package:webinfo_senter/data/webinar.dart';
+import 'package:webinfo_senter/data/model/webinar.dart';
 import 'package:webinfo_senter/widget/card_webinar_vertical.dart';
 
 class AllWebinar extends StatefulWidget {

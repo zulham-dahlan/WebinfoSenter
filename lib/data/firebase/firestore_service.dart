@@ -1,6 +1,6 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:webinfo_senter/data/akun.dart';
+import 'package:webinfo_senter/data/model/akun.dart';
 
 class FirestoreService{
   static CollectionReference akunCollection = FirebaseFirestore.instance.collection('akun');

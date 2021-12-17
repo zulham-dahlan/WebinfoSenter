@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:webinfo_senter/common/auth_service.dart';
+import 'package:webinfo_senter/data/firebase/auth_service.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/register_page.dart';
