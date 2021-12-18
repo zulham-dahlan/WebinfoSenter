@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/ui/onBoarding2_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfilePage extends StatelessWidget {
   static const String profileTitle = 'Profile';
@@ -68,7 +69,6 @@ class ProfilePage extends StatelessWidget {
                     height: 24,
                   ),
                   Container(
-                    margin: EdgeInsets.only(bottom: 70),
                     child: Container(
                       width: widthButton,
                       height: heightButton,
@@ -90,6 +90,33 @@ class ProfilePage extends StatelessWidget {
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(25.0),
                               )
+                          ),
+                          padding: MaterialStateProperty.all(EdgeInsets.only(right: 80,left: 80,top: 8,bottom: 8)),),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Container(
+                    child: Container(
+                      width: widthButton,
+                      height: heightButton,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          FirebaseAuth.instance.signOut();
+                        },
+                        child: Column(
+                          children: [
+                            Icon(Icons.email, color: Colors.blue,),
+                            Text("Keluar Ah..",style: stylePoppinsBlack),
+                          ],
+                        ),
+                        style: ButtonStyle(
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25.0),
+                              ),
                           ),
                           padding: MaterialStateProperty.all(EdgeInsets.only(right: 80,left: 80,top: 8,bottom: 8)),),
                       ),
