@@ -184,7 +184,7 @@ class _FormPengajuanState extends State<FormPengajuan> {
                           backgroundColor: customRedColor,
                         ),
                         onPressed: () {
-                          
+                          Navigator.pop(context);
                         },
                         child: Text(
                           'Batal',
