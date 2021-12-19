@@ -8,11 +8,6 @@ import 'package:webinfo_senter/data/firebase/firestore_service.dart';
 import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/login_page.dart';
 
-
-
-
-
-
 class RegisterPage extends StatefulWidget {
   static const routeName = '/register_page';
 
@@ -111,8 +106,7 @@ class _RegisterPage extends State<RegisterPage> {
                       String password =  _passwordController.text;
                       String namalengkap = _fullnameController.text;
                       Akun daftarAkun = Akun(nama: namalengkap,email: email, urlFotoProfil: null, bookmark: null,publish: null);
-                      FirestoreService.addAkun(daftarAkun);
-                      AuthServices.register(email,password, context);
+                      AuthServices.register(daftarAkun,password, context);
                     },
                     child: Text("Gas Gabung",style: stylePoppinsWhite,),
                     style: ButtonStyle(

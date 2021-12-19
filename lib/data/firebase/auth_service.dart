@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:webinfo_senter/data/firebase/firestore_service.dart';
+import 'package:webinfo_senter/data/model/akun.dart';
 import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/login_page.dart';
 
@@ -38,10 +40,12 @@ class AuthServices{
     }
   }
 
-  static Future<void> register(String email, String password, BuildContext context) async{
+  static Future<void> register(Akun akun, String password, BuildContext context) async{
     try{
-      await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      Navigator.pushReplacementNamed(context, LayoutNavigation.routeName);
+      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(email: akun.email, password: password);
+      FirestoreService.addAkun(akun, userCredential.user!.uid.toString());
+      final snackbar = SnackBar(content: Text('Registrasi Berhasil'));
+      ScaffoldMessenger.of(context).showSnackBar(snackbar);
     }on FirebaseAuthException catch (e){
       if(e.code == 'weak-password'){
         final snackbar = SnackBar(content: Text('Password terlalu lemah'));
@@ -54,4 +58,9 @@ class AuthServices{
       print(e);
     }
   }
+
+  static Future<String> getId() async {
+    return await _auth.currentUser!.uid;
+  }
+
 }
