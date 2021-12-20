@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/ui/onBoarding2_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:webinfo_senter/ui/setting_page.dart';
 
 class ProfilePage extends StatelessWidget {
   static const String profileTitle = 'Profile';
@@ -33,7 +34,12 @@ class ProfilePage extends StatelessWidget {
                       Image.asset('assets/back_icon.png',color: Colors.white,),
                       Text('Akun', style: styleRobotoTitle,),
                       IconButton(
-                          onPressed: () {}, icon: Icon(Icons.settings))
+                          onPressed: () {
+                            Navigator.pushNamed(
+                                context,
+                                SettingPage.routeName
+                            );
+                          }, icon: Icon(Icons.settings))
                     ],
                   ),
                   Container(

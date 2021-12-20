@@ -15,6 +15,7 @@ import 'package:webinfo_senter/ui/search_screen.dart';
 import 'package:webinfo_senter/ui/register_page.dart';
 import 'package:webinfo_senter/ui/webinarku_page.dart';
 import 'package:webinfo_senter/ui/splash_screen.dart';
+import 'package:webinfo_senter/ui/setting_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,6 +48,7 @@ class MyApp extends StatelessWidget {
         DetailScreen.routeName: (context) => DetailScreen(detailWebinar: ModalRoute.of(context)?.settings.arguments as Webinar),
         AllWebinar.routeName : (context) => AllWebinar(),
         FormPengajuan.routeName : (context) => FormPengajuan(),
+        SettingPage.routeName : (context) => SettingPage(),
       },
     );
   }
