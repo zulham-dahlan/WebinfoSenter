@@ -1,5 +1,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:webinfo_senter/data/firebase/auth_service.dart';
 import 'package:webinfo_senter/data/model/akun.dart';
 
 class FirestoreService{
@@ -14,4 +16,13 @@ class FirestoreService{
       'publish' : akun.publish
     });
   }
+
+  static Future<Akun> readData() async{
+    String documentId = await AuthServices.getId();
+    DocumentSnapshot snapshot = await akunCollection.doc(documentId).get();
+    Map<String,dynamic> data = snapshot.data() as Map<String, dynamic>;
+    Akun akun = Akun(nama: data['nama'], email: data['email'], urlFotoProfil: data['url_foto_profil'], bookmark: data['bookmark'], publish: data['publish']);
+    return akun ;
+  }
+
 }

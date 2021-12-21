@@ -1,5 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
+import 'package:webinfo_senter/data/firebase/auth_service.dart';
+import 'package:webinfo_senter/data/firebase/firestore_service.dart';
+import 'package:webinfo_senter/data/model/akun.dart';
 import 'package:webinfo_senter/data/model/webinar.dart';
 import 'package:webinfo_senter/ui/allwebinar_screen.dart';
 import 'package:webinfo_senter/ui/search_screen.dart';
@@ -9,7 +13,6 @@ import 'package:webinfo_senter/widget/card_webinar_vertical.dart';
 class HomePage extends StatelessWidget {
   static const String homeTitle = 'Home';
   static const routeName = '/home_page';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +23,15 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AppHeader(),
+              FutureBuilder<Akun>(
+                future: FirestoreService.readData(),
+                builder: (context, snapshot){
+                  if(snapshot.hasData){
+                    return AppHeader(snapshot.data!);
+                  }
+                  return Text('Something Wrong');
+                }
+              ),
               SizedBox(
                 height: 30,
               ),

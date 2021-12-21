@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/data/firebase/auth_service.dart';
+import 'package:webinfo_senter/data/model/akun.dart';
 
 class AppHeader extends StatelessWidget {
+  final Akun akun;
+
+  AppHeader(this.akun);
+  
   @override
   Widget build(BuildContext context) {
     return Container(
-      // padding: EdgeInsets.only(left: 30, top: 30, right: 30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -31,7 +35,7 @@ class AppHeader extends StatelessWidget {
                     style: styleMontserrat,
                   ),
                   Text(
-                    'Ahmad Dahlan',
+                    akun.nama,
                     style: styleRoboto,
                   ),
                 ],
