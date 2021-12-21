@@ -17,12 +17,7 @@ class AppHeader extends StatelessWidget {
           Row(
             children: [
               ClipOval(
-                child: Image.asset(
-                  'assets/ahmad_dahlan.png',
-                  width: 50,
-                  height: 50,
-                  fit: BoxFit.cover,
-                ),
+                child: _displayPhoto(akun.urlFotoProfil!),
               ),
               SizedBox(
                 width: 20,
@@ -56,6 +51,24 @@ class AppHeader extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+}
+
+Widget _displayPhoto(String url){
+  if(url == null){
+    return Image.asset(
+      'assets/account.png',
+      width: 50,
+      height: 50,
+      fit: BoxFit.cover,
+    );
+  }else{
+    return Image.network(
+      url,
+      width: 50,
+      height: 50,
+      fit: BoxFit.cover,
     );
   }
 }

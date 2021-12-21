@@ -20,9 +20,8 @@ class _LayoutNavigation extends State<LayoutNavigation> {
     return Scaffold(
       body: _listWidget[_bottomNavIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: customRedColor,
-        selectedIconTheme: IconThemeData(color: Colors.white),
-        selectedItemColor: Colors.white,
+        selectedIconTheme: IconThemeData(color: customRedColor),
+        selectedItemColor: customRedColor,
         selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
         currentIndex: _bottomNavIndex,
         items : _bottomNavBarItems,
@@ -39,7 +38,7 @@ class _LayoutNavigation extends State<LayoutNavigation> {
 
   List<BottomNavigationBarItem> _bottomNavBarItems = [
     BottomNavigationBarItem(
-      icon: Icon(Icons.home_outlined),
+      icon: Icon(Icons.home),
       label: HomePage.homeTitle,
     ),
      BottomNavigationBarItem(
@@ -47,7 +46,7 @@ class _LayoutNavigation extends State<LayoutNavigation> {
       label: WebinarkuPage.webinarkuTitle,
     ),
      BottomNavigationBarItem(
-      icon: Icon(Icons.account_box_outlined),
+      icon: Icon(Icons.account_box),
       label: ProfilePage.profileTitle,
     ),
   ];
