@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
-import 'package:webinfo_senter/data/firebase/auth_service.dart';
 import 'package:webinfo_senter/data/model/akun.dart';
+import 'package:webinfo_senter/widget/display_photo.dart';
 
 class AppHeader extends StatelessWidget {
   final Akun akun;
@@ -17,7 +17,7 @@ class AppHeader extends StatelessWidget {
           Row(
             children: [
               ClipOval(
-                child: _displayPhoto(akun.urlFotoProfil!),
+                child: DisplayPhoto(url : akun.urlFotoProfil!, width: 50.0, height: 50.0,),
               ),
               SizedBox(
                 width: 20,
@@ -55,20 +55,3 @@ class AppHeader extends StatelessWidget {
   }
 }
 
-Widget _displayPhoto(String url){
-  if(url == null){
-    return Image.asset(
-      'assets/account.png',
-      width: 50,
-      height: 50,
-      fit: BoxFit.cover,
-    );
-  }else{
-    return Image.network(
-      url,
-      width: 50,
-      height: 50,
-      fit: BoxFit.cover,
-    );
-  }
-}

@@ -13,6 +13,7 @@ import 'package:webinfo_senter/widget/card_webinar_vertical.dart';
 class HomePage extends StatelessWidget {
   static const String homeTitle = 'Home';
   static const routeName = '/home_page';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,20 +25,20 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               FutureBuilder<Akun>(
-                future: FirestoreService.readData(),
-                builder: (context, snapshot){
-                  if(snapshot.hasData){
-                    return AppHeader(snapshot.data!);
-                  }
-                  return Text('Something Wrong');
-                }
-              ),
+                  future: FirestoreService.readData(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return AppHeader(snapshot.data!);
+                    }
+                    return Text('Something Wrong');
+                  }),
               SizedBox(
                 height: 30,
               ),
               TextField(
                 onSubmitted: (String value) {
-                  Navigator.pushNamed(context, SearchScreen.routeName,arguments: value);
+                  Navigator.pushNamed(context, SearchScreen.routeName,
+                      arguments: value);
                 },
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
@@ -51,7 +52,7 @@ class HomePage extends StatelessWidget {
                 'Webinar Terbaru',
                 style: styleRoboto,
               ),
-               SizedBox(
+              SizedBox(
                 height: 10,
               ),
               Expanded(
@@ -67,9 +68,10 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top:10),
-                alignment: Alignment.center,
-                child: OutlinedButton(
+                margin: EdgeInsets.only(top: 10),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton(
                     style: OutlinedButton.styleFrom(
                       side: BorderSide(color: customRedColor),
                     ),
@@ -81,7 +83,9 @@ class HomePage extends StatelessWidget {
                       style: TextStyle(
                         color: customRedColor,
                       ),
-                    )),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),

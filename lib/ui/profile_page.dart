@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
+import 'package:webinfo_senter/data/firebase/firestore_service.dart';
+import 'package:webinfo_senter/data/model/akun.dart';
 import 'package:webinfo_senter/ui/onBoarding2_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:webinfo_senter/widget/display_photo.dart';
 
 class ProfilePage extends StatelessWidget {
   static const String profileTitle = 'Profile';
@@ -30,99 +33,77 @@ class ProfilePage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset('assets/back_icon.png',color: Colors.white,),
                       Text('Akun', style: styleRobotoTitle,),
                       IconButton(
                           onPressed: () {}, icon: Icon(Icons.settings))
                     ],
                   ),
-                  Container(
-                    child: ClipOval(
-                      child: Image.asset(
-                        'assets/ahmad_dahlan.png',
-                        width: 100,
-                        height: 100,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
                   SizedBox(
-                    height: 24,
+                    height: 10.0,
                   ),
-                  Container(
-                    child: Text('Ahmad Dahlan',style: styleMontserratName,),
+                  FutureBuilder<Akun>(
+                    future:FirestoreService.readData(),
+                    builder: (context, snapshot){
+                      if(snapshot.hasData){
+                        var profileAkun = snapshot.data!;
+                        return Column(
+                          children: [
+                            ClipOval(
+                              child: DisplayPhoto(url: profileAkun.urlFotoProfil!,width: 150.0, height: 150.0,),
+                            ),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Container(
+                              child: Text(profileAkun.nama,style: styleMontserratName,),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(profileAkun.email,style: styleMontserratTitle),
+                          ],
+                        );
+                      }else{
+                        return Text('Something Wrong');
+                      }
+                    },
                   ),
                   SizedBox(
                     height: 40,
                   ),
                   Container(
-                    alignment: Alignment.centerLeft,
-                    margin: EdgeInsets.only(left:12,bottom: 9),
-                    child: Text('Email',style: styleMontserratTitle),
-                  ),
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    margin: EdgeInsets.only(left:12,bottom: 9),
-                    child: Text('user@username.com',style: styleMontserratTitle),
-                  ),
-                  SizedBox(
-                    height: 24,
-                  ),
-                  Container(
-                    child: Container(
-                      width: widthButton,
-                      height: heightButton,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(
-                              context,
-                              OnBoarding2.routeName
-                          );
-                        },
-                        child: Column(
-                          children: [
-                            Icon(Icons.email, color: Colors.blue,),
-                            Text("Ubah Profile",style: stylePoppinsBlack),
-                          ],
+                    width: widthButton,
+                    height: heightButton,
+                    child: OutlinedButton(  
+                      onPressed: () {
+                       
+                      },
+                      child: Text("Ubah Profile",style: stylePoppinsBlack),
+                      style: OutlinedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25.0),
                         ),
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25.0),
-                              )
-                          ),
-                          padding: MaterialStateProperty.all(EdgeInsets.only(right: 80,left: 80,top: 8,bottom: 8)),),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 24,
+                    height: 30,
                   ),
                   Container(
-                    child: Container(
-                      width: widthButton,
-                      height: heightButton,
-                      child: OutlinedButton(
-                        onPressed: () {
-                          FirebaseAuth.instance.signOut();
-                        },
-                        child: Column(
-                          children: [
-                            Icon(Icons.email, color: Colors.blue,),
-                            Text("Keluar Ah..",style: stylePoppinsBlack),
-                          ],
+                    width: widthButton,
+                    height: heightButton,
+                    child: OutlinedButton(  
+                      onPressed: () {
+                        FirebaseAuth.instance.signOut();
+                      },
+                      child: Text("Keluar Ah..",style: stylePoppinsBlack),
+                      style: OutlinedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25.0),
                         ),
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25.0),
-                              ),
-                          ),
-                          padding: MaterialStateProperty.all(EdgeInsets.only(right: 80,left: 80,top: 8,bottom: 8)),),
                       ),
                     ),
                   ),
-
                 ],
               ),
             )),

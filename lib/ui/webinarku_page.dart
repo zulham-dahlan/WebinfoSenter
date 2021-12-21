@@ -107,19 +107,21 @@ class _WebinarkuPageState extends State<WebinarkuPage>
               children: [
                 Container(
                   margin: EdgeInsets.only(bottom: 10),
-                  alignment: Alignment.center,
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: customRedColor,
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        backgroundColor: customRedColor,
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, FormPengajuan.routeName);
+                      },
+                      child: Text(
+                        'Ajukan Webinar',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, FormPengajuan.routeName);
-                    },
-                    child: Text(
-                      'Ajukan Webinar',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
+                  )
                 ),
                 Expanded(
                   child: ListView.builder(
