@@ -21,13 +21,13 @@ class _SplashScreen extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: customRedDark,
+      color: Colors.white,
       child: Stack(
         children: [
           Align(
             alignment: Alignment.center,
             child:
-                Image.asset('assets/webinfo_logo.png', width: 96, height: 96),
+                Image.asset('assets/splash_logo.png', width: 250, height:250 ),
           ),
         ],
       ),
