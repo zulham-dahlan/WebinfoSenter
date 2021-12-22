@@ -71,18 +71,16 @@ class _AddImageState extends State<AddImage> {
                     child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Container(
-                        child: const Text(
-                          'uploading...',
-                          style: TextStyle(fontSize: 20),
-                        ),
+                      const Text(
+                        'uploading...',
+                        style: TextStyle(fontSize: 20),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       CircularProgressIndicator(
                         value: val,
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+                        valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
                       )
                     ],
                   ))
@@ -92,15 +90,15 @@ class _AddImageState extends State<AddImage> {
   }
 
   chooseImage() async {
-    File pickedFile = (await picker.pickImage(source: ImageSource.gallery)) as File;
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
     setState(() {
-      _image.add(File(pickedFile.path));
+      _image.add(File(pickedFile!.path));
     });
-    if (pickedFile.path == null) retrieveLostData();
+    if (pickedFile!.path == null) retrieveLostData();
   }
 
   Future<void> retrieveLostData() async {
-    final LostData response = (await picker.retrieveLostData()) as LostData;
+    final LostDataResponse response = await picker.retrieveLostData();
     if (response.isEmpty) {
       return;
     }
