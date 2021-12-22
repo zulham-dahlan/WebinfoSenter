@@ -4,11 +4,8 @@ import 'package:webinfo_senter/data/firebase/firestore_service.dart';
 import 'package:webinfo_senter/data/model/akun.dart';
 import 'package:webinfo_senter/ui/onBoarding2_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-<<<<<<< HEAD
 import 'package:webinfo_senter/widget/display_photo.dart';
-=======
 import 'package:webinfo_senter/ui/setting_page.dart';
->>>>>>> 302632c9bab80555ffa1e2ebc42bc0e15f7860da
 
 class ProfilePage extends StatelessWidget {
   static const String profileTitle = 'Profile';
