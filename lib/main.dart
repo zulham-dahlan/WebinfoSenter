@@ -16,6 +16,8 @@ import 'package:webinfo_senter/ui/register_page.dart';
 import 'package:webinfo_senter/ui/webinarku_page.dart';
 import 'package:webinfo_senter/ui/splash_screen.dart';
 import 'package:webinfo_senter/ui/setting_page.dart';
+import 'package:webinfo_senter/ui/home.dart';
+import 'package:webinfo_senter/ui/add_image.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,6 +51,8 @@ class MyApp extends StatelessWidget {
         AllWebinar.routeName : (context) => AllWebinar(),
         FormPengajuan.routeName : (context) => FormPengajuan(),
         SettingPage.routeName : (context) => SettingPage(),
+        HomePage2.routeName : (context) => HomePage2(),
+        AddImage.routeName : (context) => AddImage()
       },
     );
   }
