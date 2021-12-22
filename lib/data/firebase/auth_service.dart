@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/data/firebase/firestore_service.dart';
 import 'package:webinfo_senter/data/model/akun.dart';
 import 'package:webinfo_senter/ui/layout_navigation.dart';
@@ -29,11 +30,9 @@ class AuthServices{
       Navigator.pushReplacementNamed(context, LayoutNavigation.routeName);
     }on FirebaseAuthException catch (e){
       if(e.code == 'user-not-found'){
-        final snackbar = SnackBar(content: Text('Email tidak ditemukan'));
-        ScaffoldMessenger.of(context).showSnackBar(snackbar);
+        showSnackbar('Email tidak ditemukan', context);
       }else if(e.code == 'wrong-password'){
-        final snackbar = SnackBar(content: Text('Password salah'));
-        ScaffoldMessenger.of(context).showSnackBar(snackbar);
+        showSnackbar('Password salah', context);
       }
     }catch (e){
       print(e);
@@ -44,23 +43,24 @@ class AuthServices{
     try{
       UserCredential userCredential = await _auth.createUserWithEmailAndPassword(email: akun.email, password: password);
       FirestoreService.addAkun(akun, userCredential.user!.uid.toString());
-      final snackbar = SnackBar(content: Text('Registrasi Berhasil'));
-      ScaffoldMessenger.of(context).showSnackBar(snackbar);
+      showSnackbar('Registrasi Berhasil', context);
     }on FirebaseAuthException catch (e){
       if(e.code == 'weak-password'){
-        final snackbar = SnackBar(content: Text('Password terlalu lemah'));
-        ScaffoldMessenger.of(context).showSnackBar(snackbar);
+        showSnackbar('Password terlalu lemah', context);
       }else if(e.code == 'email-already-in-user'){
-        final snackbar = SnackBar(content: Text('Email sudah digunakan'));
-        ScaffoldMessenger.of(context).showSnackBar(snackbar);
+        showSnackbar('Email sudah digunakan', context);
       }
     }catch (e){
       print(e);
     }
   }
 
+  static void showSnackbar(String message, BuildContext context){
+    final snackbar = SnackBar(content: Text(message), backgroundColor: customRedColor,);
+    ScaffoldMessenger.of(context).showSnackBar(snackbar);
+  }
+
   static Future<String> getId() async {
     return await _auth.currentUser!.uid;
   }
-
 }

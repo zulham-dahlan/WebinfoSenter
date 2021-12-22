@@ -49,7 +49,7 @@ class ProfilePage extends StatelessWidget {
                         return Column(
                           children: [
                             ClipOval(
-                              child: DisplayPhoto(url: profileAkun.urlFotoProfil!,width: 150.0, height: 150.0,),
+                              child: DisplayPhoto(url: profileAkun.urlFotoProfil,width: 150.0, height: 150.0,),
                             ),
                             SizedBox(
                               height: 30,

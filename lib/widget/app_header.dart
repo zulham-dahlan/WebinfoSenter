@@ -17,7 +17,7 @@ class AppHeader extends StatelessWidget {
           Row(
             children: [
               ClipOval(
-                child: DisplayPhoto(url : akun.urlFotoProfil!, width: 50.0, height: 50.0,),
+                child: DisplayPhoto(url : akun.urlFotoProfil, width: 50.0, height: 50.0,),
               ),
               SizedBox(
                 width: 20,

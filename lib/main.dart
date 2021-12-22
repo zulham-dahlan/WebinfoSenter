@@ -16,7 +16,7 @@ import 'package:webinfo_senter/ui/register_page.dart';
 import 'package:webinfo_senter/ui/webinarku_page.dart';
 import 'package:webinfo_senter/ui/splash_screen.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
