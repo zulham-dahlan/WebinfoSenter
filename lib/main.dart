@@ -7,9 +7,6 @@ import 'package:webinfo_senter/ui/home_page.dart';
 import 'package:webinfo_senter/ui/introduction_screen.dart';
 import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/login_page.dart';
-import 'package:webinfo_senter/ui/onBoarding2_screen.dart';
-import 'package:webinfo_senter/ui/onBoarding3_screen.dart';
-import 'package:webinfo_senter/ui/onBoarding_screen.dart';
 import 'package:webinfo_senter/ui/pengajuan_screen.dart';
 import 'package:webinfo_senter/ui/profile_page.dart';
 import 'package:webinfo_senter/ui/search_screen.dart';
@@ -39,9 +36,6 @@ class MyApp extends StatelessWidget {
       routes: {
         SplashScreen.routeName: (context) => SplashScreen(),
         IntroductionScreen.routeName: (context) => IntroductionScreen(),
-        OnBoarding.routeName: (context) => OnBoarding(),
-        OnBoarding2.routeName: (context) => OnBoarding2(),
-        OnBoarding3.routeName: (context) => OnBoarding3(),
         LayoutNavigation.routeName: (context) => LayoutNavigation(),
         HomePage.routeName: (context) => HomePage(),
         WebinarkuPage.routeName: (context) => WebinarkuPage(),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/data/firebase/firestore_service.dart';
 import 'package:webinfo_senter/data/model/akun.dart';
-import 'package:webinfo_senter/ui/onBoarding2_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:webinfo_senter/widget/display_photo.dart';
 import 'package:webinfo_senter/ui/setting_page.dart';
