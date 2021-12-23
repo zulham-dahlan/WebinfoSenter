@@ -42,6 +42,7 @@ dependencies:
   firebase_storage: ^10.2.4
   firebase_analytics: ^9.0.4
   firebase: ^9.0.2
+  flutter_swiper_null_safety: ^1.0.2
 
 dev_dependencies:
   flutter_test:

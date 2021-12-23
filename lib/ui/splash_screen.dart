@@ -1,8 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:webinfo_senter/common/style.dart';
-import 'package:webinfo_senter/ui/onBoarding_screen.dart';
+import 'package:webinfo_senter/ui/introduction_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   static const routeName = '/splash_screen';
@@ -15,7 +13,7 @@ class _SplashScreen extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 4),
-        () => Navigator.pushReplacementNamed(context, OnBoarding.routeName));
+        () => Navigator.pushReplacementNamed(context, IntroductionScreen.routeName));
   }
 
   @override

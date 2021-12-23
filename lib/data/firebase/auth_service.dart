@@ -17,9 +17,9 @@ class AuthServices{
   static Future<void> toLoginorHome(BuildContext context) async{
     _auth.authStateChanges().listen((User? user) {
       if(user == null){
-        Navigator.pushNamed(context, LoginPage.routeName);
+        Navigator.pushReplacementNamed(context, LoginPage.routeName);
       }else{
-        Navigator.pushNamed(context, LayoutNavigation.routeName);
+        Navigator.pushReplacementNamed(context, LayoutNavigation.routeName);
       }
     });
   }
