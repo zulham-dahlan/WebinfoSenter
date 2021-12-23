@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'onBoarding2_screen.dart';
+import 'package:webinfo_senter/ui/home.dart';
+import 'home.dart';
 
 
 class SettingPage extends StatelessWidget {
@@ -24,7 +25,7 @@ class SettingPage extends StatelessWidget {
                   onPressed: (){
                     Navigator.pushNamed(
                         context,
-                        OnBoarding2.routeName
+                        HomePage2.routeName
                     );
                   },
                   child: const Text('Ubah PassWord!!'),
