@@ -11,6 +11,8 @@ class Webinar{
   String sosmed ;
   String benefit ;
   String urlPoster ;
+  String kategori ;
+
 
   Webinar({
     required this.judul,
@@ -25,6 +27,7 @@ class Webinar{
     required this.sosmed,
     required this.benefit,
     required this.urlPoster,
+    required this.kategori,
   });
 }
 
@@ -41,7 +44,8 @@ var listWebinar = [
     contactPerson: '082328074724',
     sosmed: '@bai_udinus',
     benefit: '- E-Sertifikat\n- Notulensi\n- Menambah relasi teman dan ilmu\n- Pahala menuntut ilmu',
-    urlPoster: 'assets/semusim.jpeg'
+    urlPoster: 'assets/semusim.jpeg',
+    kategori: 'Pengembangan Diri'
   ),
   Webinar(
     judul: 'Seminar Kemuslimahan Udinus 2022',
@@ -55,7 +59,8 @@ var listWebinar = [
     contactPerson: '082328074724',
     sosmed: '@bai_udinus',
     benefit: '- E-Sertifikat\n- Notulensi\n- Menambah relasi teman dan ilmu\n- Pahala menuntut ilmu',
-    urlPoster: 'assets/semusim.jpeg'
+    urlPoster: 'assets/semusim.jpeg',
+    kategori: 'Pengembangan Diri',
   ),
   Webinar(
     judul: 'Seminar Kemuslimahan Udinus 2023',
@@ -69,7 +74,8 @@ var listWebinar = [
     contactPerson: '082328074724',
     sosmed: '@bai_udinus',
     benefit: '- E-Sertifikat\n- Notulensi\n- Menambah relasi teman dan ilmu\n- Pahala menuntut ilmu',
-    urlPoster: 'assets/semusim.jpeg'
+    urlPoster: 'assets/semusim.jpeg',
+    kategori: 'Pengembangan Diri'
   ),
   Webinar(
     judul: 'Seminar Kemuslimahan Udinus 2024',
@@ -83,7 +89,8 @@ var listWebinar = [
     contactPerson: '082328074724',
     sosmed: '@bai_udinus',
     benefit: '- E-Sertifikat\n- Notulensi\n- Menambah relasi teman dan ilmu\n- Pahala menuntut ilmu',
-    urlPoster: 'assets/semusim.jpeg'
+    urlPoster: 'assets/semusim.jpeg',
+    kategori: 'Pengembangan Diri'
   ),
   Webinar(
     judul: 'Seminar Kemuslimahan Udinus 2025',
@@ -97,6 +104,7 @@ var listWebinar = [
     contactPerson: '082328074724',
     sosmed: '@bai_udinus',
     benefit: '- E-Sertifikat\n- Notulensi\n- Menambah relasi teman dan ilmu\n- Pahala menuntut ilmu',
-    urlPoster: 'assets/semusim.jpeg'
+    urlPoster: 'assets/semusim.jpeg',
+    kategori: 'Pengembangan Diri'
   ),
 ];

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
+import 'package:webinfo_senter/data/firebase/firestore_service.dart';
 import 'package:webinfo_senter/data/model/webinar.dart';
 import 'package:webinfo_senter/widget/card_webinar_vertical.dart';
 
@@ -24,9 +25,11 @@ class _AllWebinarState extends State<AllWebinar> {
             children: [
               Row(
                 children: [
-                  IconButton(onPressed: (){
+                  IconButton(
+                    onPressed: () {
                       Navigator.pop(context);
-                    }, icon: Image.asset('assets/back_icon.png'),
+                    },
+                    icon: Image.asset('assets/back_icon.png'),
                   ),
                   SizedBox(
                     width: 10.0,
@@ -52,30 +55,84 @@ class _AllWebinarState extends State<AllWebinar> {
                   height: 2,
                   color: customRedColor,
                 ),
-                onChanged: (String? newValue){
-                  setState((){
+                onChanged: (String? newValue) {
+                  setState(() {
                     dropDownValue = newValue!;
                   });
                 },
-                items: <String>['Semua','Pengembangan Diri', 'Religi', 'Teknologi'].map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem(value: value, child: Text(value),);
+                items: <String>[
+                  'Semua',
+                  'Pengembangan Diri',
+                  'Religi',
+                  'Teknologi dan Informasi',
+                  'Ekonomi'
+                ].map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem(
+                    value: value,
+                    child: Text(value),
+                  );
                 }).toList(),
               ),
-               SizedBox(
+              SizedBox(
                 height: 10.0,
               ),
-              Expanded(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: listWebinar.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    Webinar webinar = listWebinar[index];
-                    return Card(
-                      child: CardWebinarVertical(webinar: webinar),
-                    );
-                  },
+              if (dropDownValue == 'Semua')
+                Expanded(
+                  child: FutureBuilder<List<Webinar>>(
+                      future: FirestoreService.getDataWebinar(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          final List<Webinar> allWebinar = snapshot.data!;
+                          return ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: allWebinar.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              Webinar webinar = allWebinar[index];
+                              return Card(
+                                child: CardWebinarVertical(webinar: webinar),
+                              );
+                            },
+                          );
+                        } else {
+                          return Text('Something Wrong');
+                        }
+                      }),
+                )
+              else
+                Expanded(
+                  child: FutureBuilder<List<Webinar>>(
+                      future:
+                          FirestoreService.getKategoriWebinar(dropDownValue),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          final List<Webinar> allWebinar = snapshot.data!;
+                          return ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: allWebinar.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              Webinar webinar = allWebinar[index];
+                              return Card(
+                                child: CardWebinarVertical(webinar: webinar),
+                              );
+                            },
+                          );
+                        } else {
+                          return Text('Something Wrong');
+                        }
+                      }),
                 ),
-              ),
+              // Expanded(
+              //   child: ListView.builder(
+              //     shrinkWrap: true,
+              //     itemCount: listWebinar.length,
+              //     itemBuilder: (BuildContext context, int index) {
+              //       Webinar webinar = listWebinar[index];
+              //       return Card(
+              //         child: CardWebinarVertical(webinar: webinar),
+              //       );
+              //     },
+              //   ),
+              // ),
             ],
           ),
         ),

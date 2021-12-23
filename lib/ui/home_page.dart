@@ -56,15 +56,25 @@ class HomePage extends StatelessWidget {
                 height: 10,
               ),
               Expanded(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: 5,
-                  itemBuilder: (BuildContext context, int index) {
-                    Webinar webinar = listWebinar[index];
-                    return Card(
-                      child: CardWebinarVertical(webinar: webinar),
-                    );
-                  },
+                child: FutureBuilder<List<Webinar>>(
+                  future: FirestoreService.getDataWebinar(),
+                  builder: (context, snapshot){
+                    if(snapshot.hasData){
+                      final List<Webinar> allWebinar = snapshot.data!;
+                      return ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: 5,
+                        itemBuilder: (BuildContext context, int index) {
+                          Webinar webinar = allWebinar[index];
+                          return Card(
+                            child: CardWebinarVertical(webinar: webinar),
+                          );
+                        },
+                      );
+                    }else{
+                      return Text('Something Wrong');
+                    }
+                  }
                 ),
               ),
               Container(

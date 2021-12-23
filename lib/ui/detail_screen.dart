@@ -37,7 +37,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   alignment: Alignment.center,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(5.0),
-                    child: Image.asset(
+                    child: Image.network(
                       webinar.urlPoster,
                       height: 380,
                       fit: BoxFit.cover,
@@ -53,7 +53,11 @@ class _DetailScreenState extends State<DetailScreen> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(webinar.judul),
+                        Text(webinar.judul,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            )),
                         Text('Oleh : ${webinar.penyelenggara}')
                       ],
                     ),
@@ -84,7 +88,10 @@ class _DetailScreenState extends State<DetailScreen> {
                         color: customRedColor,
                         borderRadius: BorderRadius.circular(2),
                       ),
-                      child: Icon(Icons.calendar_today, color: Colors.white,),
+                      child: Icon(
+                        Icons.calendar_today,
+                        color: Colors.white,
+                      ),
                     ),
                     SizedBox(
                       width: 5.0,
@@ -105,7 +112,10 @@ class _DetailScreenState extends State<DetailScreen> {
                         color: customRedColor,
                         borderRadius: BorderRadius.circular(2),
                       ),
-                      child: Text('Rp', style: TextStyle(color: Colors.white),),
+                      child: Text(
+                        'Rp',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                     SizedBox(
                       width: 5.0,
@@ -136,17 +146,28 @@ class _DetailScreenState extends State<DetailScreen> {
                 SizedBox(
                   height: 10.0,
                 ),
-                Text('Deskripsi'),
+                Text('Deskripsi',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                SizedBox(
+                  height: 5.0,
+                ),
                 Text(webinar.deskripsi),
                 SizedBox(
                   height: 10.0,
                 ),
-                Text('Benefit'),
+                Text('Benefit', style: TextStyle(fontWeight: FontWeight.bold)),
+                SizedBox(
+                  height: 5.0,
+                ),
                 Text(webinar.benefit),
                 SizedBox(
                   height: 10.0,
                 ),
-                Text('Contact Person'),
+                Text('Contact Person',
+                    style: TextStyle(fontWeight: FontWeight.bold)),
+                SizedBox(
+                  height: 5.0,
+                ),
                 Row(
                   children: [
                     Icon(Icons.chat_outlined),
@@ -165,25 +186,32 @@ class _DetailScreenState extends State<DetailScreen> {
                     Text(webinar.sosmed),
                   ],
                 ),
-                 SizedBox(
+                SizedBox(
                   height: 10.0,
                 ),
                 Container(
                   alignment: Alignment.center,
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: customRedColor,
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        backgroundColor: customRedColor,
+                      ),
+                      onPressed: () async {
+                        String url = webinar.linkPendaftaran;
+                        var urllaunchable = await canLaunch(url);
+                        if (urllaunchable) {
+                          await launch(url);
+                        } else {
+                          print('URL Tidak bisa dibuka');
+                        }
+                      },
+                      child: Text(
+                        'Buka Link Pendaftaran',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
-                    onPressed: () async{
-                      String url = webinar.linkPendaftaran;
-                      var urllaunchable = await canLaunch(url);
-                      if(urllaunchable){
-                        await launch(url);
-                      }else{
-                        print('URL Tidak bisa dibuka');
-                      }
-                    },
-                    child: Text('Buka Link Pendaftaran',style: TextStyle(color: Colors.white),),
                   ),
                 ),
               ],

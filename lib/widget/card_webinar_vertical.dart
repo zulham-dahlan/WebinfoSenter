@@ -20,7 +20,7 @@ class CardWebinarVertical extends StatelessWidget {
           children: [
             ClipRRect(
                 borderRadius: BorderRadius.circular(5.0),
-                child: Image.asset(
+                child: Image.network(
                   webinar.urlPoster,
                   fit: BoxFit.cover,
                   width: 65,
