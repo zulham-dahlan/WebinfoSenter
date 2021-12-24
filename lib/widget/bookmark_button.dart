@@ -9,12 +9,10 @@ class BookmarkButton extends StatelessWidget {
   BookmarkButton({required this.webinar});
 
   final Webinar webinar;
-
-
+  
   @override
   Widget build(BuildContext context) {
     return Consumer<BookmarkProvider>(
-      
       builder: (context, BookmarkProvider data, widget) {
         data.getBookmarkByJudul(webinar.judul);
         return Container(

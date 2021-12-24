@@ -7,9 +7,9 @@ enum ResultState {Loading, NoData, HasData, Error}
 
 class BookmarkProvider extends ChangeNotifier{
 
-  // BookmarkProvider(){
-  //   _fetchDataBookmark();
-  // }
+  BookmarkProvider(){
+    _fetchDataBookmark();
+  }
 
   List<Webinar> _bookmarkWebinar = [];
   IconData _icon = Icons.bookmark_border;
@@ -25,7 +25,7 @@ class BookmarkProvider extends ChangeNotifier{
     _bookmarkWebinar.add(webinar);
     _icon = Icons.bookmarks ;
     // getBookmarkByJudul(webinar.judul);
-    // FirestoreService.addBookmark(bookmarkWebinar);
+    FirestoreService.addBookmark(bookmarkWebinar);
     notifyListeners();
   }
 
@@ -60,22 +60,23 @@ class BookmarkProvider extends ChangeNotifier{
     }
   }
 
-  // void _fetchDataBookmark() async {
-  //   _state = ResultState.Loading;
-  //   try{
-  //     final result = await FirestoreService.getBookmarkWebinar();
-  //     if(result.isNotEmpty){
-  //       _bookmarkWebinar = result ;
-  //       _state = ResultState.HasData;
-  //       notifyListeners();
-  //     }else{
-  //       _bookmarkWebinar.clear();
-  //       _state = ResultState.NoData;
-  //       notifyListeners();
-  //     }
-  //   }catch(e){
-  //     _state = ResultState.Error;
-  //     notifyListeners();
-  //   }
-  // }
+  void _fetchDataBookmark() async {
+    _state = ResultState.Loading;
+    try{
+      final result = await FirestoreService.getBookmarkWebinar();
+      if(result.isNotEmpty){
+        _bookmarkWebinar = result ;
+        _state = ResultState.HasData;
+        notifyListeners();
+      }else{
+        _bookmarkWebinar.clear();
+        _state = ResultState.NoData;
+        notifyListeners();
+      }
+    }catch(e){
+      _state = ResultState.Error;
+      notifyListeners();
+    }
+  }
+
 }

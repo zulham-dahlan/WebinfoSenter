@@ -116,4 +116,68 @@ class FirestoreService {
     });
     return dataWebinar;
   }
+
+  static Future<void> addBookmark(List<Webinar> listBookmark) async {
+    String documentId = await AuthServices.getId();
+    var listMapBookmark = await convertToMap(listBookmark);
+    await akunCollection
+        .doc(documentId)
+        .update({'bookmark': FieldValue.arrayUnion(listMapBookmark)})
+        .then((value) => print('Berhasil'))
+        .catchError((error) => print('Gagal'));
+  }
+
+  // static Future<void> deleteBookmark(int index) async {
+  //   String documentId = await AuthServices.getId();
+  //   await akunCollection.doc(documentId).update()
+  // }
+
+  static Future<List<Webinar>> getBookmarkWebinar() async {
+    Akun akun = await readData();
+    var data = akun.bookmark as List<Map<String, dynamic>>;
+    List<Webinar> listWebinar = [];
+    if (data != null) {
+      for (int x = 0; x < data.length; x++) {
+        listWebinar.add(Webinar(
+          judul: data[x]['judul'],
+          penyelenggara: data[x]['penyelenggara'],
+          deskripsi: data[x]['deskripsi'],
+          tglAcara: data[x]['tgl_acara'],
+          waktuAcara: data[x]['waktu_acara'],
+          lokasiAcara: data[x]['lokasi_acara'],
+          harga: data[x]['harga'],
+          linkPendaftaran: data[x]['link_pendaftaran'],
+          contactPerson: data[x]['contact_person'],
+          sosmed: data[x]['sosmed'],
+          benefit: data[x]['benefit'],
+          urlPoster: data[x]['url_poster'],
+          kategori: data[x][x],
+        ));
+      }
+    }
+    return listWebinar;
+  }
+
+  static Future<List<Map<String, dynamic>>> convertToMap(
+      List<Webinar> listWebinar) async {
+    List<Map<String, dynamic>> listMap = [];
+    for (int x = 0; x < listWebinar.length; x++) {
+      listMap.add({
+        'judul': listWebinar[x].judul,
+        'penyelenggara': listWebinar[x].penyelenggara,
+        'deskripsi': listWebinar[x].deskripsi,
+        'tgl_acara': listWebinar[x].tglAcara,
+        'waktu_acara': listWebinar[x].waktuAcara,
+        'lokasi_acara': listWebinar[x].lokasiAcara,
+        'harga': listWebinar[x].harga,
+        'link_pendaftaran': listWebinar[x].linkPendaftaran,
+        'contact_person': listWebinar[x].contactPerson,
+        'sosmed': listWebinar[x].sosmed,
+        'benefit': listWebinar[x].benefit,
+        'url_poster': listWebinar[x].urlPoster,
+        'kategori': listWebinar[x].kategori,
+      });
+    }
+    return listMap;
+  }
 }
