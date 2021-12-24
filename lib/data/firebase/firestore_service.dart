@@ -11,27 +11,17 @@ class FirestoreService {
 
   static Future<void> addAkun(Akun akun, String documentId) async {
     await akunCollection.doc(documentId).set({
-<<<<<<< HEAD
       'nama': akun.nama,
       'email': akun.email,
       'url_foto_profil': akun.urlFotoProfil,
       'bookmark': akun.bookmark,
       'publish': akun.publish
-=======
-      'nama' : akun.nama,
-      'email' : akun.email,
-      'url_foto_profil' : akun.urlFotoProfil,
-      'bookmark' : akun.bookmark,
-      'publish' : akun.publish,
-      'url' : akun.url,
->>>>>>> c8d16ffac2d5e252935d46dec253397e1673fbdc
     });
   }
 
   static Future<Akun> readData() async {
     String documentId = await AuthServices.getId();
     DocumentSnapshot snapshot = await akunCollection.doc(documentId).get();
-<<<<<<< HEAD
     Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
     Akun akun = Akun(
         nama: data['nama'],
@@ -41,19 +31,7 @@ class FirestoreService {
         publish: []);
     return akun;
   }
-  // static Future<Akun> readDataBookmark() async {
-  //   String documentId = await AuthServices.getId();
-  //   DocumentSnapshot snapshot = await akunCollection.doc(documentId).get();
-  //   Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
-  //   Akun akun = Akun(
-  //       nama: data['nama'],
-  //       email: data['email'],
-  //       urlFotoProfil: data['url_foto_profil'],
-  //       bookmark: data['bookmark'] as List<Webinar>,
-  //       publish: data['publish']);
-  //   return akun;
-  // }
-
+  
   static Future<List<Webinar>> getDataWebinar() async {
     final List<Webinar> dataWebinar = [];
     await webinarCollection.get().then((snapshot) {
@@ -137,11 +115,6 @@ class FirestoreService {
       });
     });
     return dataWebinar;
-=======
-    Map<String,dynamic> data = snapshot.data() as Map<String, dynamic>;
-    Akun akun = Akun(nama: data['nama'], email: data['email'], urlFotoProfil: data['url_foto_profil'], bookmark: data['bookmark'], publish: data['publish'],url: data['url']);
-    return akun ;
->>>>>>> c8d16ffac2d5e252935d46dec253397e1673fbdc
   }
 
   static Future<void> addBookmark(List<Webinar> listBookmark) async {
