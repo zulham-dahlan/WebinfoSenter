@@ -13,25 +13,11 @@ final TextStyle styleRoboto = TextStyle(
   fontFamily: 'Roboto',
 );
 
-final TextStyle styleRobotoTitle = TextStyle(
-  fontSize: 24,
-  fontWeight: FontWeight.bold,
-  color: Colors.black,
-  fontFamily: 'Roboto',
-);
-
 final TextStyle styleMontserrat = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.normal,
     color: Colors.black,
     fontFamily: 'Montserrat',
-);
-
-final TextStyle styleMontserratName = TextStyle(
-  fontSize: 14,
-  fontWeight: FontWeight.bold,
-  color: Colors.black,
-  fontFamily: 'Montserrat',
 );
 
 final TextStyle styleMontserratTitle = TextStyle(
@@ -41,20 +27,19 @@ final TextStyle styleMontserratTitle = TextStyle(
   fontFamily: 'Montserrat',
 );
 
-final TextStyle stylePoppinsWhite = TextStyle(
-  fontSize: 12,
-    fontWeight: FontWeight.normal,
-    color: Colors.white,
-    fontFamily: 'Poppins',
-);
-
-final TextStyle stylePoppinsBlack = TextStyle(
+final TextStyle stylePoppins = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.normal,
   color: Colors.black,
   fontFamily: 'Poppins',
 );
 
+final TextStyle stylePoppinsWhite = TextStyle(
+  fontSize: 12,
+  fontWeight: FontWeight.normal,
+  color: Colors.white,
+  fontFamily: 'Poppins',
+);
 
 final TextStyle stylePoppinsGrey = TextStyle(
   fontSize: 12,
@@ -63,9 +48,3 @@ final TextStyle stylePoppinsGrey = TextStyle(
   fontFamily: 'Poppins',
 );
 
-final TextStyle styleRobotoBlue = TextStyle(
-  fontSize: 12,
-  fontWeight: FontWeight.bold,
-  color: customBlueDark,
-  fontFamily: 'Roboto',
-);

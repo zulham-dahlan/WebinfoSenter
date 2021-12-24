@@ -5,7 +5,8 @@ class Akun{
   String email ;
   String? urlFotoProfil ;
   List<Webinar>? bookmark ;
-  List<Webinar>? publish ; 
+  List<Webinar>? publish ;
+  String? url ;
 
   Akun({
     required this.nama,
@@ -13,5 +14,6 @@ class Akun{
     required this.urlFotoProfil,
     required this.bookmark,
     required this.publish,
+    required this.url,
   });
 }

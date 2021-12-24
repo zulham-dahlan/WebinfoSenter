@@ -38,7 +38,7 @@ class _RegisterPage extends State<RegisterPage> {
                 Container(
                   alignment: Alignment.centerLeft,
                   margin: EdgeInsets.only(left:12,bottom: 9),
-                  child: Text('Nama',style: stylePoppinsGrey),
+                  child: Text('Nama',style: stylePoppins.copyWith(fontWeight: FontWeight.bold, color: customGreyLight,)),
                 ),
                 Container(
                   margin: EdgeInsets.only(left: 12,right: 12,bottom: 21),
@@ -46,14 +46,14 @@ class _RegisterPage extends State<RegisterPage> {
                     controller: _fullnameController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: 'Nama Lengkap',labelStyle: stylePoppinsGrey,
+                      hintText: 'Nama Lengkap',labelStyle: stylePoppins.copyWith(fontWeight: FontWeight.bold, color: customGreyLight,),
                     ),
                   ),
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
                   margin: EdgeInsets.only(left:12,bottom: 9),
-                  child: Text('Email',style: stylePoppinsGrey),
+                  child: Text('Email',style: stylePoppins.copyWith(fontWeight: FontWeight.bold, color: customGreyLight,)),
                 ),
                 Container(
                   margin: EdgeInsets.only(left: 12,right: 12,bottom: 21),
@@ -61,14 +61,14 @@ class _RegisterPage extends State<RegisterPage> {
                     controller: _emailController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: 'username@gmail.com',labelStyle: stylePoppinsGrey,
+                      hintText: 'username@gmail.com',labelStyle: stylePoppins.copyWith(fontWeight: FontWeight.bold, color: customGreyLight,),
                     ),
                   ),
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
                   margin: EdgeInsets.only(left:12,bottom: 10),
-                  child: Text('Password',style: stylePoppinsGrey),
+                  child: Text('Password',style: stylePoppins.copyWith(fontWeight: FontWeight.bold, color: customGreyLight,)),
                 ),
                 Container(
                   margin: EdgeInsets.only(left: 12,right: 12,bottom: 18),
@@ -76,7 +76,7 @@ class _RegisterPage extends State<RegisterPage> {
                     controller: _passwordController,
                     obscureText: _isObscure,
                     decoration: InputDecoration(
-                        hintText: 'Password',labelStyle: stylePoppinsGrey,
+                        hintText: 'Password',labelStyle: stylePoppins.copyWith(fontWeight: FontWeight.bold, color: customGreyLight,),
                         border: OutlineInputBorder(),
                         suffixIcon: IconButton(
                             icon: Icon(
@@ -95,7 +95,7 @@ class _RegisterPage extends State<RegisterPage> {
                     onPressed: () {
                       Navigator.pushReplacementNamed(context, LayoutNavigation.routeName);
                     },
-                    child: Text('Lupa Password Nih?',style: styleRobotoBlue),
+                    child: Text('Lupa Password Nih?',style: styleRoboto.copyWith(fontSize: 12, color: customBlueDark,)),
                   ),
                 ),
                 Container(
@@ -105,10 +105,10 @@ class _RegisterPage extends State<RegisterPage> {
                       String email = _emailController.text;
                       String password =  _passwordController.text;
                       String namalengkap = _fullnameController.text;
-                      Akun daftarAkun = Akun(nama: namalengkap,email: email, urlFotoProfil: null, bookmark: null,publish: null);
+                      Akun daftarAkun = Akun(nama: namalengkap,email: email, urlFotoProfil: null, bookmark: null,publish: null, url: '');
                       AuthServices.register(daftarAkun,password, context);
                     },
-                    child: Text("Gas Gabung",style: stylePoppinsWhite,),
+                    child: Text("Gas Gabung",style: stylePoppins.copyWith(color: Colors.white,),),
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
@@ -126,7 +126,7 @@ class _RegisterPage extends State<RegisterPage> {
                     onPressed: () {
                       Navigator.pushNamed(context, LoginPage.routeName);
                     },
-                    child: Text("Udah Gabung Sii...",style: stylePoppinsBlack,),
+                    child: Text("Udah Gabung Sii...",style: stylePoppins,),
                     style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(

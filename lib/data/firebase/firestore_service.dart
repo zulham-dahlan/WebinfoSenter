@@ -13,7 +13,8 @@ class FirestoreService{
       'email' : akun.email,
       'url_foto_profil' : akun.urlFotoProfil,
       'bookmark' : akun.bookmark,
-      'publish' : akun.publish
+      'publish' : akun.publish,
+      'url' : akun.url,
     });
   }
 
@@ -21,7 +22,7 @@ class FirestoreService{
     String documentId = await AuthServices.getId();
     DocumentSnapshot snapshot = await akunCollection.doc(documentId).get();
     Map<String,dynamic> data = snapshot.data() as Map<String, dynamic>;
-    Akun akun = Akun(nama: data['nama'], email: data['email'], urlFotoProfil: data['url_foto_profil'], bookmark: data['bookmark'], publish: data['publish']);
+    Akun akun = Akun(nama: data['nama'], email: data['email'], urlFotoProfil: data['url_foto_profil'], bookmark: data['bookmark'], publish: data['publish'],url: data['url']);
     return akun ;
   }
 

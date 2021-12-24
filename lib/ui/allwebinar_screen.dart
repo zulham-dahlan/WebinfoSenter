@@ -33,7 +33,7 @@ class _AllWebinarState extends State<AllWebinar> {
                   ),
                   Text(
                     'Semua Webinar',
-                    style: styleRobotoTitle,
+                    style: styleRoboto.copyWith(fontSize: 24,),
                   )
                 ],
               ),

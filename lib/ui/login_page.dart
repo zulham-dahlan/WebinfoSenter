@@ -47,7 +47,7 @@ class _LoginPage extends State<LoginPage> {
                 Container(
                   alignment: Alignment.centerLeft,
                   margin: EdgeInsets.only(left:12,bottom: 9),
-                  child: Text('Email',style: stylePoppinsGrey),
+                  child: Text('Email',style: stylePoppins.copyWith(fontWeight: FontWeight.bold, color: customGreyLight,)),
                 ),
                 Container(
                   margin: EdgeInsets.only(left: 12,right: 12,bottom: 21),
@@ -55,14 +55,14 @@ class _LoginPage extends State<LoginPage> {
                     controller: _emailController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: 'username@gmail.com',labelStyle: stylePoppinsGrey,
+                      hintText: 'username@gmail.com',labelStyle: stylePoppins.copyWith(fontWeight: FontWeight.bold, color: customGreyLight,),
                     ),
                   ),
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
                   margin: EdgeInsets.only(left:12,bottom: 10),
-                  child: Text('Password',style: stylePoppinsGrey),
+                  child: Text('Password',style: stylePoppins.copyWith(fontWeight: FontWeight.bold, color: customGreyLight,)),
                 ),
                 Container(
                   margin: EdgeInsets.only(left: 12,right: 12,bottom: 18),
@@ -70,7 +70,7 @@ class _LoginPage extends State<LoginPage> {
                     controller: _passwordController,
                     obscureText: _isObscure,
                     decoration: InputDecoration(
-                        hintText: 'Password',labelStyle: stylePoppinsGrey,
+                        hintText: 'Password',labelStyle: stylePoppins.copyWith(fontWeight: FontWeight.bold, color: customGreyLight,),
                         border: OutlineInputBorder(),
                         suffixIcon: IconButton(
                             icon: Icon(
@@ -89,7 +89,7 @@ class _LoginPage extends State<LoginPage> {
                     onPressed: () {
                       Navigator.pushReplacementNamed(context, LayoutNavigation.routeName);
                     },
-                    child: Text('Lupa Password Nih?',style: styleRobotoBlue),
+                    child: Text('Lupa Password Nih?',style: styleRoboto.copyWith(fontSize: 12, color: customBlueDark,)),
                   ),
                 ),
                 Container(
@@ -101,7 +101,7 @@ class _LoginPage extends State<LoginPage> {
                       onPressed: () {
                         AuthServices.lognIn(_emailController.text, _passwordController.text, context);
                       },
-                      child: Text("Masuk",style: stylePoppinsWhite,),
+                      child: Text("Masuk",style: stylePoppins.copyWith(color: Colors.white,),),
                       style: ButtonStyle(
                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
@@ -117,7 +117,7 @@ class _LoginPage extends State<LoginPage> {
                 Container(
                   alignment: Alignment.center,
                   margin: EdgeInsets.only(left:12,bottom: 9),
-                  child: Text('Atau',style: stylePoppinsGrey),
+                  child: Text('Atau',style: stylePoppins.copyWith(fontWeight: FontWeight.bold, color: customGreyLight,)),
                 ),
                 Container(
                   margin: EdgeInsets.only(right: 12, left: 12, bottom: 9),
@@ -128,7 +128,7 @@ class _LoginPage extends State<LoginPage> {
                       onPressed: () {
                         Navigator.pushNamed(context, RegisterPage.routeName);
                       },
-                      child: Text("Kuy Gabung",style: stylePoppinsBlack,),
+                      child: Text("Kuy Gabung",style: stylePoppins),
                       style: ButtonStyle(
                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
