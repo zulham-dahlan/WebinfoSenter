@@ -3,6 +3,7 @@ import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/data/firebase/firestore_service.dart';
 import 'package:webinfo_senter/data/model/akun.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:webinfo_senter/ui/pengajuan_screen.dart';
 import 'package:webinfo_senter/widget/display_photo.dart';
 import 'package:webinfo_senter/ui/setting_page.dart';
 
@@ -91,6 +92,25 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Container(
+                    width: widthButton,
+                    height: heightButton,
+                    child: OutlinedButton(  
+                      onPressed: () {
+                        Navigator.pushNamed(context, FormPengajuan.routeName);
+                      },
+                      child: Text("Ajukan Webinar",style: stylePoppinsBlack),
+                      style: OutlinedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                  
                   SizedBox(
                     height: 30,
                   ),

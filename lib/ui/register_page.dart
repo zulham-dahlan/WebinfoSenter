@@ -105,7 +105,7 @@ class _RegisterPage extends State<RegisterPage> {
                       String email = _emailController.text;
                       String password =  _passwordController.text;
                       String namalengkap = _fullnameController.text;
-                      Akun daftarAkun = Akun(nama: namalengkap,email: email, urlFotoProfil: null, bookmark: null,publish: null);
+                      Akun daftarAkun = Akun(nama: namalengkap,email: email, urlFotoProfil: "", bookmark: [],publish: []);
                       AuthServices.register(daftarAkun,password, context);
                     },
                     child: Text("Gas Gabung",style: stylePoppinsWhite,),

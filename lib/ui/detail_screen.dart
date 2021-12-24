@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/data/model/webinar.dart';
+import 'package:webinfo_senter/provider/akun_provider.dart';
+import 'package:webinfo_senter/widget/bookmark_button.dart';
 
 class DetailScreen extends StatefulWidget {
   static const routeName = '/detail_screen';
@@ -61,19 +64,40 @@ class _DetailScreenState extends State<DetailScreen> {
                         Text('Oleh : ${webinar.penyelenggara}')
                       ],
                     ),
-                    Container(
-                      width: 50,
-                      height: 35,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: customRedColor,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(2),
-                      ),
-                      child: IconButton(
-                          onPressed: () {}, icon: Icon(Icons.bookmark_border)),
-                    ),
+                    // Consumer<BookmarkProvider>(
+                    //   builder: (context, BookmarkProvider data, widget) {
+                    //     return Container(
+                    //       width: 50,
+                    //       height: 35,
+                    //       decoration: BoxDecoration(
+                    //         border: Border.all(
+                    //           color: customRedColor,
+                    //           width: 1,
+                    //         ),
+                    //         borderRadius: BorderRadius.circular(2),
+                    //       ),
+                    //       child: IconButton(
+                    //           onPressed: () {
+                    //             data.addBookmark(webinar);
+                    //           },
+                    //           icon: Icon(Icons.bookmark_border)),
+                    //     );
+                    //   },
+                    // ),
+                    BookmarkButton(webinar: webinar),
+                    // Container(
+                    //   width: 50,
+                    //   height: 35,
+                    //   decoration: BoxDecoration(
+                    //     border: Border.all(
+                    //       color: customRedColor,
+                    //       width: 1,
+                    //     ),
+                    //     borderRadius: BorderRadius.circular(2),
+                    //   ),
+                    //   child: IconButton(
+                    //       onPressed: () {}, icon: Icon(Icons.bookmark_border)),
+                    // ),
                   ],
                 ),
                 SizedBox(
