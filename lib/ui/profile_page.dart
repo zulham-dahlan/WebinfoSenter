@@ -6,7 +6,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:webinfo_senter/ui/pengajuan_screen.dart';
 import 'package:webinfo_senter/ui/login_page.dart';
 import 'package:webinfo_senter/widget/display_photo.dart';
-import 'package:webinfo_senter/ui/setting_page.dart';
 
 class ProfilePage extends StatelessWidget {
   static const String profileTitle = 'Profile';
@@ -32,19 +31,7 @@ class ProfilePage extends StatelessWidget {
               margin: const EdgeInsets.all(20),
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Akun', style: styleRoboto.copyWith(fontSize: 18,),),
-                      IconButton(
-                          onPressed: () {
-                            Navigator.pushNamed(
-                                context,
-                                SettingPage.routeName
-                            );
-                          }, icon: Icon(Icons.settings))
-                    ],
-                  ),
+                  Text('Akun', style: styleRoboto.copyWith(fontSize: 18,),),
                   SizedBox(
                     height: 10.0,
                   ),

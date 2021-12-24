@@ -31,6 +31,24 @@ class FirestoreService {
         publish: []);
     return akun;
   }
+
+  static Future<void> addWebinar(Webinar webinar) async{
+    await webinarCollection.doc().set({
+        'judul': webinar.judul,
+        'penyelenggara': webinar.penyelenggara,
+        'deskripsi': webinar.deskripsi,
+        'tgl_acara': webinar.tglAcara,
+        'waktu_acara': webinar.waktuAcara,
+        'lokasi_acara': webinar.lokasiAcara,
+        'harga': webinar.harga,
+        'link_pendaftaran': webinar.linkPendaftaran,
+        'contact_person': webinar.contactPerson,
+        'sosmed': webinar.sosmed,
+        'benefit': webinar.benefit,
+        'url_poster': webinar.urlPoster,
+        'kategori': webinar.kategori,
+    });
+  }
   
   static Future<List<Webinar>> getDataWebinar() async {
     final List<Webinar> dataWebinar = [];
