@@ -27,10 +27,22 @@ class FirestoreService {
         nama: data['nama'],
         email: data['email'],
         urlFotoProfil: data['url_foto_profil'],
-        bookmark: data['bookmark'],
-        publish: data['publish']);
+        bookmark: [],
+        publish: []);
     return akun;
   }
+  // static Future<Akun> readDataBookmark() async {
+  //   String documentId = await AuthServices.getId();
+  //   DocumentSnapshot snapshot = await akunCollection.doc(documentId).get();
+  //   Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
+  //   Akun akun = Akun(
+  //       nama: data['nama'],
+  //       email: data['email'],
+  //       urlFotoProfil: data['url_foto_profil'],
+  //       bookmark: data['bookmark'] as List<Webinar>,
+  //       publish: data['publish']);
+  //   return akun;
+  // }
 
   static Future<List<Webinar>> getDataWebinar() async {
     final List<Webinar> dataWebinar = [];
@@ -127,31 +139,33 @@ class FirestoreService {
         .catchError((error) => print('Gagal'));
   }
 
-  // static Future<void> deleteBookmark(int index) async {
-  //   String documentId = await AuthServices.getId();
-  //   await akunCollection.doc(documentId).update()
-  // }
+  static Future<void> deleteBookmark(int index) async {
+    String documentId = await AuthServices.getId();
+    await akunCollection.doc(documentId).collection('bookmark').doc().update({'$index' : FieldValue.delete()});
+  }
 
   static Future<List<Webinar>> getBookmarkWebinar() async {
-    Akun akun = await readData();
-    var data = akun.bookmark as List<Map<String, dynamic>>;
+    // Akun akun = await readDataBookmark();
+    String documentId = await AuthServices.getId();
+    var data = akunCollection.doc(documentId).collection('bookmark').doc().get() as List<Map<String,dynamic>>;
+    // var data = akun.bookmark as List<Map<String,dynamic>>;
     List<Webinar> listWebinar = [];
     if (data != null) {
-      for (int x = 0; x < data.length; x++) {
+      for(var x in data){
         listWebinar.add(Webinar(
-          judul: data[x]['judul'],
-          penyelenggara: data[x]['penyelenggara'],
-          deskripsi: data[x]['deskripsi'],
-          tglAcara: data[x]['tgl_acara'],
-          waktuAcara: data[x]['waktu_acara'],
-          lokasiAcara: data[x]['lokasi_acara'],
-          harga: data[x]['harga'],
-          linkPendaftaran: data[x]['link_pendaftaran'],
-          contactPerson: data[x]['contact_person'],
-          sosmed: data[x]['sosmed'],
-          benefit: data[x]['benefit'],
-          urlPoster: data[x]['url_poster'],
-          kategori: data[x][x],
+          judul: x['judul'],
+          penyelenggara: x['penyelenggara'],
+          deskripsi: x['deskripsi'],
+          tglAcara: x['tgl_acara'],
+          waktuAcara: x['waktu_acara'],
+          lokasiAcara: x['lokasi_acara'],
+          harga: x['harga'],
+          linkPendaftaran: x['link_pendaftaran'],
+          contactPerson: x['contact_person'],
+          sosmed: x['sosmed'],
+          benefit: x['benefit'],
+          urlPoster:x['url_poster'],
+          kategori: x['kategori'],
         ));
       }
     }

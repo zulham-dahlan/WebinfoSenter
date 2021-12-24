@@ -30,8 +30,16 @@ class BookmarkProvider extends ChangeNotifier{
   }
 
   void deleteBookmark(Webinar webinar){
+    int? position ;
+    final result = bookmarkWebinar;
+    for(int x = 0 ; x < result.length ; x++){
+      if(result[x].judul == webinar.judul){
+        position = x ;
+      }
+    }
     _bookmarkWebinar.remove(webinar);
     _icon = Icons.bookmark_border ;
+    FirestoreService.deleteBookmark(position!);
     notifyListeners();
     //  getBookmarkByJudul(webinar.judul);
   }
