@@ -4,6 +4,7 @@ import 'package:webinfo_senter/data/firebase/firestore_service.dart';
 import 'package:webinfo_senter/data/model/akun.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:webinfo_senter/ui/pengajuan_screen.dart';
+import 'package:webinfo_senter/ui/login_page.dart';
 import 'package:webinfo_senter/widget/display_photo.dart';
 import 'package:webinfo_senter/ui/setting_page.dart';
 
@@ -34,7 +35,7 @@ class ProfilePage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Akun', style: styleRobotoTitle,),
+                      Text('Akun', style: styleRoboto.copyWith(fontSize: 18,),),
                       IconButton(
                           onPressed: () {
                             Navigator.pushNamed(
@@ -61,12 +62,12 @@ class ProfilePage extends StatelessWidget {
                               height: 30,
                             ),
                             Container(
-                              child: Text(profileAkun.nama,style: styleMontserratName,),
+                              child: Text(profileAkun.nama,style: styleMontserrat.copyWith(fontSize: 14),),
                             ),
                             SizedBox(
                               height: 20,
                             ),
-                            Text(profileAkun.email,style: styleMontserratTitle),
+                            Text(profileAkun.email,style: styleMontserrat.copyWith(fontWeight: FontWeight.bold,)),
                           ],
                         );
                       }else{
@@ -77,24 +78,7 @@ class ProfilePage extends StatelessWidget {
                   SizedBox(
                     height: 40,
                   ),
-                  Container(
-                    width: widthButton,
-                    height: heightButton,
-                    child: OutlinedButton(  
-                      onPressed: () {
-                       
-                      },
-                      child: Text("Ubah Profile",style: stylePoppinsBlack),
-                      style: OutlinedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
+
                   Container(
                     width: widthButton,
                     height: heightButton,
@@ -102,7 +86,7 @@ class ProfilePage extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, FormPengajuan.routeName);
                       },
-                      child: Text("Ajukan Webinar",style: stylePoppinsBlack),
+                      child: Text("Ajukan Webinar",style: stylePoppins),
                       style: OutlinedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25.0),
@@ -120,8 +104,12 @@ class ProfilePage extends StatelessWidget {
                     child: OutlinedButton(  
                       onPressed: () {
                         FirebaseAuth.instance.signOut();
+                        Navigator.pushNamed(
+                            context,
+                            LoginPage.routeName
+                        );
                       },
-                      child: Text("Keluar Ah..",style: stylePoppinsBlack),
+                      child: Text("Keluar Ah..",style: stylePoppins),
                       style: OutlinedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25.0),

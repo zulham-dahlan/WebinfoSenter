@@ -23,7 +23,7 @@ class _FormPengajuanState extends State<FormPengajuan> {
                   alignment: Alignment.center,
                   child: Text(
                     'Ajukan Webinar',
-                    style: styleRobotoTitle,
+                    style: styleRoboto.copyWith(fontSize: 24,),
                   ),
                 ),
                 SizedBox(
