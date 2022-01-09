@@ -14,4 +14,6 @@ class Akun{
     required this.bookmark,
     required this.publish,
   });
+
+  
 }

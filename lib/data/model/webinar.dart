@@ -12,6 +12,8 @@ class Webinar{
   String benefit ;
   String urlPoster ;
   String kategori ;
+  bool isVerified ;
+
 
 
   Webinar({
@@ -28,83 +30,40 @@ class Webinar{
     required this.benefit,
     required this.urlPoster,
     required this.kategori,
+    required this.isVerified,
   });
-}
+  
+  factory Webinar.fromJson(Map<String, dynamic> json) => Webinar(
+    judul: json['judul'],
+    penyelenggara: json['penyelenggara'],
+    deskripsi: json['deskripsi'],
+    tglAcara: json['tgl_acara'],
+    waktuAcara: json['waktu_acara'],
+    lokasiAcara: json['lokasi_acara'],
+    harga: json['harga'],
+    linkPendaftaran: json['link_pendaftaran'],
+    contactPerson: json['contact_person'],
+    sosmed: json['sosmed'],
+    benefit: json['benefit'],
+    urlPoster:json['url_poster'],
+    kategori: json['kategori'],
+    isVerified: bool.fromEnvironment(json['is_verified']),
+  );
 
-var listWebinar = [
-  Webinar(
-    judul: 'Seminar Kemuslimahan Udinus 2021',
-    penyelenggara: 'Badan Amalan Islam Matholiul Anwar',
-    deskripsi: 'Seminar Kemuslmimahan Udinus 2021 dengan tagline Now I Know, Its Only Allah dengan judul Self Healing Ala Muslimah',
-    tglAcara: '19 Desember 2021',
-    waktuAcara: '09:30',
-    lokasiAcara: 'Zoom',
-    harga: '10.000',
-    linkPendaftaran: 'http://bit.ly/PendaftaranSemusim_2021',
-    contactPerson: '082328074724',
-    sosmed: '@bai_udinus',
-    benefit: '- E-Sertifikat\n- Notulensi\n- Menambah relasi teman dan ilmu\n- Pahala menuntut ilmu',
-    urlPoster: 'assets/semusim.jpeg',
-    kategori: 'Pengembangan Diri'
-  ),
-  Webinar(
-    judul: 'Seminar Kemuslimahan Udinus 2022',
-    penyelenggara: 'Badan Amalan Islam Matholiul Anwar',
-    deskripsi: 'Seminar Kemuslmimahan Udinus 2021 dengan tagline Now I Know, Its Only Allah dengan judul Self Healing Ala Muslimah',
-    tglAcara: '19 Desember 2021',
-    waktuAcara: '09:30',
-    lokasiAcara: 'Zoom',
-    harga: '10.000',
-    linkPendaftaran: 'http://bit.ly/PendaftaranSemusim_2021',
-    contactPerson: '082328074724',
-    sosmed: '@bai_udinus',
-    benefit: '- E-Sertifikat\n- Notulensi\n- Menambah relasi teman dan ilmu\n- Pahala menuntut ilmu',
-    urlPoster: 'assets/semusim.jpeg',
-    kategori: 'Pengembangan Diri',
-  ),
-  Webinar(
-    judul: 'Seminar Kemuslimahan Udinus 2023',
-    penyelenggara: 'Badan Amalan Islam Matholiul Anwar',
-    deskripsi: 'Seminar Kemuslmimahan Udinus 2021 dengan tagline Now I Know, Its Only Allah dengan judul Self Healing Ala Muslimah',
-    tglAcara: '19 Desember 2021',
-    waktuAcara: '09:30',
-    lokasiAcara: 'Zoom',
-    harga: '10.000',
-    linkPendaftaran: 'http://bit.ly/PendaftaranSemusim_2021',
-    contactPerson: '082328074724',
-    sosmed: '@bai_udinus',
-    benefit: '- E-Sertifikat\n- Notulensi\n- Menambah relasi teman dan ilmu\n- Pahala menuntut ilmu',
-    urlPoster: 'assets/semusim.jpeg',
-    kategori: 'Pengembangan Diri'
-  ),
-  Webinar(
-    judul: 'Seminar Kemuslimahan Udinus 2024',
-    penyelenggara: 'Badan Amalan Islam Matholiul Anwar',
-    deskripsi: 'Seminar Kemuslmimahan Udinus 2021 dengan tagline Now I Know, Its Only Allah dengan judul Self Healing Ala Muslimah',
-    tglAcara: '19 Desember 2021',
-    waktuAcara: '09:30',
-    lokasiAcara: 'Zoom',
-    harga: '10.000',
-    linkPendaftaran: 'http://bit.ly/PendaftaranSemusim_2021',
-    contactPerson: '082328074724',
-    sosmed: '@bai_udinus',
-    benefit: '- E-Sertifikat\n- Notulensi\n- Menambah relasi teman dan ilmu\n- Pahala menuntut ilmu',
-    urlPoster: 'assets/semusim.jpeg',
-    kategori: 'Pengembangan Diri'
-  ),
-  Webinar(
-    judul: 'Seminar Kemuslimahan Udinus 2025',
-    penyelenggara: 'Badan Amalan Islam Matholiul Anwar',
-    deskripsi: 'Seminar Kemuslmimahan Udinus 2021 dengan tagline Now I Know, Its Only Allah dengan judul Self Healing Ala Muslimah',
-    tglAcara: '19 Desember 2021',
-    waktuAcara: '09:30',
-    lokasiAcara: 'Zoom',
-    harga: '10.000',
-    linkPendaftaran: 'http://bit.ly/PendaftaranSemusim_2021',
-    contactPerson: '082328074724',
-    sosmed: '@bai_udinus',
-    benefit: '- E-Sertifikat\n- Notulensi\n- Menambah relasi teman dan ilmu\n- Pahala menuntut ilmu',
-    urlPoster: 'assets/semusim.jpeg',
-    kategori: 'Pengembangan Diri'
-  ),
-];
+  Map<String,dynamic> toJson() => {
+    'judul': judul,
+    'penyelenggara': penyelenggara,
+    'deskripsi': deskripsi,
+    'tgl_acara': tglAcara,
+    'waktu_acara': waktuAcara,
+    'lokasi_acara': lokasiAcara,
+    'harga': harga,
+    'link_pendaftaran': linkPendaftaran,
+    'contact_person': contactPerson,
+    'sosmed': sosmed,
+    'benefit':benefit,
+    'url_poster': urlPoster,
+    'kategori': kategori,
+    'is_verified' : isVerified,
+  };
+}
