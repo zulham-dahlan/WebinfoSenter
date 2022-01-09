@@ -14,8 +14,6 @@ class Webinar{
   String kategori ;
   bool isVerified ;
 
-
-
   Webinar({
     required this.judul,
     required this.penyelenggara,
