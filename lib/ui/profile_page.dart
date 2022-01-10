@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/data/firebase/firestore_service.dart';
 import 'package:webinfo_senter/data/model/akun.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:webinfo_senter/helper/result_state.dart';
+import 'package:webinfo_senter/provider/akun_provider.dart';
 import 'package:webinfo_senter/ui/pengajuan_screen.dart';
 import 'package:webinfo_senter/ui/login_page.dart';
 import 'package:webinfo_senter/widget/display_photo.dart';
@@ -35,12 +38,13 @@ class ProfilePage extends StatelessWidget {
                   SizedBox(
                     height: 10.0,
                   ),
-                  FutureBuilder<Akun>(
-                    future:FirestoreService.readData(),
-                    builder: (context, snapshot){
-                      if(snapshot.hasData){
-                        var profileAkun = snapshot.data!;
-                        return Column(
+                  Consumer<AkunProvider>(
+                builder: (context, snapshot, child){
+                  if(snapshot.state == ResultState.loading){
+                    return const Center(child: CircularProgressIndicator(),);
+                  }else if(snapshot.state == ResultState.hasData){
+                    var profileAkun = snapshot.userAkun;
+                    return Column(
                           children: [
                             ClipOval(
                               child: DisplayPhoto(url: profileAkun.urlFotoProfil,width: 150.0, height: 150.0,),
@@ -57,11 +61,11 @@ class ProfilePage extends StatelessWidget {
                             Text(profileAkun.email,style: styleMontserrat.copyWith(fontWeight: FontWeight.bold,)),
                           ],
                         );
-                      }else{
-                        return Text('Something Wrong');
-                      }
-                    },
-                  ),
+                  }else{
+                    return Text(snapshot.message);
+                  }
+                },
+              ),
                   SizedBox(
                     height: 40,
                   ),
@@ -71,7 +75,7 @@ class ProfilePage extends StatelessWidget {
                     height: heightButton,
                     child: OutlinedButton(  
                       onPressed: () {
-                        Navigator.pushNamed(context, FormPengajuan.routeName);
+                        // Navigator.pushNamed(context, FormPengajuan.routeName);
                       },
                       child: Text("Ajukan Webinar",style: stylePoppins),
                       style: OutlinedButton.styleFrom(

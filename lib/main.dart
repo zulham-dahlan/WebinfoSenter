@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:webinfo_senter/data/model/webinar.dart';
 import 'package:webinfo_senter/provider/akun_provider.dart';
+import 'package:webinfo_senter/provider/bookmark_provider.dart';
 import 'package:webinfo_senter/ui/allwebinar_screen.dart';
 import 'package:webinfo_senter/ui/detail_screen.dart';
 import 'package:webinfo_senter/ui/home_page.dart';
@@ -26,8 +27,12 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => BookmarkProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<AkunProvider>(create: (context) => AkunProvider()),
+        ChangeNotifierProvider<BookmarkProvider>(create: (context) => BookmarkProvider()),
+
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Webinfo Senter',
@@ -37,7 +42,7 @@ class MyApp extends StatelessWidget {
         initialRoute: SplashScreen.routeName,
         routes: {
           SplashScreen.routeName: (context) => SplashScreen(),
-          IntroductionScreen.routeName: (context) => IntroductionScreen(),
+          // IntroductionScreen.routeName: (context) => IntroductionScreen(),
           LayoutNavigation.routeName: (context) => LayoutNavigation(),
           HomePage.routeName: (context) => HomePage(),
           WebinarkuPage.routeName: (context) => WebinarkuPage(),
@@ -50,8 +55,8 @@ class MyApp extends StatelessWidget {
               detailWebinar:
                   ModalRoute.of(context)?.settings.arguments as Webinar),
           AllWebinar.routeName: (context) => AllWebinar(),
-          FormPengajuan.routeName: (context) => FormPengajuan(),
-          AddImage.routeName: (context) => AddImage()
+          // FormPengajuan.routeName: (context) => FormPengajuan(),
+          // AddImage.routeName: (context) => AddImage()
         },
       ),
     );

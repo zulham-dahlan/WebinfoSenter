@@ -1,10 +1,12 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:webinfo_senter/common/style.dart';
-import 'package:webinfo_senter/data/firebase/auth_service.dart';
 import 'package:webinfo_senter/data/firebase/firestore_service.dart';
 import 'package:webinfo_senter/data/model/akun.dart';
 import 'package:webinfo_senter/data/model/webinar.dart';
+import 'package:webinfo_senter/helper/result_state.dart';
+import 'package:webinfo_senter/provider/akun_provider.dart';
 import 'package:webinfo_senter/ui/allwebinar_screen.dart';
 import 'package:webinfo_senter/ui/search_screen.dart';
 import 'package:webinfo_senter/widget/app_header.dart';
@@ -24,14 +26,17 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              FutureBuilder<Akun>(
-                  future: FirestoreService.readData(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      return AppHeader(snapshot.data!);
-                    }
-                    return Text('Something Wrong');
-                  }),
+              Consumer<AkunProvider>(
+                builder: (context, snapshot, child){
+                  if(snapshot.state == ResultState.loading){
+                    return const Center(child: CircularProgressIndicator(),);
+                  }else if(snapshot.state == ResultState.hasData){
+                    return AppHeader(snapshot.userAkun);
+                  }else{
+                    return Text(snapshot.message);
+                  }
+                },
+              ),
               SizedBox(
                 height: 30,
               ),
@@ -72,7 +77,7 @@ class HomePage extends StatelessWidget {
                         },
                       );
                     }else{
-                      return Text('Something Wrong');
+                      return Text(snapshot.error.toString());
                     }
                   }
                 ),

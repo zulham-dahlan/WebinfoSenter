@@ -31,22 +31,25 @@ class Webinar{
     required this.isVerified,
   });
   
-  factory Webinar.fromJson(Map<String, dynamic> json) => Webinar(
-    judul: json['judul'],
-    penyelenggara: json['penyelenggara'],
-    deskripsi: json['deskripsi'],
-    tglAcara: json['tgl_acara'],
-    waktuAcara: json['waktu_acara'],
-    lokasiAcara: json['lokasi_acara'],
-    harga: json['harga'],
-    linkPendaftaran: json['link_pendaftaran'],
-    contactPerson: json['contact_person'],
-    sosmed: json['sosmed'],
-    benefit: json['benefit'],
-    urlPoster:json['url_poster'],
-    kategori: json['kategori'],
-    isVerified: bool.fromEnvironment(json['is_verified']),
-  );
+  factory Webinar.fromJson(Map<String, dynamic> json) { 
+      bool convertVerified = json['is_verified'] == 'true';
+      return Webinar(
+        judul: json['judul'],
+        penyelenggara: json['penyelenggara'],
+        deskripsi: json['deskripsi'],
+        tglAcara: json['tgl_acara'],
+        waktuAcara: json['waktu_acara'],
+        lokasiAcara: json['lokasi_acara'],
+        harga: json['harga'],
+        linkPendaftaran: json['link_pendaftaran'],
+        contactPerson: json['contact_person'],
+        sosmed: json['sosmed'],
+        benefit: json['benefit'],
+        urlPoster:json['url_poster'],
+        kategori: json['kategori'],
+        isVerified: convertVerified
+    );
+  }
 
   Map<String,dynamic> toJson() => {
     'judul': judul,
@@ -64,4 +67,6 @@ class Webinar{
     'kategori': kategori,
     'is_verified' : isVerified,
   };
+
+ 
 }

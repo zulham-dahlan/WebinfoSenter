@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/data/firebase/firestore_service.dart';
 import 'package:webinfo_senter/data/model/akun.dart';
@@ -6,6 +5,10 @@ import 'package:webinfo_senter/helper/result_state.dart';
 
 
 class AkunProvider extends ChangeNotifier{
+
+  AkunProvider(){
+    fetchDataAkun();
+  }
 
   late Akun _userAkun ;
   late ResultState _state ;

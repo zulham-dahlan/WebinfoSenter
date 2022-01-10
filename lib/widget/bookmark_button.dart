@@ -3,7 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/data/firebase/auth_service.dart';
 import 'package:webinfo_senter/data/model/webinar.dart';
+import 'package:webinfo_senter/helper/result_state.dart';
 import 'package:webinfo_senter/provider/akun_provider.dart';
+import 'package:webinfo_senter/provider/bookmark_provider.dart';
 
 class BookmarkButton extends StatelessWidget {
   BookmarkButton({required this.webinar});
@@ -13,7 +15,7 @@ class BookmarkButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<BookmarkProvider>(
-      builder: (context, BookmarkProvider data, widget) {
+      builder: (context, data, widget) {
         data.getBookmarkByJudul(webinar.judul);
         return Container(
           width: 50,
@@ -27,7 +29,7 @@ class BookmarkButton extends StatelessWidget {
           ),
           child:
               IconButton(onPressed: () {
-                if(data.bookmarkState == ResultState.NoData){
+                if(data.bookmarkState == ResultState.noData){
                   data.addBookmark(webinar);
                   AuthServices.showSnackbar('Tersimpan', context);
                 }else{

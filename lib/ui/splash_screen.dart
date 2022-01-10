@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:webinfo_senter/data/firebase/auth_service.dart';
 import 'package:webinfo_senter/ui/introduction_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -12,8 +13,10 @@ class _SplashScreen extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 4),
-        () => Navigator.pushReplacementNamed(context, IntroductionScreen.routeName));
+    Timer(Duration(seconds: 4), () {
+      // Navigator.pushReplacementNamed(context, IntroductionScreen.routeName);
+       AuthServices.toLoginorHome(context);
+    });
   }
 
   @override
@@ -25,7 +28,7 @@ class _SplashScreen extends State<SplashScreen> {
           Align(
             alignment: Alignment.center,
             child:
-                Image.asset('assets/splash_logo.png', width: 250, height:250 ),
+                Image.asset('assets/splash_logo.png', width: 250, height: 250),
           ),
         ],
       ),
