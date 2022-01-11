@@ -87,16 +87,7 @@ class _RegisterPage extends State<RegisterPage> {
                             })),
                   ),
                 ),
-                Container(
-                  alignment: Alignment.centerRight,
-                  margin: EdgeInsets.only(right: 12),
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(context, LayoutNavigation.routeName);
-                    },
-                    child: Text('Lupa Password Nih?',style: styleRoboto.copyWith(fontSize: 12, color: customBlueDark,)),
-                  ),
-                ),
+              
                 Container(
                   margin: EdgeInsets.only(right: 12, left: 12, top:9, bottom: 9),
                   child: ElevatedButton(
