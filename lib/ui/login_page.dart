@@ -80,7 +80,6 @@ class _LoginPage extends State<LoginPage> {
                 controller: _passwordController,
                 obscureText: _isObscure,
                 decoration: InputDecoration(
-                  hintText: 'Password',
                   labelText: 'Password',
                   labelStyle: myTextTheme.bodyText1,
                   border: OutlineInputBorder(),
