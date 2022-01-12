@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:webinfo_senter/common/style.dart';
+import 'package:webinfo_senter/common/text_theme.dart';
 import 'package:webinfo_senter/data/model/webinar.dart';
 import 'package:webinfo_senter/helper/result_state.dart';
 import 'package:webinfo_senter/provider/akun_provider.dart';
@@ -22,33 +23,23 @@ class _WebinarkuPageState extends State<WebinarkuPage> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'Bookmark Webinar',
-                style: styleRoboto,
+                style: myTextTheme.headline5!.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
-              // Expanded(
-              //   child: ListView.builder(
-              //       shrinkWrap: true,
-              //       itemCount: bookmarkList.length,
-              //       itemBuilder: (BuildContext context, int index) {
-              //         Webinar webinar = bookmarkList[index];
-              //         return Card(
-              //           child: CardWebinarVertical(webinar: webinar),
-              //         );
-              //       }),
-              // ),
-
               Consumer<BookmarkProvider>(
                 builder: (context, snapshot, child) {
                   if (snapshot.state == ResultState.loading) {
-                    return Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator());
                   } else if (snapshot.state == ResultState.hasData) {
                     return Expanded(
                       child: ListView.builder(
@@ -64,7 +55,7 @@ class _WebinarkuPageState extends State<WebinarkuPage> {
                   } else if (snapshot.state == ResultState.error) {
                     return Center(child: Text(snapshot.message));
                   } else {
-                    return Center(child: Text(''));
+                    return const Center(child: Text(''));
                   }
                 },
               ),

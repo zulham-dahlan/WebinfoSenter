@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
+import 'package:webinfo_senter/common/text_theme.dart';
 import 'package:webinfo_senter/data/firebase/firestore_service.dart';
 import 'package:webinfo_senter/data/model/webinar.dart';
 import 'package:webinfo_senter/widget/card_webinar_vertical.dart';
@@ -36,7 +37,9 @@ class _AllWebinarState extends State<AllWebinar> {
                   ),
                   Text(
                     'Semua Webinar',
-                    style: styleRoboto.copyWith(fontSize: 24,),
+                    style: myTextTheme.headline5!.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                   )
                 ],
               ),
@@ -45,7 +48,9 @@ class _AllWebinarState extends State<AllWebinar> {
               ),
               Text(
                 'Kategori',
-                style: styleRoboto,
+                style: myTextTheme.headline6!.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               DropdownButton<String>(
                 value: dropDownValue,
@@ -73,7 +78,7 @@ class _AllWebinarState extends State<AllWebinar> {
                   );
                 }).toList(),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               ),
               if (dropDownValue == 'Semua')
@@ -81,7 +86,12 @@ class _AllWebinarState extends State<AllWebinar> {
                   child: FutureBuilder<List<Webinar>>(
                       future: FirestoreService.getDataWebinar(),
                       builder: (context, snapshot) {
-                        if (snapshot.hasData) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        } else if (snapshot.hasData) {
                           final List<Webinar> allWebinar = snapshot.data!;
                           return ListView.builder(
                             shrinkWrap: true,
@@ -94,7 +104,9 @@ class _AllWebinarState extends State<AllWebinar> {
                             },
                           );
                         } else {
-                          return Text('Something Wrong');
+                          return Text('Check Your Internet Connection',
+                              style: myTextTheme.bodyText2!
+                                  .copyWith(color: customRedDark));
                         }
                       }),
                 )
@@ -121,18 +133,6 @@ class _AllWebinarState extends State<AllWebinar> {
                         }
                       }),
                 ),
-              // Expanded(
-              //   child: ListView.builder(
-              //     shrinkWrap: true,
-              //     itemCount: listWebinar.length,
-              //     itemBuilder: (BuildContext context, int index) {
-              //       Webinar webinar = listWebinar[index];
-              //       return Card(
-              //         child: CardWebinarVertical(webinar: webinar),
-              //       );
-              //     },
-              //   ),
-              // ),
             ],
           ),
         ),

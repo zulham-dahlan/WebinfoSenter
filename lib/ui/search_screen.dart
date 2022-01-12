@@ -34,15 +34,17 @@ class _SearchScreenState extends State<SearchScreen> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
-                  IconButton(onPressed: (){
+                  IconButton(
+                    onPressed: () {
                       Navigator.pop(context);
-                    }, icon: Image.asset('assets/back_icon.png'),
+                    },
+                    icon: Image.asset('assets/back_icon.png'),
                   ),
                   SizedBox(
                     width: 10.0,
@@ -56,7 +58,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         });
                       },
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         hintText: 'Cari Webinar',
                         hintStyle: myTextTheme.bodyText1,
                       ),
@@ -77,11 +79,16 @@ class _SearchScreenState extends State<SearchScreen> {
                 height: 20.0,
               ),
               Expanded(
-                  child: FutureBuilder<List<Webinar>>(
-                      future: FirestoreService.searchWebinar(querySearch),
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          final List<Webinar> allWebinar = snapshot.data!;
+                child: FutureBuilder<List<Webinar>>(
+                    future: FirestoreService.searchWebinar(querySearch),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else if (snapshot.hasData) {
+                        final List<Webinar> allWebinar = snapshot.data!;
+                        if (allWebinar.isNotEmpty) {
                           return ListView.builder(
                             shrinkWrap: true,
                             itemCount: allWebinar.length,
@@ -93,10 +100,15 @@ class _SearchScreenState extends State<SearchScreen> {
                             },
                           );
                         } else {
-                          return Text('Something Wrong');
+                          return Center(
+                            child: Text('Webinar Tidak Ditemukan', style: myTextTheme.bodyText2!.copyWith(color:customRedDark)),
+                          );
                         }
-                      }),
-                )
+                      } else {
+                        return Text('Check Your Internet Connection', style: myTextTheme.bodyText2!.copyWith(color:customRedDark));
+                      }
+                    }),
+              )
             ],
           ),
         ),
