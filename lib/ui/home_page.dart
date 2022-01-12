@@ -11,9 +11,16 @@ import 'package:webinfo_senter/ui/search_screen.dart';
 import 'package:webinfo_senter/widget/app_header.dart';
 import 'package:webinfo_senter/widget/card_webinar_vertical.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   static const String homeTitle = 'Home';
   static const routeName = '/home_page';
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final TextEditingController queryController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +50,11 @@ class HomePage extends StatelessWidget {
                 height: 25,
               ),
               TextField(
+                controller: queryController,
                 onSubmitted: (String value) {
                   Navigator.pushNamed(context, SearchScreen.routeName,
                       arguments: value);
+                  queryController.text = '';
                 },
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
@@ -112,5 +121,12 @@ class HomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    queryController.dispose();
+    super.dispose();
   }
 }

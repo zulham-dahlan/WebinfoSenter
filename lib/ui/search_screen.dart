@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/style.dart';
+import 'package:webinfo_senter/common/text_theme.dart';
 import 'package:webinfo_senter/data/firebase/firestore_service.dart';
 import 'package:webinfo_senter/data/model/webinar.dart';
 import 'package:webinfo_senter/widget/card_webinar_vertical.dart';
@@ -57,6 +58,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: 'Cari Webinar',
+                        hintStyle: myTextTheme.bodyText1,
                       ),
                     ),
                   ),
@@ -67,7 +69,9 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               Text(
                 'Webinar terkait "$querySearch"',
-                style: styleRoboto,
+                style: myTextTheme.headline6!.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               SizedBox(
                 height: 20.0,

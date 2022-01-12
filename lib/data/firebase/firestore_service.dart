@@ -52,8 +52,9 @@ class FirestoreService {
   static Future<List<Webinar>> searchWebinar(String query) async {
     final List<Webinar> dataWebinar = [];
     await webinarCollection
-        .where('judul', isGreaterThanOrEqualTo: query)
-        .where('judul', isLessThan: query + 'z')
+        // .where('judul', isGreaterThanOrEqualTo: query)
+        // .where('judul', isLessThan: query + 'z')
+        .where('judul', isGreaterThanOrEqualTo: query).where('judul',isLessThanOrEqualTo:'$query\uf7ff')
         .get()
         .then((snapshot) {
       for (var element in snapshot.docs) {
