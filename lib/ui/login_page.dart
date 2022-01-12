@@ -31,6 +31,7 @@ class _LoginPage extends State<LoginPage> {
     }
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(

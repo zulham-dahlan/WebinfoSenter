@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webinfo_senter/common/text_theme.dart';
 import 'package:webinfo_senter/data/model/webinar.dart';
 import 'package:webinfo_senter/ui/detail_screen.dart';
 
@@ -11,7 +12,8 @@ class CardWebinarVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, DetailScreen.routeName, arguments: webinar);
+        Navigator.pushNamed(context, DetailScreen.routeName,
+            arguments: webinar);
       },
       child: Container(
         padding: EdgeInsets.all(5),
@@ -22,38 +24,65 @@ class CardWebinarVertical extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5.0),
                 child: Image.network(
                   webinar.urlPoster,
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fitWidth,
                   width: 65,
                   height: 85,
                 )),
             SizedBox(
               width: 10,
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  webinar.judul,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  webinar.penyelenggara,
-                ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.calendar_today,
-                      size: 12,
+            Flexible(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    webinar.judul,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    softWrap: false,
+                    style: myTextTheme.bodyText2!.copyWith(
+                      fontWeight: FontWeight.bold,
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text('${webinar.tglAcara} - ${webinar.waktuAcara}'),
-                  ],
-                )
-              ],
+                  ),
+                  Text(
+                    webinar.penyelenggara,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    softWrap: false,
+                    style: myTextTheme.caption,
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.calendar_today,
+                        size: 12,
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        webinar.tglAcara,
+                        style: myTextTheme.caption,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.schedule,
+                        size: 12,
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        webinar.waktuAcara,
+                        style: myTextTheme.caption,
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ],
         ),

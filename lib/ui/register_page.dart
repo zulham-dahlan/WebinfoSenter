@@ -33,6 +33,7 @@ class _RegisterPage extends State<RegisterPage> {
     }
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(
