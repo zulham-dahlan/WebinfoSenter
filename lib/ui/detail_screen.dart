@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webinfo_senter/common/style.dart';
+import 'package:webinfo_senter/common/text_theme.dart';
 import 'package:webinfo_senter/data/model/webinar.dart';
-import 'package:webinfo_senter/provider/akun_provider.dart';
 import 'package:webinfo_senter/widget/bookmark_button.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -32,7 +31,7 @@ class _DetailScreenState extends State<DetailScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -43,175 +42,180 @@ class _DetailScreenState extends State<DetailScreen> {
                     child: Image.network(
                       webinar.urlPoster,
                       height: 380,
-                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 10.0,
+                const SizedBox(
+                  height: 20.0,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(webinar.judul,
-                            style: TextStyle(
+                    Flexible(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            webinar.judul,
+                            maxLines: 2,
+                            style: myTextTheme.headline6!.copyWith(
                               fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            )),
-                        Text('Oleh : ${webinar.penyelenggara}')
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 5.0,
+                          ),
+                          Text('Oleh : ${webinar.penyelenggara}',
+                              style: myTextTheme.bodyText1)
+                        ],
+                      ),
+                    ),
+                    BookmarkButton(webinar: webinar),
+                  ],
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        height: 80,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: customRedDark,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Harga',
+                              style: myTextTheme.caption!
+                                  .copyWith(color: Colors.white),
+                            ),
+                            Text(
+                              webinar.harga,
+                              style: myTextTheme.bodyText1!.copyWith(
+                                color: Colors.white,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        height: 80,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: customRedDark,
+                        ),
+                        child: Flexible(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Lokasi',
+                                style: myTextTheme.caption!
+                                    .copyWith(color: Colors.white),
+                              ),
+                              Text(
+                                webinar.lokasiAcara,
+                                style: myTextTheme.bodyText1!
+                                    .copyWith(color: Colors.white),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  height: 80,
+                  child: Container(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: customRedDark,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Tanggal & Waktu Acara',
+                            style: myTextTheme.caption!
+                                .copyWith(color: Colors.white)),
+                        Text('${webinar.tglAcara} - ${webinar.waktuAcara}',
+                            style: myTextTheme.bodyText1!
+                                .copyWith(color: Colors.white))
                       ],
                     ),
-                    // Consumer<BookmarkProvider>(
-                    //   builder: (context, BookmarkProvider data, widget) {
-                    //     return Container(
-                    //       width: 50,
-                    //       height: 35,
-                    //       decoration: BoxDecoration(
-                    //         border: Border.all(
-                    //           color: customRedColor,
-                    //           width: 1,
-                    //         ),
-                    //         borderRadius: BorderRadius.circular(2),
-                    //       ),
-                    //       child: IconButton(
-                    //           onPressed: () {
-                    //             data.addBookmark(webinar);
-                    //           },
-                    //           icon: Icon(Icons.bookmark_border)),
-                    //     );
-                    //   },
-                    // ),
-                    BookmarkButton(webinar: webinar),
-                    // Container(
-                    //   width: 50,
-                    //   height: 35,
-                    //   decoration: BoxDecoration(
-                    //     border: Border.all(
-                    //       color: customRedColor,
-                    //       width: 1,
-                    //     ),
-                    //     borderRadius: BorderRadius.circular(2),
-                    //   ),
-                    //   child: IconButton(
-                    //       onPressed: () {}, icon: Icon(Icons.bookmark_border)),
-                    // ),
-                  ],
+                  ),
                 ),
-                SizedBox(
-                  height: 10.0,
-                ),
-                Row(
-                  children: [
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: customRedColor,
-                        borderRadius: BorderRadius.circular(2),
-                      ),
-                      child: Icon(
-                        Icons.calendar_today,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5.0,
-                    ),
-                    Text('${webinar.tglAcara} - ${webinar.waktuAcara}'),
-                  ],
-                ),
-                SizedBox(
-                  height: 10.0,
-                ),
-                Row(
-                  children: [
-                    Container(
-                      alignment: Alignment.center,
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: customRedColor,
-                        borderRadius: BorderRadius.circular(2),
-                      ),
-                      child: Text(
-                        'Rp',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5.0,
-                    ),
-                    Text(webinar.harga),
-                  ],
-                ),
-                SizedBox(
-                  height: 10.0,
-                ),
-                Row(
-                  children: [
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: customRedColor,
-                        borderRadius: BorderRadius.circular(2),
-                      ),
-                      child: Icon(Icons.place_outlined, color: Colors.white),
-                    ),
-                    SizedBox(
-                      width: 5.0,
-                    ),
-                    Text(webinar.lokasiAcara),
-                  ],
-                ),
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
                 Text('Deskripsi',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                SizedBox(
+                    style: myTextTheme.bodyText1!.copyWith(
+                      fontWeight: FontWeight.bold,
+                    )),
+                const SizedBox(
                   height: 5.0,
                 ),
-                Text(webinar.deskripsi),
-                SizedBox(
+                Text(webinar.deskripsi, style: myTextTheme.bodyText2),
+                const SizedBox(
                   height: 10.0,
                 ),
-                Text('Benefit', style: TextStyle(fontWeight: FontWeight.bold)),
-                SizedBox(
+                Text('Benefit',
+                    style: myTextTheme.bodyText1!.copyWith(
+                      fontWeight: FontWeight.bold,
+                    )),
+                const SizedBox(
                   height: 5.0,
                 ),
-                Text(webinar.benefit),
-                SizedBox(
+                Text(webinar.benefit, style: myTextTheme.bodyText2),
+                const SizedBox(
                   height: 10.0,
                 ),
                 Text('Contact Person',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                SizedBox(
+                    style: myTextTheme.bodyText1!.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),),
+                const SizedBox(
                   height: 5.0,
                 ),
                 Row(
                   children: [
-                    Icon(Icons.chat_outlined),
-                    SizedBox(
+                    const Icon(Icons.chat_outlined),
+                    const SizedBox(
                       width: 10,
                     ),
-                    Text(webinar.contactPerson),
+                    Text(webinar.contactPerson, style: myTextTheme.bodyText2),
                   ],
                 ),
                 Row(
                   children: [
-                    Icon(Icons.language_outlined),
-                    SizedBox(
+                    const Icon(Icons.language_outlined),
+                    const SizedBox(
                       width: 10,
                     ),
-                    Text(webinar.sosmed),
+                    Text(webinar.sosmed, style: myTextTheme.bodyText2),
                   ],
                 ),
-                SizedBox(
-                  height: 10.0,
+                const SizedBox(
+                  height: 20.0,
                 ),
                 Container(
                   alignment: Alignment.center,
@@ -231,7 +235,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           print('URL Tidak bisa dibuka');
                         }
                       },
-                      child: Text(
+                      child: const Text(
                         'Buka Link Pendaftaran',
                         style: TextStyle(color: Colors.white),
                       ),

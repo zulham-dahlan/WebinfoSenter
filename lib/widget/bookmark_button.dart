@@ -22,7 +22,7 @@ class BookmarkButton extends StatelessWidget {
           height: 35,
           decoration: BoxDecoration(
             border: Border.all(
-              color: customRedColor,
+              color: customRedDark,
               width: 1,
             ),
             borderRadius: BorderRadius.circular(2),
@@ -36,7 +36,7 @@ class BookmarkButton extends StatelessWidget {
                   data.deleteBookmark(webinar);
                   AuthServices.showSnackbar('Terhapus', context);
                 }
-              }, icon: Icon(data.icon,color: customRedColor,)),
+              }, icon: Icon(data.icon,color: customRedDark,)),
         );
       },
     );
