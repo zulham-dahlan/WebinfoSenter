@@ -63,4 +63,13 @@ class AuthServices{
   static Future<String> getId() async {
     return await _auth.currentUser!.uid;
   }
+
+  static Future<void> resetPassword(String email, BuildContext context)async {
+    try{
+      await _auth.sendPasswordResetEmail(email: email);
+      showSnackbar('Email Berhasil Terkirim', context);
+    }catch (e){
+      showSnackbar('Email Gagal Terkirim', context);
+    }
+  }
 }

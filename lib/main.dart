@@ -12,6 +12,7 @@ import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/login_page.dart';
 import 'package:webinfo_senter/ui/pengajuan_screen.dart';
 import 'package:webinfo_senter/ui/profile_page.dart';
+import 'package:webinfo_senter/ui/reset_password_page.dart';
 import 'package:webinfo_senter/ui/search_screen.dart';
 import 'package:webinfo_senter/ui/register_page.dart';
 import 'package:webinfo_senter/ui/webinarku_page.dart';
@@ -57,6 +58,7 @@ class MyApp extends StatelessWidget {
           AllWebinar.routeName: (context) => AllWebinar(),
           // FormPengajuan.routeName: (context) => FormPengajuan(),
           // AddImage.routeName: (context) => AddImage()
+          ResetPasswordPage.routeName: (context) => ResetPasswordPage(),
         },
       ),
     );

@@ -5,6 +5,7 @@ import 'package:webinfo_senter/data/firebase/auth_service.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/register_page.dart';
+import 'package:webinfo_senter/ui/reset_password_page.dart';
 
 class LoginPage extends StatefulWidget {
   static const routeName = '/login_page';
@@ -125,8 +126,8 @@ class _LoginPage extends State<LoginPage> {
                 alignment: Alignment.center,
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pushReplacementNamed(
-                        context, LayoutNavigation.routeName);
+                    Navigator.pushNamed(
+                        context, ResetPasswordPage.routeName);
                   },
                   child: Text('Lupa password ?',
                       style: myTextTheme.bodyText1!.copyWith(
