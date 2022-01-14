@@ -6,6 +6,7 @@ import 'package:webinfo_senter/provider/akun_provider.dart';
 import 'package:webinfo_senter/provider/bookmark_provider.dart';
 import 'package:webinfo_senter/ui/allwebinar_screen.dart';
 import 'package:webinfo_senter/ui/detail_screen.dart';
+import 'package:webinfo_senter/ui/edit_profile.dart';
 import 'package:webinfo_senter/ui/home_page.dart';
 import 'package:webinfo_senter/ui/introduction_screen.dart';
 import 'package:webinfo_senter/ui/layout_navigation.dart';
@@ -59,6 +60,7 @@ class MyApp extends StatelessWidget {
           // FormPengajuan.routeName: (context) => FormPengajuan(),
           // AddImage.routeName: (context) => AddImage()
           ResetPasswordPage.routeName: (context) => ResetPasswordPage(),
+          EditProfile.routeName: (context) => EditProfile(),
         },
       ),
     );

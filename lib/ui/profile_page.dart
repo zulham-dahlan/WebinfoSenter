@@ -7,6 +7,7 @@ import 'package:webinfo_senter/data/model/akun.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:webinfo_senter/helper/result_state.dart';
 import 'package:webinfo_senter/provider/akun_provider.dart';
+import 'package:webinfo_senter/ui/edit_profile.dart';
 import 'package:webinfo_senter/ui/pengajuan_screen.dart';
 import 'package:webinfo_senter/ui/login_page.dart';
 import 'package:webinfo_senter/widget/display_photo.dart';
@@ -91,7 +92,7 @@ class ProfilePage extends StatelessWidget {
                 height: heightButton,
                 child: OutlinedButton(
                   onPressed: () {
-                    // Navigator.pushNamed(context, FormPengajuan.routeName);
+                    Navigator.pushNamed(context, EditProfile.routeName);
                   },
                   child: Text("Ubah Profil", style: myTextTheme.button!.copyWith(color: customRedColor),),
                   style: OutlinedButton.styleFrom(

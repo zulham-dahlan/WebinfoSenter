@@ -22,6 +22,11 @@ class FirestoreService {
     return Akun.fromJson(data);
   }
 
+  static Future<void> updateDataAkun(String urlProfil, String nama) async {
+    String documentId = await AuthServices.getId();
+    await akunCollection.doc(documentId).update({'url_foto_profil': urlProfil, 'nama' : nama});
+  }
+
   static Future<void> addWebinar(Webinar webinar) async{
     await webinarCollection.doc().set(webinar.toJson());
   }
