@@ -24,7 +24,7 @@
               </intent>
             </queries>
    <application
-        android:label="webinfo_senter"
+        android:label="Webinfo Senter"
         android:icon="@mipmap/ic_launcher">
          
         <activity
