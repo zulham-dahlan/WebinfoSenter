@@ -1,8 +1,31 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.webinfo_senter">
+    <queries>
+              <!-- If your app opens https URLs -->
+              <intent>
+                <action android:name="android.intent.action.VIEW" />
+                <data android:scheme="https" />
+              </intent>
+              <!-- If your app makes calls -->
+              <intent>
+                <action android:name="android.intent.action.DIAL" />
+                <data android:scheme="tel" />
+              </intent>
+              <!-- If your sends SMS messages -->
+              <intent>
+                <action android:name="android.intent.action.SENDTO" />
+                <data android:scheme="smsto" />
+              </intent>
+              <!-- If your app sends emails -->
+              <intent>
+                <action android:name="android.intent.action.SEND" />
+                <data android:mimeType="*/*" />
+              </intent>
+            </queries>
    <application
         android:label="webinfo_senter"
         android:icon="@mipmap/ic_launcher">
+         
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -10,6 +33,7 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
+           
             <!-- Specifies an Android theme to apply to this Activity as soon as
                  the Android process has started. This theme is visible to the user
                  while the Flutter UI initializes. After that, this theme continues
@@ -37,5 +61,9 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+          
+        
     </application>
+    
+    
 </manifest>

@@ -23,21 +23,14 @@ class BookmarkProvider extends ChangeNotifier {
   Future<void> addBookmark(Webinar webinar) async {
     _bookmark.add(webinar);
     _icon = Icons.bookmarks;
-    FirestoreService.addBookmark(bookmark);
+    await FirestoreService.updateBookmark(bookmark);
     notifyListeners();
   }
 
   Future<void> deleteBookmark(Webinar webinar) async{
-    int? position;
-    final result = bookmark;
-    for (int x = 0; x < result.length; x++) {
-      if (result[x].judul == webinar.judul) {
-        position = x;
-      }
-    }
     _bookmark.remove(webinar);
     _icon = Icons.bookmark_border;
-    await FirestoreService.deleteBookmark(position!);
+    await FirestoreService.deleteBookmark(webinar);
     notifyListeners();
   }
 

@@ -33,7 +33,7 @@ class FirestoreService {
   
   static Future<List<Webinar>> getDataWebinar() async {
     final List<Webinar> dataWebinar = [];
-    await webinarCollection.get().then((snapshot) {
+    await webinarCollection.where("is_verified",isEqualTo: true).get().then((snapshot) {
       for (var element in snapshot.docs) {
         dataWebinar.add(Webinar.fromJson(element.data() as Map<String,dynamic>));
       }
@@ -69,7 +69,7 @@ class FirestoreService {
     return dataWebinar;
   }
 
-  static Future<void> addBookmark(List<Webinar> listBookmark) async {
+  static Future<void> updateBookmark(List<Webinar> listBookmark) async {
     String documentId = await AuthServices.getId();
     final List<Map<String,dynamic>> list = [];
     for(var element in listBookmark){
@@ -82,10 +82,19 @@ class FirestoreService {
         .catchError((error) => print('Gagal'));
   }
 
-  static Future<void> deleteBookmark(int index) async {
+ static Future<void> deleteBookmark(Webinar webinar) async {
     String documentId = await AuthServices.getId();
-    await akunCollection.doc(documentId).collection('bookmark').doc().update({'$index' : FieldValue.delete()});
+    final List<Map<String,dynamic>> list = [];
+    list.add(webinar.toJson());
+    await akunCollection
+        .doc(documentId)
+        .update({'bookmark': FieldValue.arrayRemove(list)})
+        .then((value) => print('Berhasil'))
+        .catchError((error) => print('Gagal'));
   }
+
+
+
 
   static Future<bool> checkConnection() async {
     try {

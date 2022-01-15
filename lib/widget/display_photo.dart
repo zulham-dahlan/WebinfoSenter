@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DisplayPhoto extends StatelessWidget {
-  final String? url;
+  final String url;
   final double width;
   final double height;
 
@@ -10,7 +10,7 @@ class DisplayPhoto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var urlFoto = url ;
-    return urlFoto == null
+    return urlFoto.isEmpty
         ? Image.asset(
             'assets/account.png',
             width: width,

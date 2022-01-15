@@ -21,7 +21,7 @@ class EditProfile extends StatefulWidget {
 class _EditProfileState extends State<EditProfile> {
   TextEditingController _fullnameController = TextEditingController();
   late File _image;
-  String? urlProfile;
+  late String urlProfile;
 
   @override
   Widget build(BuildContext context) {
@@ -110,13 +110,13 @@ class _EditProfileState extends State<EditProfile> {
                             ),
                             onPressed: () async {
                               await FirestoreService.updateDataAkun(
-                                      urlProfile!, _fullnameController.text)
+                                      urlProfile, _fullnameController.text)
                                   .then((value) {
                                 AuthServices.showSnackbar(
                                     "Berhasil Merubah Profil", context);
                               });
                               value.updateProfile(
-                                  _fullnameController.text, urlProfile!);
+                                  _fullnameController.text, urlProfile);
                             },
                             child: const Text(
                               'Simpan',

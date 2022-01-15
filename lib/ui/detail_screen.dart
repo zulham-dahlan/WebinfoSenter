@@ -227,10 +227,10 @@ class _DetailScreenState extends State<DetailScreen> {
                         backgroundColor: customRedColor,
                       ),
                       onPressed: () async {
-                        String url = webinar.linkPendaftaran;
-                        var urllaunchable = await canLaunch(url);
-                        if (urllaunchable) {
-                          await launch(url);
+                        String url = 'https://' + webinar.linkPendaftaran;
+                       
+                        if (await canLaunch(url)) {
+                          await launch(url,forceWebView: true,enableJavaScript: true);
                         } else {
                           print('URL Tidak bisa dibuka');
                         }
