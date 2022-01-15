@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
               detailWebinar:
                   ModalRoute.of(context)?.settings.arguments as Webinar),
           AllWebinar.routeName: (context) => AllWebinar(),
-          // FormPengajuan.routeName: (context) => FormPengajuan(),
+          FormPengajuan.routeName: (context) => FormPengajuan(),
           // AddImage.routeName: (context) => AddImage()
           ResetPasswordPage.routeName: (context) => ResetPasswordPage(),
           EditProfile.routeName: (context) => EditProfile(),
