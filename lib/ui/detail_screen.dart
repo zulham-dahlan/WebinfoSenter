@@ -230,7 +230,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         String url = 'https://' + webinar.linkPendaftaran;
                        
                         if (await canLaunch(url)) {
-                          await launch(url,forceWebView: true,enableJavaScript: true);
+                          await launch(url);
                         } else {
                           print('URL Tidak bisa dibuka');
                         }

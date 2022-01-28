@@ -80,14 +80,18 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               Expanded(
                 child: FutureBuilder<List<Webinar>>(
-                    future: FirestoreService.searchWebinar(querySearch),
+                    future: FirestoreService.getDataWebinar(),
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
                         return const Center(
                           child: CircularProgressIndicator(),
                         );
                       } else if (snapshot.hasData) {
-                        final List<Webinar> allWebinar = snapshot.data!;
+                        final List<Webinar> allWebinar = snapshot.data!
+                            .where((webinar) => webinar.judul
+                                .toLowerCase()
+                                .contains(querySearch.toLowerCase()))
+                            .toList();
                         if (allWebinar.isNotEmpty) {
                           return ListView.builder(
                             shrinkWrap: true,
@@ -101,11 +105,15 @@ class _SearchScreenState extends State<SearchScreen> {
                           );
                         } else {
                           return Center(
-                            child: Text('Webinar Tidak Ditemukan', style: myTextTheme.bodyText2!.copyWith(color:customRedDark)),
+                            child: Text('Webinar tidak ditemukan',
+                                style: myTextTheme.bodyText2!
+                                    .copyWith(color: customRedDark)),
                           );
                         }
                       } else {
-                        return Text('Check Your Internet Connection', style: myTextTheme.bodyText2!.copyWith(color:customRedDark));
+                        return Text('Check Your Internet Connection',
+                            style: myTextTheme.bodyText2!
+                                .copyWith(color: customRedDark));
                       }
                     }),
               )

@@ -8,15 +8,19 @@ import 'package:webinfo_senter/provider/akun_provider.dart';
 import 'package:webinfo_senter/provider/bookmark_provider.dart';
 import 'package:webinfo_senter/widget/card_webinar_vertical.dart';
 
-class WebinarkuPage extends StatefulWidget {
+// class WebinarkuPage extends StatefulWidget {
+//   static const String webinarkuTitle = 'Webinarku';
+//   static const routeName = '/webinarku_page';
+
+//   @override
+//   _WebinarkuPageState createState() => _WebinarkuPageState();
+// }
+
+class WebinarkuPage extends StatelessWidget {
   static const String webinarkuTitle = 'Webinarku';
   static const routeName = '/webinarku_page';
 
-  @override
-  _WebinarkuPageState createState() => _WebinarkuPageState();
-}
-
-class _WebinarkuPageState extends State<WebinarkuPage> {
+  WebinarkuPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,16 +45,16 @@ class _WebinarkuPageState extends State<WebinarkuPage> {
                   if (snapshot.state == ResultState.loading) {
                     return const Center(child: CircularProgressIndicator());
                   } else if (snapshot.state == ResultState.hasData) {
+                    var listBookmark = snapshot.bookmark;
                     return Expanded(
                       child: ListView.builder(
-                        itemCount: snapshot.bookmark.length,
+                        itemCount: listBookmark.length,
                         itemBuilder: (context, index) {
-                          var webinar = snapshot.bookmark[index];
-                          return CardWebinarVertical(webinar: webinar);
+                          return CardWebinarVertical(webinar: listBookmark[index]);
                         },
                       ),
                     );
-                  } else if (snapshot.state == ResultState.noData) {
+                  } else if (snapshot.state == ResultState.noData || snapshot.bookmark.isEmpty) {
                     return Center(child: Text(snapshot.message));
                   } else if (snapshot.state == ResultState.error) {
                     return Center(child: Text(snapshot.message));

@@ -24,14 +24,14 @@ class BookmarkProvider extends ChangeNotifier {
     _bookmark.add(webinar);
     _icon = Icons.bookmarks;
     await FirestoreService.updateBookmark(bookmark);
-    notifyListeners();
+    notifyListeners();   
   }
 
   Future<void> deleteBookmark(Webinar webinar) async{
     _bookmark.remove(webinar);
     _icon = Icons.bookmark_border;
     await FirestoreService.deleteBookmark(webinar);
-    notifyListeners();
+    notifyListeners();   
   }
 
   Future<void> getBookmarkByJudul(String judul) async {
@@ -50,12 +50,13 @@ class BookmarkProvider extends ChangeNotifier {
       } else {
         _bookmarkState = ResultState.noData;
         _icon = Icons.bookmark_border;
-        notifyListeners();
+        notifyListeners();   
       }
     } catch (e) {
       _bookmarkState = ResultState.error;
-      notifyListeners();
+      
     }
+    
   }
 
   Future<void> _fetchDataBookmark() async {
@@ -70,9 +71,9 @@ class BookmarkProvider extends ChangeNotifier {
           _state = ResultState.hasData;
           notifyListeners();
         } else {
-          _bookmark.clear();
           _state = ResultState.noData;
-          _message = "Empty Data";
+          _message = "Belum ada bookmark";
+          _bookmark.clear();
           notifyListeners();
         }
       } else {

@@ -44,7 +44,7 @@ class FirestoreService {
   static Future<List<Webinar>> getKategoriWebinar(String kategori) async {
     final List<Webinar> dataWebinar = [];
     await webinarCollection
-        .where('kategori', isEqualTo: kategori)
+        .where('kategori', isEqualTo: kategori).where("is_verified",isEqualTo: true)
         .get()
         .then((snapshot) {
       for (var element in snapshot.docs) {
