@@ -28,12 +28,12 @@ class BookmarkButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(2),
           ),
           child:
-              IconButton(onPressed: () {
+              IconButton(onPressed: () async {
                 if(data.bookmarkState == ResultState.noData){
-                  data.addBookmark(webinar);
+                  await data.addBookmark(webinar);
                   AuthServices.showSnackbar('Tersimpan', context);
                 }else{
-                  data.deleteBookmark(webinar);
+                  await data.deleteBookmark(webinar);
                   AuthServices.showSnackbar('Terhapus', context);
                 }
               }, icon: Icon(data.icon,color: customRedDark,)),

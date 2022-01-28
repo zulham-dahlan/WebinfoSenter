@@ -4,7 +4,7 @@ import 'package:webinfo_senter/data/model/webinar.dart';
 import 'package:webinfo_senter/helper/result_state.dart';
 
 class BookmarkProvider extends ChangeNotifier {
-  List<Webinar> _bookmark = [];
+  late List<Webinar> _bookmark ;
   IconData _icon = Icons.bookmark_border;
   late ResultState _state;
   late ResultState _bookmarkState;
@@ -24,6 +24,7 @@ class BookmarkProvider extends ChangeNotifier {
     _bookmark.add(webinar);
     _icon = Icons.bookmarks;
     await FirestoreService.updateBookmark(bookmark);
+    _fetchDataBookmark();
     notifyListeners();   
   }
 
@@ -31,6 +32,7 @@ class BookmarkProvider extends ChangeNotifier {
     _bookmark.remove(webinar);
     _icon = Icons.bookmark_border;
     await FirestoreService.deleteBookmark(webinar);
+    _fetchDataBookmark();
     notifyListeners();   
   }
 
@@ -54,16 +56,16 @@ class BookmarkProvider extends ChangeNotifier {
       }
     } catch (e) {
       _bookmarkState = ResultState.error;
-      
     }
     
   }
 
-  Future<void> _fetchDataBookmark() async {
+  Future _fetchDataBookmark() async {
     _state = ResultState.loading;
     notifyListeners();
     final getConnection = await FirestoreService.checkConnection();
     try {
+      _bookmark = [];
       if (getConnection) {
         final result = await FirestoreService.readDataAkun();
         if (result.bookmark.isNotEmpty) {
