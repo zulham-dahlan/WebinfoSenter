@@ -25,7 +25,7 @@ class BookmarkProvider extends ChangeNotifier {
     _icon = Icons.bookmarks;
     await FirestoreService.updateBookmark(bookmark);
     _fetchDataBookmark();
-    notifyListeners();   
+    notifyListeners();
   }
 
   Future<void> deleteBookmark(Webinar webinar) async{
@@ -33,10 +33,10 @@ class BookmarkProvider extends ChangeNotifier {
     _icon = Icons.bookmark_border;
     await FirestoreService.deleteBookmark(webinar);
     _fetchDataBookmark();
-    notifyListeners();   
+    notifyListeners();
   }
 
-  Future<void> getBookmarkByJudul(String judul) async {
+  void getBookmarkByJudul(String judul) async {
     try {
       final result = bookmark;
       bool isFound = false;

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/common/text_theme.dart';
-import 'package:webinfo_senter/data/firebase/firestore_service.dart';
-import 'package:webinfo_senter/data/model/akun.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:webinfo_senter/helper/result_state.dart';
 import 'package:webinfo_senter/provider/akun_provider.dart';
@@ -15,6 +13,8 @@ import 'package:webinfo_senter/widget/display_photo.dart';
 class ProfilePage extends StatelessWidget {
   static const String profileTitle = 'Profile';
   static const routeName = '/profile_page';
+
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -61,18 +61,16 @@ class ProfilePage extends StatelessWidget {
                             height: 100.0,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
-                        Container(
-                          child: Text(
-                            profileAkun.nama,
-                            style: myTextTheme.headline6!.copyWith(
+                        Text(
+                          profileAkun.nama,
+                          style: myTextTheme.headline6!.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
-                          ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Text(profileAkun.email,
@@ -84,10 +82,10 @@ class ProfilePage extends StatelessWidget {
                   }
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-               Container(
+               SizedBox(
                 width: widthButton,
                 height: heightButton,
                 child: OutlinedButton(
@@ -102,10 +100,10 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
-              Container(
+              SizedBox(
                 width: widthButton,
                 height: heightButton,
                 child: OutlinedButton(
@@ -120,10 +118,10 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
-              Container(
+              SizedBox(
                 width: widthButton,
                 height: heightButton,
                 child: OutlinedButton(

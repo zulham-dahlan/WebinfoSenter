@@ -10,7 +10,8 @@ class DetailScreen extends StatefulWidget {
 
   final Webinar detailWebinar;
 
-  DetailScreen({required this.detailWebinar});
+  // ignore: use_key_in_widget_constructors
+  const DetailScreen({required this.detailWebinar});
 
   @override
   _DetailScreenState createState() => _DetailScreenState();
@@ -232,6 +233,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         if (await canLaunch(url)) {
                           await launch(url);
                         } else {
+                          // ignore: avoid_print
                           print('URL Tidak bisa dibuka');
                         }
                       },

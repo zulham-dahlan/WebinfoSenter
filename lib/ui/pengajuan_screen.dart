@@ -12,6 +12,8 @@ import 'package:webinfo_senter/data/model/webinar.dart';
 class FormPengajuan extends StatefulWidget {
   static const routeName = '/form_pengajuan';
 
+  const FormPengajuan({Key? key}) : super(key: key);
+
   @override
   _FormPengajuanState createState() => _FormPengajuanState();
 }
@@ -42,7 +44,7 @@ class _FormPengajuanState extends State<FormPengajuan> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -53,179 +55,179 @@ class _FormPengajuanState extends State<FormPengajuan> {
                     style: myTextTheme.headline6,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20.0,
                 ),
                 Text('Judul Acara', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
-                SizedBox(
+                const SizedBox(
                   height: 5.0,
                 ),
                 TextFormField(
                   controller: _judulController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                   ),
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15.0,
                 ),
                 Text('Badan / Lembaga Penyelenggara', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
-                 SizedBox(
+                const SizedBox(
                   height: 5.0,
                 ),
                 TextFormField(
                   controller: _penyelenggaraController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                   ),
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15.0,
                 ),
                 Text('Deskripsi', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
-                 SizedBox(
+                 const SizedBox(
                   height: 5.0,
                 ),
                 TextFormField(
                   controller: _deskripsiController,
                   maxLines: 5,
-                  decoration: InputDecoration(
+                  decoration:const InputDecoration(
                     border: OutlineInputBorder(),
                     alignLabelWithHint: true,
                   ),
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15.0,
                 ),
                 Text('Tanggal & Waktu Acara', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
-                SizedBox(
+                const SizedBox(
                   height: 5.0,
                 ),
                 Row(
                   children: [
                     Container(
                       
-                      margin: EdgeInsets.only(right: 10),
+                      margin: const EdgeInsets.only(right: 10),
                       width: 170,
                       child: TextFormField(
                         controller: _tglAcaraController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: '01 Januari 2021',
                           border: OutlineInputBorder(),
                         ),
-                        style: TextStyle(color: Colors.black),
+                        style: const TextStyle(color: Colors.black),
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 100,
                       child: TextFormField(
                         controller: _waktuAcaraController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: '08:00',
                           border: OutlineInputBorder(),
                         ),
-                        style: TextStyle(color: Colors.black),
+                        style: const TextStyle(color: Colors.black),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(
+               const SizedBox(
                   height: 15.0,
                 ),
                 Text('Lokasi Acara', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
-                 SizedBox(
+                 const SizedBox(
                   height: 5.0,
                 ),
                 TextFormField(
                   controller: _lokasiAcaraController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                   ),
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15.0,
                 ),
                 Text('Harga Pendaftaran', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
-                 SizedBox(
+                 const SizedBox(
                   height: 5.0,
                 ),
                 TextFormField(
                   controller: _hargaController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'Free / Rp. -'
                   ),
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15.0,
                 ),
                 Text('Link Pendaftaran', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
-                 SizedBox(
+                const  SizedBox(
                   height: 5.0,
                 ),
                 TextFormField(
                   controller: _linkPendaftaranController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                   ),
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15.0,
                 ),
                 Text('Contact Person', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
-                 SizedBox(
+                const SizedBox(
                   height: 5.0,
                 ),
                 TextFormField(
                   controller: _contactPersonController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'ex. 085821212100'
                   ),
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15.0,
                 ),
                 Text('Situs / Media Sosial', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
-                 SizedBox(
+                const SizedBox(
                   height: 5.0,
                 ),
                 TextFormField(
                   controller: _sosmedController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'ex. @webinfosenter / www.webinfo.com',
                     border: OutlineInputBorder(),
                   ),
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15.0,
                 ),
                 Text('Benefit Acara', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
-                 SizedBox(
+                const  SizedBox(
                   height: 5.0,
                 ),
                 TextFormField(
                   controller: _benefitController,
                   maxLines: 5,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     alignLabelWithHint: true,
                   ),
-                  style: TextStyle(
+                  style:const TextStyle(
                     color: Colors.black,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15.0,
                 ),
                 Row(
@@ -291,14 +293,14 @@ class _FormPengajuanState extends State<FormPengajuan> {
                     ),
                     Container(
                       alignment: Alignment.center,
-                      padding: EdgeInsets.only(left:20, right:20),
+                      padding: const EdgeInsets.only(left:20, right:20),
                       child: Text(
-                        '$namePoster',
+                        namePoster,
                         style: myTextTheme.bodyText1,
                       ),
                     ),
                   
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
                 Row(
@@ -332,7 +334,7 @@ class _FormPengajuanState extends State<FormPengajuan> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Expanded(

@@ -8,6 +8,8 @@ import 'package:webinfo_senter/widget/card_webinar_vertical.dart';
 class AllWebinar extends StatefulWidget {
   static const routeName = '/all_webinar';
 
+  const AllWebinar({Key? key}) : super(key: key);
+
   @override
   _AllWebinarState createState() => _AllWebinarState();
 }
@@ -20,7 +22,7 @@ class _AllWebinarState extends State<AllWebinar> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -32,7 +34,7 @@ class _AllWebinarState extends State<AllWebinar> {
                     },
                     icon: Image.asset('assets/back_icon.png'),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10.0,
                   ),
                   Text(
@@ -43,7 +45,7 @@ class _AllWebinarState extends State<AllWebinar> {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               Text(
@@ -129,7 +131,7 @@ class _AllWebinarState extends State<AllWebinar> {
                             },
                           );
                         } else {
-                          return Text('Something Wrong');
+                          return const Text('Something Wrong');
                         }
                       }),
                 ),

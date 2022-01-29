@@ -14,12 +14,14 @@ import 'package:webinfo_senter/widget/display_photo.dart';
 class EditProfile extends StatefulWidget {
   static const routeName = '/edit_profile';
 
+  const EditProfile({Key? key}) : super(key: key);
+
   @override
   _EditProfileState createState() => _EditProfileState();
 }
 
 class _EditProfileState extends State<EditProfile> {
-  TextEditingController _fullnameController = TextEditingController();
+  final TextEditingController _fullnameController = TextEditingController();
   late File _image;
   late String urlProfile;
 
@@ -61,7 +63,7 @@ class _EditProfileState extends State<EditProfile> {
                             height: 100.0,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 20,
                         ),
                         TextButton(
@@ -93,7 +95,7 @@ class _EditProfileState extends State<EditProfile> {
                     TextField(
                       controller: _fullnameController,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         labelText: 'Nama Lengkap',
                         labelStyle: myTextTheme.bodyText1,
                       ),
@@ -124,7 +126,7 @@ class _EditProfileState extends State<EditProfile> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Expanded(

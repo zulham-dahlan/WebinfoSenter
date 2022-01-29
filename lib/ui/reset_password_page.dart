@@ -5,7 +5,7 @@ import 'package:webinfo_senter/data/firebase/auth_service.dart';
 
 class ResetPasswordPage extends StatefulWidget {
   static const routeName = '/reset_password';
-  ResetPasswordPage({Key? key}) : super(key: key);
+  const ResetPasswordPage({Key? key}) : super(key: key);
 
   @override
   _ResetPasswordPageState createState() => _ResetPasswordPageState();
@@ -32,7 +32,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
@@ -41,30 +41,30 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
                 'Masukan email yang terhubung dengan akun webinfo senter anda, kami akan mengirimkan email untuk melakukan reset password.',
                 style: myTextTheme.bodyText1,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               TextField(
                 keyboardType: TextInputType.emailAddress,
                 controller: _emailController,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                   hintText: 'username@gmail.com',
                   labelText: 'Email',
                   labelStyle: myTextTheme.bodyText1,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 width: widthButton,
                 height: heightButton,
                 child: ElevatedButton(

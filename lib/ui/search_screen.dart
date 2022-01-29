@@ -10,7 +10,7 @@ class SearchScreen extends StatefulWidget {
 
   final String name;
 
-  const SearchScreen({required this.name});
+  const SearchScreen({Key? key, required this.name}) : super(key: key);
 
   @override
   _SearchScreenState createState() => _SearchScreenState();
@@ -46,7 +46,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     },
                     icon: Image.asset('assets/back_icon.png'),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10.0,
                   ),
                   Flexible(
@@ -66,7 +66,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               Text(
@@ -75,7 +75,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               Expanded(

@@ -1,5 +1,4 @@
 import 'package:webinfo_senter/data/model/webinar.dart';
-import 'dart:convert';
 
 class Akun{
   String nama ;

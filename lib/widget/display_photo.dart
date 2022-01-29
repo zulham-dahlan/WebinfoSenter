@@ -5,7 +5,7 @@ class DisplayPhoto extends StatelessWidget {
   final double width;
   final double height;
 
-  DisplayPhoto({required this.url, required this.width, required this.height});
+  const DisplayPhoto({Key? key, required this.url, required this.width, required this.height}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

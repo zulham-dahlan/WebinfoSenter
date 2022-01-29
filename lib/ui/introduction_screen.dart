@@ -8,6 +8,8 @@ import 'package:webinfo_senter/data/model/intro.dart';
 class IntroductionScreen extends StatefulWidget {
   static const routeName = '/introduction_screen';
 
+  const IntroductionScreen({Key? key}) : super(key: key);
+
   @override
   _IntroductionScreenState createState() => _IntroductionScreenState();
 }
@@ -36,7 +38,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
         index: 0,
         autoplay: false,
         loop: false,
-        pagination: SwiperPagination(
+        pagination: const SwiperPagination(
           margin: EdgeInsets.only(bottom: 20.0),
           builder: DotSwiperPaginationBuilder(
             color: customRedLight,
@@ -71,7 +73,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
               Center(
                 child: Text(
                   intro.title,
-                  style: styleRoboto,
+                  
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -89,12 +91,10 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                   )
                 )
               else
-                Container(
-                  child: Text(
-                    intro.description,
-                    style: styleMontserrat,
-                    textAlign: TextAlign.center,
-                  ),
+                Text(
+                  intro.description,
+  
+                  textAlign: TextAlign.center,
                 ),
             ],
           ),

@@ -15,6 +15,8 @@ class HomePage extends StatefulWidget {
   static const String homeTitle = 'Home';
   static const routeName = '/home_page';
 
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -46,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                   }
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               TextField(
@@ -57,12 +59,12 @@ class _HomePageState extends State<HomePage> {
                   queryController.text = '';
                 },
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                   hintText: 'Cari Webinar',
                   hintStyle: myTextTheme.bodyText1,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
@@ -71,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Expanded(
@@ -98,12 +100,12 @@ class _HomePageState extends State<HomePage> {
                     }),
               ),
               Container(
-                margin: EdgeInsets.only(top: 5),
+                margin: const EdgeInsets.only(top: 5),
                 child: SizedBox(
                   width: double.infinity,
                   child: OutlinedButton(
                     style: OutlinedButton.styleFrom(
-                      side: BorderSide(color: customRedColor),
+                      side: const BorderSide(color: customRedColor),
                     ),
                     onPressed: () {
                       Navigator.pushNamed(context, AllWebinar.routeName);
@@ -125,7 +127,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     queryController.dispose();
     super.dispose();
   }

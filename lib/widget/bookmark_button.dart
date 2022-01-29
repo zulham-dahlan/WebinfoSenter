@@ -4,18 +4,17 @@ import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/data/firebase/auth_service.dart';
 import 'package:webinfo_senter/data/model/webinar.dart';
 import 'package:webinfo_senter/helper/result_state.dart';
-import 'package:webinfo_senter/provider/akun_provider.dart';
 import 'package:webinfo_senter/provider/bookmark_provider.dart';
 
 class BookmarkButton extends StatelessWidget {
-  BookmarkButton({required this.webinar});
+  const BookmarkButton({Key? key, required this.webinar}) : super(key: key);
 
   final Webinar webinar;
   
   @override
   Widget build(BuildContext context) {
     return Consumer<BookmarkProvider>(
-      builder: (context, data, widget) {
+      builder: (context, data, widget){
         data.getBookmarkByJudul(webinar.judul);
         return Container(
           width: 50,

@@ -8,7 +8,6 @@ import 'package:webinfo_senter/ui/allwebinar_screen.dart';
 import 'package:webinfo_senter/ui/detail_screen.dart';
 import 'package:webinfo_senter/ui/edit_profile.dart';
 import 'package:webinfo_senter/ui/home_page.dart';
-import 'package:webinfo_senter/ui/introduction_screen.dart';
 import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/login_page.dart';
 import 'package:webinfo_senter/ui/pengajuan_screen.dart';
@@ -18,7 +17,6 @@ import 'package:webinfo_senter/ui/search_screen.dart';
 import 'package:webinfo_senter/ui/register_page.dart';
 import 'package:webinfo_senter/ui/webinarku_page.dart';
 import 'package:webinfo_senter/ui/splash_screen.dart';
-import 'package:webinfo_senter/ui/add_image.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,6 +25,8 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -45,8 +45,8 @@ class MyApp extends StatelessWidget {
         routes: {
           SplashScreen.routeName: (context) => SplashScreen(),
           // IntroductionScreen.routeName: (context) => IntroductionScreen(),
-          LayoutNavigation.routeName: (context) => LayoutNavigation(),
-          HomePage.routeName: (context) => HomePage(),
+          LayoutNavigation.routeName: (context) => const LayoutNavigation(),
+          HomePage.routeName: (context) => const HomePage(),
           WebinarkuPage.routeName: (context) => WebinarkuPage(),
           ProfilePage.routeName: (context) => ProfilePage(),
           SearchScreen.routeName: (context) => SearchScreen(
@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
           FormPengajuan.routeName: (context) => FormPengajuan(),
           // AddImage.routeName: (context) => AddImage()
           ResetPasswordPage.routeName: (context) => ResetPasswordPage(),
-          EditProfile.routeName: (context) => EditProfile(),
+          EditProfile.routeName: (context) => const EditProfile(),
         },
       ),
     );

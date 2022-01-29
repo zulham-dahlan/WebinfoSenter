@@ -8,7 +8,7 @@ import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/login_page.dart';
 
 class AuthServices{
-  static FirebaseAuth _auth = FirebaseAuth.instance;
+  static final FirebaseAuth _auth = FirebaseAuth.instance;
 
   static Future<void> signOut() async {
     _auth.signOut();
@@ -61,7 +61,7 @@ class AuthServices{
   }
 
   static Future<String> getId() async {
-    return await _auth.currentUser!.uid;
+    return _auth.currentUser!.uid;
   }
 
   static Future<void> resetPassword(String email, BuildContext context)async {

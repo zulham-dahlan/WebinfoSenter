@@ -1,26 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/common/text_theme.dart';
-import 'package:webinfo_senter/data/model/webinar.dart';
 import 'package:webinfo_senter/helper/result_state.dart';
-import 'package:webinfo_senter/provider/akun_provider.dart';
 import 'package:webinfo_senter/provider/bookmark_provider.dart';
 import 'package:webinfo_senter/widget/card_webinar_vertical.dart';
 
-// class WebinarkuPage extends StatefulWidget {
-//   static const String webinarkuTitle = 'Webinarku';
-//   static const routeName = '/webinarku_page';
-
-//   @override
-//   _WebinarkuPageState createState() => _WebinarkuPageState();
-// }
 
 class WebinarkuPage extends StatelessWidget {
   static const String webinarkuTitle = 'Webinarku';
   static const routeName = '/webinarku_page';
 
-  WebinarkuPage({Key? key}) : super(key: key);
+  const WebinarkuPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

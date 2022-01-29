@@ -4,11 +4,12 @@ import 'package:webinfo_senter/common/text_theme.dart';
 import 'package:webinfo_senter/data/firebase/auth_service.dart';
 import 'package:webinfo_senter/common/style.dart';
 import 'package:webinfo_senter/data/model/akun.dart';
-import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/login_page.dart';
 
 class RegisterPage extends StatefulWidget {
   static const routeName = '/register_page';
+
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   _RegisterPage createState() => _RegisterPage();
@@ -37,46 +38,44 @@ class _RegisterPage extends State<RegisterPage> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
-              Container(
-                child: Text(
-                  'Daftar akun Webinfo Senter',
-                  style: myTextTheme.headline4!.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              Text(
+                'Daftar akun Webinfo Senter',
+                style: myTextTheme.headline4!.copyWith(
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               TextField(
                 controller: _fullnameController,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                   labelText: 'Nama Lengkap',
                   labelStyle: myTextTheme.bodyText1,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextField(
                 keyboardType: TextInputType.emailAddress,
                 controller: _emailController,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                   hintText: 'username@gmail.com',
                   labelText: 'Email',
                   labelStyle: myTextTheme.bodyText1,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextField(
@@ -85,7 +84,7 @@ class _RegisterPage extends State<RegisterPage> {
                 decoration: InputDecoration(
                   labelText: 'Password',
                   labelStyle: myTextTheme.bodyText1,
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                   suffixIcon: IconButton(
                       icon: Icon(
                           _isObscure ? Icons.visibility : Icons.visibility_off),
@@ -96,10 +95,10 @@ class _RegisterPage extends State<RegisterPage> {
                       }),
                 ),
               ),
-              SizedBox(
+             const SizedBox(
                 height: 20,
               ),
-              Container(
+              SizedBox(
                 width: widthButton,
                 height: heightButton,
                 child: ElevatedButton(
@@ -129,7 +128,7 @@ class _RegisterPage extends State<RegisterPage> {
                   ),
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

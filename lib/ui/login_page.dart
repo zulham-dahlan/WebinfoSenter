@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:webinfo_senter/common/text_theme.dart';
 import 'package:webinfo_senter/data/firebase/auth_service.dart';
 import 'package:webinfo_senter/common/style.dart';
-import 'package:webinfo_senter/ui/layout_navigation.dart';
 import 'package:webinfo_senter/ui/register_page.dart';
 import 'package:webinfo_senter/ui/reset_password_page.dart';
 
 class LoginPage extends StatefulWidget {
   static const routeName = '/login_page';
+
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   _LoginPage createState() => _LoginPage();
@@ -36,7 +37,7 @@ class _LoginPage extends State<LoginPage> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -55,27 +56,27 @@ class _LoginPage extends State<LoginPage> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Text(
                 'Login to get webinar information',
                 style: myTextTheme.bodyText1,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               TextField(
                 keyboardType: TextInputType.emailAddress,
                 controller: _emailController,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                   hintText: 'username@gmail.com',
                   labelText: 'Email',
                   labelStyle: myTextTheme.bodyText1,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextField(
@@ -84,7 +85,7 @@ class _LoginPage extends State<LoginPage> {
                 decoration: InputDecoration(
                   labelText: 'Password',
                   labelStyle: myTextTheme.bodyText1,
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                   suffixIcon: IconButton(
                       icon: Icon(
                           _isObscure ? Icons.visibility : Icons.visibility_off),
@@ -95,10 +96,10 @@ class _LoginPage extends State<LoginPage> {
                       }),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 width: widthButton,
                 height: heightButton,
                 child: ElevatedButton(
@@ -119,7 +120,7 @@ class _LoginPage extends State<LoginPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Container(
@@ -135,17 +136,17 @@ class _LoginPage extends State<LoginPage> {
                       )),
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text('Belum Punya Akun?',
                       style:
                           myTextTheme.bodyText1!.copyWith(color: Colors.grey)),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Container(
+                  SizedBox(
                     width: widthButton,
                     height: heightButton,
                     child: ElevatedButton(
@@ -160,7 +161,7 @@ class _LoginPage extends State<LoginPage> {
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10.0),
-                                    side: BorderSide(color: customGreyLight))),
+                                    side: const BorderSide(color: customGreyLight))),
                         backgroundColor:
                             MaterialStateProperty.all(Colors.white),
                       ),

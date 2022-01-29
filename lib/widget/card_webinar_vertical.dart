@@ -6,7 +6,7 @@ import 'package:webinfo_senter/ui/detail_screen.dart';
 class CardWebinarVertical extends StatelessWidget {
   final Webinar webinar;
 
-  const CardWebinarVertical({required this.webinar});
+  const CardWebinarVertical({Key? key, required this.webinar}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class CardWebinarVertical extends StatelessWidget {
             arguments: webinar);
       },
       child: Container(
-        padding: EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -28,7 +28,7 @@ class CardWebinarVertical extends StatelessWidget {
                   width: 65,
                   height: 85,
                 )),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Flexible(
@@ -53,11 +53,11 @@ class CardWebinarVertical extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.calendar_today,
                         size: 12,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Text(
@@ -68,11 +68,11 @@ class CardWebinarVertical extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.schedule,
                         size: 12,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Text(

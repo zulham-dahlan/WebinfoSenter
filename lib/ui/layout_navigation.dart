@@ -8,21 +8,22 @@ import 'package:webinfo_senter/ui/profile_page.dart';
 class LayoutNavigation extends StatefulWidget {
   static const routeName = '/layout_navigation';
 
+  const LayoutNavigation({Key? key}) : super(key: key);
+
   @override
   _LayoutNavigation createState() => _LayoutNavigation();
 }
 
 class _LayoutNavigation extends State<LayoutNavigation> {
   int _bottomNavIndex = 0 ;
-  static const routeName = '/layout_navigation';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _listWidget[_bottomNavIndex],
       bottomNavigationBar: BottomNavigationBar(
-        selectedIconTheme: IconThemeData(color: customRedColor),
+        selectedIconTheme: const IconThemeData(color: customRedColor),
         selectedItemColor: customRedColor,
-        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
         currentIndex: _bottomNavIndex,
         items : _bottomNavBarItems,
         onTap:_onBottomNavTapped,
@@ -30,22 +31,22 @@ class _LayoutNavigation extends State<LayoutNavigation> {
     );
   }
 
-  List<Widget> _listWidget = [
-    HomePage(),
-    WebinarkuPage(),
-    ProfilePage(),
+  final List<Widget> _listWidget = [
+    const HomePage(),
+    const WebinarkuPage(),
+    const ProfilePage(),
   ];
 
-  List<BottomNavigationBarItem> _bottomNavBarItems = [
-    BottomNavigationBarItem(
+  final List<BottomNavigationBarItem> _bottomNavBarItems = [
+    const BottomNavigationBarItem(
       icon: Icon(Icons.home),
       label: HomePage.homeTitle,
     ),
-     BottomNavigationBarItem(
+     const BottomNavigationBarItem(
       icon: Icon(Icons.book),
       label: WebinarkuPage.webinarkuTitle,
     ),
-     BottomNavigationBarItem(
+     const BottomNavigationBarItem(
       icon: Icon(Icons.account_box),
       label: ProfilePage.profileTitle,
     ),
