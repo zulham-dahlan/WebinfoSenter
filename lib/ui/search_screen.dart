@@ -60,7 +60,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       decoration: InputDecoration(
                         border: const OutlineInputBorder(),
                         hintText: 'Cari Webinar',
-                        hintStyle: myTextTheme.bodyText1,
+                        hintStyle: myTextTheme.bodyLarge,
                       ),
                     ),
                   ),
@@ -71,7 +71,7 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               Text(
                 'Webinar terkait "$querySearch"',
-                style: myTextTheme.headline6!.copyWith(
+                style: myTextTheme.titleLarge!.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -106,13 +106,13 @@ class _SearchScreenState extends State<SearchScreen> {
                         } else {
                           return Center(
                             child: Text('Webinar tidak ditemukan',
-                                style: myTextTheme.bodyText2!
+                                style: myTextTheme.bodyMedium!
                                     .copyWith(color: customRedDark)),
                           );
                         }
                       } else {
                         return Text('Check Your Internet Connection',
-                            style: myTextTheme.bodyText2!
+                            style: myTextTheme.bodyMedium!
                                 .copyWith(color: customRedDark));
                       }
                     }),

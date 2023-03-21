@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
                   hintText: 'Cari Webinar',
-                  hintStyle: myTextTheme.bodyText1,
+                  hintStyle: myTextTheme.bodyLarge,
                 ),
               ),
               const SizedBox(
@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Text(
                 'Webinar Terbaru',
-                style: myTextTheme.headline6!.copyWith(
+                style: myTextTheme.titleLarge!.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -114,8 +114,8 @@ class _HomePageState extends State<HomePage> {
                     },
                     child: Text(
                       'Lihat Semua Webinars',
-                      style:
-                          myTextTheme.button!.copyWith(color: customRedColor),
+                      style: myTextTheme.labelLarge!
+                          .copyWith(color: customRedColor),
                     ),
                   ),
                 ),

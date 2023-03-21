@@ -37,7 +37,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
               ),
               Text(
                 'Reset Password',
-                style: myTextTheme.headline5!.copyWith(
+                style: myTextTheme.headlineSmall!.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -46,7 +46,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
               ),
               Text(
                 'Masukan email yang terhubung dengan akun webinfo senter anda, kami akan mengirimkan email untuk melakukan reset password.',
-                style: myTextTheme.bodyText1,
+                style: myTextTheme.bodyLarge,
               ),
               const SizedBox(
                 height: 25,
@@ -58,7 +58,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                   border: const OutlineInputBorder(),
                   hintText: 'username@gmail.com',
                   labelText: 'Email',
-                  labelStyle: myTextTheme.bodyText1,
+                  labelStyle: myTextTheme.bodyLarge,
                 ),
               ),
               const SizedBox(
@@ -73,7 +73,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                   },
                   child: Text(
                     "Kirim",
-                    style: myTextTheme.button,
+                    style: myTextTheme.labelLarge,
                   ),
                   style: ButtonStyle(
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(

@@ -5,7 +5,6 @@ import 'package:webinfo_senter/helper/result_state.dart';
 import 'package:webinfo_senter/provider/bookmark_provider.dart';
 import 'package:webinfo_senter/widget/card_webinar_vertical.dart';
 
-
 class WebinarkuPage extends StatelessWidget {
   static const String webinarkuTitle = 'Webinarku';
   static const routeName = '/webinarku_page';
@@ -23,7 +22,7 @@ class WebinarkuPage extends StatelessWidget {
             children: [
               Text(
                 'Bookmark Webinar',
-                style: myTextTheme.headline5!.copyWith(
+                style: myTextTheme.headlineSmall!.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -40,11 +39,13 @@ class WebinarkuPage extends StatelessWidget {
                       child: ListView.builder(
                         itemCount: listBookmark.length,
                         itemBuilder: (context, index) {
-                          return CardWebinarVertical(webinar: listBookmark[index]);
+                          return CardWebinarVertical(
+                              webinar: listBookmark[index]);
                         },
                       ),
                     );
-                  } else if (snapshot.state == ResultState.noData || snapshot.bookmark.isEmpty) {
+                  } else if (snapshot.state == ResultState.noData ||
+                      snapshot.bookmark.isEmpty) {
                     return Center(child: Text(snapshot.message));
                   } else if (snapshot.state == ResultState.error) {
                     return Center(child: Text(snapshot.message));

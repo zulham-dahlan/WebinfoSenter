@@ -36,7 +36,7 @@ class _FormPengajuanState extends State<FormPengajuan> {
   String dropDownValue = 'Pengembangan Diri';
   late String urlPoster;
   String namePoster = '';
-  late File image ;
+  late File image;
 
   @override
   Widget build(BuildContext context) {
@@ -52,13 +52,17 @@ class _FormPengajuanState extends State<FormPengajuan> {
                   alignment: Alignment.center,
                   child: Text(
                     'Ajukan Webinar',
-                    style: myTextTheme.headline6,
+                    style: myTextTheme.titleLarge,
                   ),
                 ),
                 const SizedBox(
                   height: 20.0,
                 ),
-                Text('Judul Acara', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
+                Text(
+                  'Judul Acara',
+                  style: myTextTheme.bodyLarge!
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
                 const SizedBox(
                   height: 5.0,
                 ),
@@ -72,7 +76,11 @@ class _FormPengajuanState extends State<FormPengajuan> {
                 const SizedBox(
                   height: 15.0,
                 ),
-                Text('Badan / Lembaga Penyelenggara', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
+                Text(
+                  'Badan / Lembaga Penyelenggara',
+                  style: myTextTheme.bodyLarge!
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
                 const SizedBox(
                   height: 5.0,
                 ),
@@ -86,14 +94,18 @@ class _FormPengajuanState extends State<FormPengajuan> {
                 const SizedBox(
                   height: 15.0,
                 ),
-                Text('Deskripsi', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
-                 const SizedBox(
+                Text(
+                  'Deskripsi',
+                  style: myTextTheme.bodyLarge!
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
                   height: 5.0,
                 ),
                 TextFormField(
                   controller: _deskripsiController,
                   maxLines: 5,
-                  decoration:const InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     alignLabelWithHint: true,
                   ),
@@ -104,14 +116,17 @@ class _FormPengajuanState extends State<FormPengajuan> {
                 const SizedBox(
                   height: 15.0,
                 ),
-                Text('Tanggal & Waktu Acara', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
+                Text(
+                  'Tanggal & Waktu Acara',
+                  style: myTextTheme.bodyLarge!
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
                 const SizedBox(
                   height: 5.0,
                 ),
                 Row(
                   children: [
                     Container(
-                      
                       margin: const EdgeInsets.only(right: 10),
                       width: 170,
                       child: TextFormField(
@@ -136,11 +151,15 @@ class _FormPengajuanState extends State<FormPengajuan> {
                     ),
                   ],
                 ),
-               const SizedBox(
+                const SizedBox(
                   height: 15.0,
                 ),
-                Text('Lokasi Acara', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
-                 const SizedBox(
+                Text(
+                  'Lokasi Acara',
+                  style: myTextTheme.bodyLarge!
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
                   height: 5.0,
                 ),
                 TextFormField(
@@ -153,23 +172,29 @@ class _FormPengajuanState extends State<FormPengajuan> {
                 const SizedBox(
                   height: 15.0,
                 ),
-                Text('Harga Pendaftaran', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
-                 const SizedBox(
+                Text(
+                  'Harga Pendaftaran',
+                  style: myTextTheme.bodyLarge!
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
                   height: 5.0,
                 ),
                 TextFormField(
                   controller: _hargaController,
                   decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Free / Rp. -'
-                  ),
+                      border: OutlineInputBorder(), hintText: 'Free / Rp. -'),
                   style: const TextStyle(color: Colors.black),
                 ),
                 const SizedBox(
                   height: 15.0,
                 ),
-                Text('Link Pendaftaran', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
-                const  SizedBox(
+                Text(
+                  'Link Pendaftaran',
+                  style: myTextTheme.bodyLarge!
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
                   height: 5.0,
                 ),
                 TextFormField(
@@ -182,22 +207,29 @@ class _FormPengajuanState extends State<FormPengajuan> {
                 const SizedBox(
                   height: 15.0,
                 ),
-                Text('Contact Person', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
+                Text(
+                  'Contact Person',
+                  style: myTextTheme.bodyLarge!
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
                 const SizedBox(
                   height: 5.0,
                 ),
                 TextFormField(
                   controller: _contactPersonController,
                   decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'ex. 085821212100'
-                  ),
+                      border: OutlineInputBorder(),
+                      hintText: 'ex. 085821212100'),
                   style: const TextStyle(color: Colors.black),
                 ),
                 const SizedBox(
                   height: 15.0,
                 ),
-                Text('Situs / Media Sosial', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
+                Text(
+                  'Situs / Media Sosial',
+                  style: myTextTheme.bodyLarge!
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
                 const SizedBox(
                   height: 5.0,
                 ),
@@ -212,8 +244,12 @@ class _FormPengajuanState extends State<FormPengajuan> {
                 const SizedBox(
                   height: 15.0,
                 ),
-                Text('Benefit Acara', style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),),
-                const  SizedBox(
+                Text(
+                  'Benefit Acara',
+                  style: myTextTheme.bodyLarge!
+                      .copyWith(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
                   height: 5.0,
                 ),
                 TextFormField(
@@ -223,7 +259,7 @@ class _FormPengajuanState extends State<FormPengajuan> {
                     border: OutlineInputBorder(),
                     alignLabelWithHint: true,
                   ),
-                  style:const TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                   ),
                 ),
@@ -234,7 +270,8 @@ class _FormPengajuanState extends State<FormPengajuan> {
                   children: [
                     Text(
                       'Kategori : ',
-                      style: myTextTheme.bodyText1!.copyWith(fontWeight: FontWeight.bold),
+                      style: myTextTheme.bodyLarge!
+                          .copyWith(fontWeight: FontWeight.bold),
                     ),
                     DropdownButton<String>(
                       value: dropDownValue,
@@ -257,49 +294,42 @@ class _FormPengajuanState extends State<FormPengajuan> {
                       ].map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem(
                           value: value,
-                          child: Text(value, style: myTextTheme.bodyText1),
+                          child: Text(value, style: myTextTheme.bodyLarge),
                         );
                       }).toList(),
                     ),
                   ],
                 ),
-               
-             
-                    Container(
-                      alignment: Alignment.center,
-                      child: TextButton(
-                        
-                        onPressed: () async {
-                          await ImagePicker()
-                                .pickImage(
-                                    source: ImageSource.gallery,
-                                    imageQuality: 80)
-                                .then((_image) {
-                              setState(() { 
-                                image = File(_image!.path);
-                                namePoster = _image.path.split('/').last;
-                                });
-                            });
-                            
-                            urlPoster =
-                                await StorageService.uploadImagePoster(image);
-                           
-                        },
-                        child: Text('Pilih Poster Acara',
-                            style: myTextTheme.bodyText1!.copyWith(
-                              color: customBlueDark,
-                            )),
-                      ),
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.only(left:20, right:20),
-                      child: Text(
-                        namePoster,
-                        style: myTextTheme.bodyText1,
-                      ),
-                    ),
-                  
+                Container(
+                  alignment: Alignment.center,
+                  child: TextButton(
+                    onPressed: () async {
+                      await ImagePicker()
+                          .pickImage(
+                              source: ImageSource.gallery, imageQuality: 80)
+                          .then((_image) {
+                        setState(() {
+                          image = File(_image!.path);
+                          namePoster = _image.path.split('/').last;
+                        });
+                      });
+
+                      urlPoster = await StorageService.uploadImagePoster(image);
+                    },
+                    child: Text('Pilih Poster Acara',
+                        style: myTextTheme.bodyLarge!.copyWith(
+                          color: customBlueDark,
+                        )),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: Text(
+                    namePoster,
+                    style: myTextTheme.bodyLarge,
+                  ),
+                ),
                 const SizedBox(
                   height: 10.0,
                 ),
@@ -326,7 +356,9 @@ class _FormPengajuanState extends State<FormPengajuan> {
                               urlPoster: urlPoster,
                               kategori: dropDownValue,
                               isVerified: false);
-                          await FirestoreService.addWebinar(webinar).then((value) => AuthServices.showSnackbar('Berhasil Terikirim', context));
+                          await FirestoreService.addWebinar(webinar).then(
+                              (value) => AuthServices.showSnackbar(
+                                  'Berhasil Terikirim', context));
                         },
                         child: const Text(
                           'Kirim',

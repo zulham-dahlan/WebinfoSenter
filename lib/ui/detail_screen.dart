@@ -59,7 +59,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           Text(
                             webinar.judul,
                             maxLines: 2,
-                            style: myTextTheme.headline6!.copyWith(
+                            style: myTextTheme.titleLarge!.copyWith(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -67,7 +67,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             height: 5.0,
                           ),
                           Text('Oleh : ${webinar.penyelenggara}',
-                              style: myTextTheme.bodyText1)
+                              style: myTextTheme.bodyLarge)
                         ],
                       ),
                     ),
@@ -93,12 +93,12 @@ class _DetailScreenState extends State<DetailScreen> {
                           children: [
                             Text(
                               'Harga',
-                              style: myTextTheme.caption!
+                              style: myTextTheme.bodySmall!
                                   .copyWith(color: Colors.white),
                             ),
                             Text(
                               webinar.harga,
-                              style: myTextTheme.bodyText1!.copyWith(
+                              style: myTextTheme.bodyLarge!.copyWith(
                                 color: Colors.white,
                               ),
                             )
@@ -124,12 +124,12 @@ class _DetailScreenState extends State<DetailScreen> {
                             children: [
                               Text(
                                 'Lokasi',
-                                style: myTextTheme.caption!
+                                style: myTextTheme.bodySmall!
                                     .copyWith(color: Colors.white),
                               ),
                               Text(
                                 webinar.lokasiAcara,
-                                style: myTextTheme.bodyText1!
+                                style: myTextTheme.bodyLarge!
                                     .copyWith(color: Colors.white),
                               )
                             ],
@@ -156,10 +156,10 @@ class _DetailScreenState extends State<DetailScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text('Tanggal & Waktu Acara',
-                            style: myTextTheme.caption!
+                            style: myTextTheme.bodySmall!
                                 .copyWith(color: Colors.white)),
                         Text('${webinar.tglAcara} - ${webinar.waktuAcara}',
-                            style: myTextTheme.bodyText1!
+                            style: myTextTheme.bodyLarge!
                                 .copyWith(color: Colors.white))
                       ],
                     ),
@@ -169,31 +169,33 @@ class _DetailScreenState extends State<DetailScreen> {
                   height: 10.0,
                 ),
                 Text('Deskripsi',
-                    style: myTextTheme.bodyText1!.copyWith(
+                    style: myTextTheme.bodyLarge!.copyWith(
                       fontWeight: FontWeight.bold,
                     )),
                 const SizedBox(
                   height: 5.0,
                 ),
-                Text(webinar.deskripsi, style: myTextTheme.bodyText2),
+                Text(webinar.deskripsi, style: myTextTheme.bodyMedium),
                 const SizedBox(
                   height: 10.0,
                 ),
                 Text('Benefit',
-                    style: myTextTheme.bodyText1!.copyWith(
+                    style: myTextTheme.bodyLarge!.copyWith(
                       fontWeight: FontWeight.bold,
                     )),
                 const SizedBox(
                   height: 5.0,
                 ),
-                Text(webinar.benefit, style: myTextTheme.bodyText2),
+                Text(webinar.benefit, style: myTextTheme.bodyMedium),
                 const SizedBox(
                   height: 10.0,
                 ),
-                Text('Contact Person',
-                    style: myTextTheme.bodyText1!.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),),
+                Text(
+                  'Contact Person',
+                  style: myTextTheme.bodyLarge!.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 const SizedBox(
                   height: 5.0,
                 ),
@@ -203,7 +205,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     const SizedBox(
                       width: 10,
                     ),
-                    Text(webinar.contactPerson, style: myTextTheme.bodyText2),
+                    Text(webinar.contactPerson, style: myTextTheme.bodyMedium),
                   ],
                 ),
                 Row(
@@ -212,7 +214,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     const SizedBox(
                       width: 10,
                     ),
-                    Text(webinar.sosmed, style: myTextTheme.bodyText2),
+                    Text(webinar.sosmed, style: myTextTheme.bodyMedium),
                   ],
                 ),
                 const SizedBox(
@@ -229,7 +231,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       ),
                       onPressed: () async {
                         String url = 'https://' + webinar.linkPendaftaran;
-                       
+
                         if (await canLaunch(url)) {
                           await launch(url);
                         } else {

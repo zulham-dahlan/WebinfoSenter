@@ -45,7 +45,7 @@ class _EditProfileState extends State<EditProfile> {
                     ),
                     Text(
                       'Edit Profile',
-                      style: myTextTheme.headline5!.copyWith(
+                      style: myTextTheme.headlineSmall!.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -78,7 +78,7 @@ class _EditProfileState extends State<EditProfile> {
                                 .then((image) {
                               setState(() => _image = File(image!.path));
                             });
-                            
+
                             urlProfile =
                                 await StorageService.uploadImageProfile(_image);
                           },
@@ -97,7 +97,7 @@ class _EditProfileState extends State<EditProfile> {
                       decoration: InputDecoration(
                         border: const OutlineInputBorder(),
                         labelText: 'Nama Lengkap',
-                        labelStyle: myTextTheme.bodyText1,
+                        labelStyle: myTextTheme.bodyLarge,
                       ),
                     ),
                     const SizedBox(

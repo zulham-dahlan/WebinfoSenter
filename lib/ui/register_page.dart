@@ -47,7 +47,7 @@ class _RegisterPage extends State<RegisterPage> {
               ),
               Text(
                 'Daftar akun Webinfo Senter',
-                style: myTextTheme.headline4!.copyWith(
+                style: myTextTheme.headlineMedium!.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -59,7 +59,7 @@ class _RegisterPage extends State<RegisterPage> {
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
                   labelText: 'Nama Lengkap',
-                  labelStyle: myTextTheme.bodyText1,
+                  labelStyle: myTextTheme.bodyLarge,
                 ),
               ),
               const SizedBox(
@@ -72,7 +72,7 @@ class _RegisterPage extends State<RegisterPage> {
                   border: const OutlineInputBorder(),
                   hintText: 'username@gmail.com',
                   labelText: 'Email',
-                  labelStyle: myTextTheme.bodyText1,
+                  labelStyle: myTextTheme.bodyLarge,
                 ),
               ),
               const SizedBox(
@@ -83,7 +83,7 @@ class _RegisterPage extends State<RegisterPage> {
                 obscureText: _isObscure,
                 decoration: InputDecoration(
                   labelText: 'Password',
-                  labelStyle: myTextTheme.bodyText1,
+                  labelStyle: myTextTheme.bodyLarge,
                   border: const OutlineInputBorder(),
                   suffixIcon: IconButton(
                       icon: Icon(
@@ -95,7 +95,7 @@ class _RegisterPage extends State<RegisterPage> {
                       }),
                 ),
               ),
-             const SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               SizedBox(
@@ -116,7 +116,7 @@ class _RegisterPage extends State<RegisterPage> {
                   },
                   child: Text(
                     "Daftar",
-                    style: myTextTheme.button,
+                    style: myTextTheme.labelLarge,
                   ),
                   style: ButtonStyle(
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -134,7 +134,7 @@ class _RegisterPage extends State<RegisterPage> {
                 children: [
                   Text(
                     'Sudah Punya Akun?',
-                    style: myTextTheme.bodyText1!.copyWith(color: Colors.grey),
+                    style: myTextTheme.bodyLarge!.copyWith(color: Colors.grey),
                   ),
                   TextButton(
                     onPressed: () {
@@ -143,7 +143,7 @@ class _RegisterPage extends State<RegisterPage> {
                     },
                     child: Text(
                       ' Login',
-                      style: myTextTheme.bodyText1!.copyWith(
+                      style: myTextTheme.bodyLarge!.copyWith(
                         color: Colors.grey,
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.underline,
@@ -161,7 +161,6 @@ class _RegisterPage extends State<RegisterPage> {
 
   @override
   void dispose() {
-    
     _fullnameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();

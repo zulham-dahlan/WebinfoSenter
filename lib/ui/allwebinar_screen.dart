@@ -39,7 +39,7 @@ class _AllWebinarState extends State<AllWebinar> {
                   ),
                   Text(
                     'Semua Webinar',
-                    style: myTextTheme.headline5!.copyWith(
+                    style: myTextTheme.headlineSmall!.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
                   )
@@ -50,7 +50,7 @@ class _AllWebinarState extends State<AllWebinar> {
               ),
               Text(
                 'Kategori',
-                style: myTextTheme.headline6!.copyWith(
+                style: myTextTheme.titleLarge!.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -107,7 +107,7 @@ class _AllWebinarState extends State<AllWebinar> {
                           );
                         } else {
                           return Text('Check Your Internet Connection',
-                              style: myTextTheme.bodyText2!
+                              style: myTextTheme.bodyMedium!
                                   .copyWith(color: customRedDark));
                         }
                       }),

@@ -52,7 +52,7 @@ class _LoginPage extends State<LoginPage> {
               ),
               Text(
                 'Login',
-                style: myTextTheme.headline4!.copyWith(
+                style: myTextTheme.headlineMedium!.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -61,7 +61,7 @@ class _LoginPage extends State<LoginPage> {
               ),
               Text(
                 'Login to get webinar information',
-                style: myTextTheme.bodyText1,
+                style: myTextTheme.bodyLarge,
               ),
               const SizedBox(
                 height: 25,
@@ -73,7 +73,7 @@ class _LoginPage extends State<LoginPage> {
                   border: const OutlineInputBorder(),
                   hintText: 'username@gmail.com',
                   labelText: 'Email',
-                  labelStyle: myTextTheme.bodyText1,
+                  labelStyle: myTextTheme.bodyLarge,
                 ),
               ),
               const SizedBox(
@@ -84,7 +84,7 @@ class _LoginPage extends State<LoginPage> {
                 obscureText: _isObscure,
                 decoration: InputDecoration(
                   labelText: 'Password',
-                  labelStyle: myTextTheme.bodyText1,
+                  labelStyle: myTextTheme.bodyLarge,
                   border: const OutlineInputBorder(),
                   suffixIcon: IconButton(
                       icon: Icon(
@@ -109,7 +109,7 @@ class _LoginPage extends State<LoginPage> {
                   },
                   child: Text(
                     "Login",
-                    style: myTextTheme.button,
+                    style: myTextTheme.labelLarge,
                   ),
                   style: ButtonStyle(
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -127,11 +127,10 @@ class _LoginPage extends State<LoginPage> {
                 alignment: Alignment.center,
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(
-                        context, ResetPasswordPage.routeName);
+                    Navigator.pushNamed(context, ResetPasswordPage.routeName);
                   },
                   child: Text('Lupa password ?',
-                      style: myTextTheme.bodyText1!.copyWith(
+                      style: myTextTheme.bodyLarge!.copyWith(
                         color: customBlueDark,
                       )),
                 ),
@@ -142,7 +141,7 @@ class _LoginPage extends State<LoginPage> {
                 children: [
                   Text('Belum Punya Akun?',
                       style:
-                          myTextTheme.bodyText1!.copyWith(color: Colors.grey)),
+                          myTextTheme.bodyLarge!.copyWith(color: Colors.grey)),
                   const SizedBox(
                     height: 10,
                   ),
@@ -154,14 +153,15 @@ class _LoginPage extends State<LoginPage> {
                         Navigator.pushNamed(context, RegisterPage.routeName);
                       },
                       child: Text('Daftar Webinfo Senter',
-                          style: myTextTheme.button!
+                          style: myTextTheme.labelLarge!
                               .copyWith(color: Colors.black)),
                       style: ButtonStyle(
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10.0),
-                                    side: const BorderSide(color: customGreyLight))),
+                                    side: const BorderSide(
+                                        color: customGreyLight))),
                         backgroundColor:
                             MaterialStateProperty.all(Colors.white),
                       ),
