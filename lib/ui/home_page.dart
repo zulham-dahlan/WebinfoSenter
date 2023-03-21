@@ -80,9 +80,11 @@ class _HomePageState extends State<HomePage> {
                 child: FutureBuilder<List<Webinar>>(
                     future: FirestoreService.getDataWebinar(),
                     builder: (context, snapshot) {
-                      if(snapshot.connectionState == ConnectionState.waiting){
-                        return const Center(child: CircularProgressIndicator(),);
-                      }else if (snapshot.hasData) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else if (snapshot.hasData) {
                         final List<Webinar> allWebinar = snapshot.data!;
                         return ListView.builder(
                           shrinkWrap: true,
@@ -111,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                       Navigator.pushNamed(context, AllWebinar.routeName);
                     },
                     child: Text(
-                      'Lihat Semua Webinar',
+                      'Lihat Semua Webinars',
                       style:
                           myTextTheme.button!.copyWith(color: customRedColor),
                     ),
